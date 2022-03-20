@@ -1,0 +1,10 @@
+.textContent{
+    color: black;
+    font-size: 1.5rem;
+}
+
+.textContent h1{
+    color: rgb(153, 53, 53);
+    border-bottom: 1px solid black;
+    margin-bottom: 15px;
+}
