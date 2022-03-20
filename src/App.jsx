@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Login from "./Pages/login/Login";
+import "./App.css"; 
 
-const App = () => {
+const App = () => {   
+	const [num, setNum] = useState(1);
+ 
+	useEffect(() => {
+		console.log(num, setNum);
+	},[""]);
 	return ( 
-		<div>
-      app
-		</div>
+		<Login></Login>
 	);
 };
  
