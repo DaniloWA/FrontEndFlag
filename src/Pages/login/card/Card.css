@@ -1,0 +1,137 @@
+.Card{
+    display: grid;
+    box-shadow: -13px 16px 20px 0px rgb(0 0 0 / 40%);
+    min-width: 500px;
+    min-height: 500px;
+    border-radius: 7px;
+    padding: 15px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 2fr 0.3fr 1fr;
+    grid-template-areas: 
+      "title title title title"
+      "input input input input"
+      "text-pass text-pass text-pass text-pass"
+      "login login login login"
+      ;
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: blue;
+}
+
+a:active{
+    color: red;
+}
+
+span {
+    font-weight: bold;
+}
+
+.title{
+    grid-area:title ;
+    justify-self: center;
+    display: grid;
+}
+.title h1{
+    justify-self: center;
+}
+
+.input{
+    grid-area:input ;
+    align-self: center;
+    box-sizing: border-box;
+    
+}
+.text-pass{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.text-pass:hover{
+    color: blue;
+}
+
+.text-pass:active{
+    color: red;
+}
+
+.input-email{
+    font-size: 1.4rem;
+    width: 100%;
+    margin-bottom: 35px;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    padding: 4px 10px;
+    border-top: none;
+    border-left:none ;
+    border-right: none;
+    color: #494949;
+}
+
+.input-email:hover,.input-email:focus, .input-pass:hover,.input-pass:focus{
+    border: 3px solid rgba(0, 0, 0, 0.24);
+    border-top: none;
+    border-left:none ;
+    border-right: none;
+    transition: 300ms;
+}
+
+.input-pass{
+    font-size: 1.4rem;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    padding: 4px 10px;
+    border-top: none;
+    border-left:none ;
+    border-right: none;
+    color: rgb(73, 73, 73);
+}
+
+.btn-Login{
+    grid-area: login;
+}
+
+.btn-Login button{
+    font-size: 1.4rem;
+    width: 100%;
+    padding: 15px 0px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    transition: 300ms;
+}
+.btn-Login button:hover{
+    box-sizing: border-box;
+
+    font-size: 1.4rem;
+    background-color: rgba(0, 0, 0, 0.342);
+}
+
+.btn-Login button:active{
+    box-sizing: border-box;
+
+    font-size: 1.4rem;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.text-pass{
+    grid-area: text-pass;
+    padding: 10px 0px;
+}
+
+.btn-NewAcc{
+    
+    padding-top: 20px;
+     width: 100%;
+     align-items: center;
+}
+
+.btn-NewAcc button{
+    width: 50%;	 
+    
+}
