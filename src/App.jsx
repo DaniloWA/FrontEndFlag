@@ -6,6 +6,7 @@ import PageContextProvider from "./Services/pageContextProvider";
 import { Routes, Route } from "react-router-dom";
 import NotFound from "../src/Pages/NotFound/NotFound";
 import Login from "./Pages/login/Login";
+import Footer from "./Layouts/footer/Footer";
 
 
 const App = () => {   
@@ -22,6 +23,7 @@ const App = () => {
 					<Route path="/login" element={<Login/>} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
+				<Footer></Footer>
 			</PageContextProvider>
 		</div>
 	);
