@@ -6,6 +6,8 @@ const Products = () => {
     
 	const [filter, setFilter] = useState(data);
 
+	//const [loading, setLoading] = useState(false);
+
 	const filterProduct = (cat) => {
 		const update = data.filter((x)=>x.category === cat);
 		setFilter(update);
@@ -14,12 +16,13 @@ const Products = () => {
 	let componentMounted = true;
 
 	useEffect(() => {
+		//setLoading(true);
 		const getProducts = async() => {
 			const response = await fetch("https://fakestoreapi.com/products");
 			if(componentMounted){
 				setData(await response.clone().json());
 				setFilter(await response.json());
-                
+				//setLoading(false);
 			}
 
 			return () => {
