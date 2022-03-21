@@ -1,8 +1,14 @@
-/* eslint-disable react/prop-types */
-import React from "react";
+import React , {useState} from "react";
 import "./Card.css";
+import auth from "../auth";
 
-const Card = ({ setLogin, login }) => {
+const Card = () => {
+	const [inputUser, SetInputUser] = useState("");
+	const [inputPass, SetInputPass] = useState("");
+	function passandoInfo(login,senha){
+		auth(login,senha);
+	}
+
 	return (
 		<div className="Card">
 			<div className="title">
@@ -19,22 +25,22 @@ const Card = ({ setLogin, login }) => {
 					<input
 						className="input-email"
 						type="email"
-						value={login.username}
-						onChange={(e) => setLogin({ ...login, username: e.target.value })}
+						value={inputUser}
+						onChange={(e) => SetInputUser(e.target.value)}
 					/>
 				</div>
 				<div>
 					<input
 						className="input-pass"
 						type="password"
-						value={login.password}
-						onChange={(e) => setLogin({ ...login, password: e.target.value })}
+						value={inputPass}
+						onChange={(e) => SetInputPass(e.target.value)}
 					/>
 				</div>
 			</div>
 
 			<div className="btn-Login">
-				<button onClick={() => {}}>Entrar</button>
+				<button onClick={() => {passandoInfo(inputUser, inputPass);}}>Entrar</button>
 			</div>
 			<div className="text-pass">
 				<p>Esqueceu a palavra-passe?</p>
