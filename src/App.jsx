@@ -6,6 +6,9 @@ import { Routes, Route } from "react-router-dom";
 import NotFound from "../src/Pages/notFound/NotFound";
 import Login from "./Pages/login/Login";
 import NavBar from "./Layouts/navbar/NavBar";
+import Products from "./Pages/products/Products";
+import Footer from "./Layouts/footer/Footer";
+
 
 
 const App = () => {   
@@ -22,7 +25,9 @@ const App = () => {
 					<Route path="/login" element={<Login/>} />
 					<Route path="/navbar" element={<NavBar/>} />		
 					<Route path="*" element={<NotFound />} />
+					<Route path="/products" element={<Products />} />
 				</Routes>
+				<Footer></Footer>
 			</PageContextProvider>
 		</div>
 	);

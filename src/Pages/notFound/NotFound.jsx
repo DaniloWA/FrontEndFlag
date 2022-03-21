@@ -18,9 +18,6 @@ const NotFound = () => {
 				<h2>Clique no botão abaixo</h2>
 				<Button onClick="onClick" titulo="Home" />
 			</section>
-			<div>
-				<p>Footer</p>
-			</div>
 		</>
 	);
 };
