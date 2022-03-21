@@ -3,14 +3,17 @@ import Card from "./card/Card";
 import TextContent from "./textContent/TextContent";
 import "./Login.css";
 import { PageContext } from "../../Services/pageContextProvider";
+import auth from "./auth";
  
 
 const Login = () => {
-	const {data} = useContext(PageContext);
+	const {user} = useContext(PageContext);
+	console.log(auth());
+ 
 	return ( 
 		<div className="login"  >
-			<TextContent  ></TextContent>
-			<Card login={data} setLogin={data}> </Card>
+			<TextContent ></TextContent>
+			<Card login={user} setLogin={user}> </Card>
 		</div>
 	);
 };

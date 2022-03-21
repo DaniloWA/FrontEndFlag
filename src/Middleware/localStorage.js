@@ -1,5 +1,8 @@
 
 export function setLocal(nome,data){
+	if(nome == "ferrou"){
+		return	console.log("Apocalipse! API deu Erro e LocalStorage '"+ data +"' Vazio! Panic!!!");
+	}
 	if(data === JSON.stringify(getLocal(nome))){
 		console.log("Base de Dados: '"+ nome +"' está Atualizada!!!");
 	}else{
@@ -20,19 +23,16 @@ export function clearLocal(local){
 export function localSetIA(nome,data){
 	switch(nome){
 	case "data":
-		console.log("Start Data update - IA");
 		localStorage.setItem("data",data);
-		console.log("Finish Data update - IA");
+		console.log("Data Atualizado! - IA");
 		break;
 	case "car":
-		console.log("Start Car update - IA");
 		localStorage.setItem("car",data);
-		console.log("Finish Carrinho update - IA");
+		console.log("Car Atualizado! - IA");
 		break;
 	case "user":
-		console.log("Start User update - IA");
 		localStorage.setItem("user",data);
-		console.log("Finish User update - IA");
+		console.log("User Atualizado! - IA");
 		break;
 	}	
 }
