@@ -6,6 +6,11 @@ const Products = () => {
     
 	const [filter, setFilter] = useState(data);
 
+	const filterProduct = (cat) => {
+		const update = data.filter((x)=>x.category === cat);
+		setFilter(update);
+	};
+
 	let componentMounted = true;
 
 	useEffect(() => {
@@ -27,6 +32,15 @@ const Products = () => {
     
 	return (
 		<div>
+			<div>
+				<h1>Produtos</h1>
+				<hr />
+				<button className="all" onClick={()=>setFilter(data)}>All</button>
+				<button className="men" onClick={()=>filterProduct("men's clothing")}>Men&apos;s Clothing</button>
+				<button className="womens" onClick={()=>filterProduct("women's clothing")}>Women&apos;s Clothing</button>
+				<button className="jewe" onClick={()=>filterProduct("jewelery")}>Jewelery</button>
+				<button className="elec" onClick={()=>filterProduct("electronics")}>Electronic</button>
+			</div>
 			{filter.map((Product) => {
 				console.log(filter);
 				return(
