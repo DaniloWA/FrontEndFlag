@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import routes from "../../routes/routes";
+import routes from "../../Routes/routes";
 import { useNavigate } from "react-router-dom";
-import "../../assets/styles/NotFoundButton.css";
+import "../../Assets/Styles/NotFoundButton.css";
 
 const Button = (props) => {
 	const navigate = useNavigate();

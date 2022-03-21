@@ -1,9 +1,10 @@
 import { setLocal } from "./localStorage";
-function todosProtudos(){
-	fetch("https://fakestoreapi.com/products")
+
+function fetchFakeAPI(nome,url){
+	fetch(url)
 		.then(res=>res.json())
 		.then(json=>JSON.stringify(json))
-		.then(json=>setLocal(json));
+		.then(json=>setLocal(nome,json));
 }
 
-export default todosProtudos;
+export default fetchFakeAPI;
