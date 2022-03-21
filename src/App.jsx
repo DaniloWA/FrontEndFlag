@@ -1,8 +1,10 @@
+
 import React, { useEffect } from "react";
-import Login from "./Pages/login/Login";
 import "./App.css"; 
 import todosProtudos from "./Middleware/getApi";
 import PageContextProvider from "./Services/pageContextProvider";
+import { Routes, Route } from "react-router-dom";
+import NotFound from "../src/Pages/notFound/NotFound";
 
 
 
@@ -14,11 +16,14 @@ const App = () => {
 	return ( 
 		<div className="App">
 			<PageContextProvider>
-				<Login></Login>
+      <Routes>
+				<Route path="*" element={<NotFound />} />
+			</Routes>
 			</PageContextProvider>
 		</div>
 		
+
 	);
 };
- 
+
 export default App;

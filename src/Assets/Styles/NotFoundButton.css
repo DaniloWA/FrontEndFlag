@@ -1,0 +1,49 @@
+.notFound {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 1rem;
+    padding: 0;
+}
+
+.notFound h1 {
+    font-size: 1.3rem;
+    color: #E5153B;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 2px;
+}
+
+.notFound h2 {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.notFound p {
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 2px;
+    margin-bottom: 0.5rem;
+}
+
+
+.button {
+    border: 1px solid rgb(214, 81, 81);
+    border-radius: 7px;
+    background-color: #E5153B;
+    color: #fff;
+    padding: 1rem;
+    cursor: pointer;
+    margin-top: 1.2rem
+}
+
+.button:hover {
+    background-color: #F1153F;
+}
+
+.button a {
+    text-decoration: none;
+    
+}
+
