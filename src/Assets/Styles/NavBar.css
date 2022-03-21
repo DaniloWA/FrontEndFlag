@@ -1,0 +1,34 @@
+.nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0.5rem;
+}
+
+.nav input {
+    display: flex;
+    width: 30%;
+    border-radius: 4px;
+    height: 1.4rem;
+    border: 1px solid rgb(63, 61, 61);
+    padding: 1rem;
+
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    width: 2rem;
+    height: 2rem;
+    background-color: red;
+}
+
+.opcao{
+    height: 1.5rem;
+
+}
+
+
+
+

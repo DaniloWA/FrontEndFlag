@@ -1,11 +1,11 @@
-
 import React, { useEffect } from "react";
 import "./App.css"; 
 import fetchAPI from "./Middleware/getApi";
 import PageContextProvider from "./Services/pageContextProvider";
 import { Routes, Route } from "react-router-dom";
-import NotFound from "../src/Pages/NotFound/NotFound";
+import NotFound from "../src/Pages/notFound/NotFound";
 import Login from "./Pages/login/Login";
+import NavBar from "./Layouts/navbar/NavBar";
 
 
 const App = () => {   
@@ -15,11 +15,12 @@ const App = () => {
 		fetchAPI("car","https://fakestoreapi.com/carts");
 	},[]);
 
-	return ( 
+	return (
 		<div className="App">
 			<PageContextProvider>
 				<Routes>
 					<Route path="/login" element={<Login/>} />
+					<Route path="/navbar" element={<NavBar/>} />		
 					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</PageContextProvider>
