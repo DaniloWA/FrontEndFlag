@@ -1,13 +1,11 @@
 import React from "react";
-import NavBar from "../../layout/navbar/NavBar";
-import Footer from "../../layout/footer/Footer";
 import Button from "./Button";
 import Image from "./NotFounfImage";
 
 const NotFound = () => {
 	return (
 		<>
-			<NavBar></NavBar>
+			<p>NavBAR</p>
 			<section className="notFound">
 				<Image />
 				<h1>Esse código significa página não encontrada!</h1>
@@ -19,7 +17,7 @@ const NotFound = () => {
 				<Button onClick="onClick" titulo="Home" />
 			</section>
 			<div>
-				<Footer></Footer>
+				<p>Footer</p>
 			</div>
 		</>
 	);

@@ -2,7 +2,7 @@
 import React from "react";
 import "./Card.css";
 
-const Card = ({setLogin , login}) => {
+const Card = ({ setLogin, login }) => {
 	return (
 		<div className="Card">
 			<div className="title">
@@ -16,15 +16,25 @@ const Card = ({setLogin , login}) => {
 			</div>
 			<div className="input">
 				<div>
-					<input className="input-email" type="email" value={login.username} onChange={e => setLogin({...login, username: e.target.value})} />
+					<input
+						className="input-email"
+						type="email"
+						value={login.username}
+						onChange={(e) => setLogin({ ...login, username: e.target.value })}
+					/>
 				</div>
 				<div>
-					<input className="input-pass" type="password" value={login.password} onChange={e => setLogin({...login, password: e.target.value})} />
+					<input
+						className="input-pass"
+						type="password"
+						value={login.password}
+						onChange={(e) => setLogin({ ...login, password: e.target.value })}
+					/>
 				</div>
 			</div>
 
 			<div className="btn-Login">
-				<button onClick={ () => {}}>Entrar</button>
+				<button onClick={() => {}}>Entrar</button>
 			</div>
 			<div className="text-pass">
 				<p>Esqueceu a palavra-passe?</p>
