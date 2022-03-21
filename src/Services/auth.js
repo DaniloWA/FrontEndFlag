@@ -1,4 +1,4 @@
-const auth = (user,login ,pass ) =>{ 
+export const auth = (user,login ,pass ) =>{ 
 	if(authLogin(user,login) && authPass(user,pass)){
 		return true;
 	}else{
@@ -7,7 +7,7 @@ const auth = (user,login ,pass ) =>{
 };
 
 
-const authLogin = (user,login) => {
+export const authLogin = (user,login) => {
 
 	const response = user.filter(user => {
 		if(user.email === login || user.username === login){
@@ -16,14 +16,13 @@ const authLogin = (user,login) => {
 	});
 
 	if(response.length == 0){
-		console.log("Usuario ou email invalido");
 		return false;
 	} else{
 		return true;
 	}
 };
 
-const authPass = (user,pass) => {
+export const authPass = (user,pass) => {
     
 	const response = user.filter(user => {
 		if(user.password === pass){
@@ -32,11 +31,8 @@ const authPass = (user,pass) => {
 	});
 
 	if(response.length == 0){
-		console.log("Senha invalida!");
 		return false;
 	} else{
 		return true;
 	}
 };
-
-export default auth;

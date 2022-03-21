@@ -1,6 +1,6 @@
 import React , {useState, useContext} from "react";
 import "./Card.css";
-import auth from "../auth";
+import {auth ,authLogin, authPass} from "../../../Services/auth";
 import { PageContext } from "../../../Services/pageContextProvider";
 import routes from "../../../Routes/routes";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +14,11 @@ const Card = () => {
 
 	const navigate = useNavigate();
 	function handleClick() {
-		navigate(routes.home);
+		
+		setTimeout(function(){
+			navigate(routes.home); 
+		}, 3000);//wait 3 seconds
+		
 	}
 	
 	return (
@@ -30,20 +34,29 @@ const Card = () => {
 			</div>
 			<div className="input">
 				<div>
+					<div className="emailConfirm">
+						{inputUser ? authLogin(user,inputUser) ? <div>sim</div>: <div>não</div> : ""}
+					</div>
 					<input
 						className="input-email"
 						type="email"
 						value={inputUser}
 						onChange={(e) => SetInputUser(e.target.value)}
 					/>
+					
 				</div>
 				<div>
+					<div className="senhaConfirm">
+						{inputPass ? authPass(user,inputPass) ? <div>sim</div>: <div>não</div> : ""}
+					</div>
+					
 					<input
 						className="input-pass"
 						type="password"
 						value={inputPass}
 						onChange={(e) => SetInputPass(e.target.value)}
 					/>
+					
 				</div>
 			</div>
 
@@ -58,3 +71,5 @@ const Card = () => {
 };
 
 export default Card;
+
+// authLogin(user,inputUser) ? <div>sim</div>: <div>não</div>
