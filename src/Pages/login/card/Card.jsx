@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import "./Card.css";
-import Auth from "../auth";
 
 const Card = ({setLogin , login}) => {
 	return (
@@ -25,7 +24,7 @@ const Card = ({setLogin , login}) => {
 			</div>
 
 			<div className="btn-Login">
-				<button onClick={ () => Auth(login.username,login.password)}>Entrar</button>
+				<button onClick={ () => {}}>Entrar</button>
 			</div>
 			<div className="text-pass">
 				<p>Esqueceu a palavra-passe?</p>
