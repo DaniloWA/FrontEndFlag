@@ -4,8 +4,9 @@ import "./App.css";
 import fetchAPI from "./Middleware/getApi";
 import PageContextProvider from "./Services/pageContextProvider";
 import { Routes, Route } from "react-router-dom";
-import NotFound from "../src/Pages/NotFound/NotFound";
+import NotFound from "../src/Pages/notFound/NotFound";
 import Login from "./Pages/login/Login";
+import Products from "./Pages/products/Products";
 import Footer from "./Layouts/footer/Footer";
 
 
@@ -22,6 +23,7 @@ const App = () => {
 				<Routes>
 					<Route path="/login" element={<Login/>} />
 					<Route path="*" element={<NotFound />} />
+					<Route path="/products" element={<Products />} />
 				</Routes>
 				<Footer></Footer>
 			</PageContextProvider>
