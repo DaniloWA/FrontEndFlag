@@ -1,14 +1,22 @@
-import React , {useState} from "react";
+import React , {useState, useContext} from "react";
 import "./Card.css";
 import auth from "../auth";
+import { PageContext } from "../../../Services/pageContextProvider";
+import routes from "../../../Routes/routes";
+import { useNavigate } from "react-router-dom";
 
 const Card = () => {
-	const [inputUser, SetInputUser] = useState("");
-	const [inputPass, SetInputPass] = useState("");
-	function passandoInfo(login,senha){
-		auth(login,senha);
-	}
+	const {user} = useContext(PageContext);
+	// eslint-disable-next-line no-unused-vars
 
+	const [inputUser, SetInputUser] = useState("john@gmail.com");
+	const [inputPass, SetInputPass] = useState("m38rmF$");
+
+	const navigate = useNavigate();
+	function handleClick() {
+		navigate(routes.home);
+	}
+	
 	return (
 		<div className="Card">
 			<div className="title">
@@ -40,7 +48,7 @@ const Card = () => {
 			</div>
 
 			<div className="btn-Login">
-				<button onClick={() => {passandoInfo(inputUser, inputPass);}}>Entrar</button>
+				<button onClick={() => {auth(user,inputUser, inputPass) ? handleClick() : console.log("Erro login");}}>Entrar</button>
 			</div>
 			<div className="text-pass">
 				<p>Esqueceu a palavra-passe?</p>

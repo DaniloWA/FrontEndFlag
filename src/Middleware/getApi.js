@@ -22,4 +22,6 @@ function checkErrorStatus(response) {
 	}
 }
 
+
+
 export default fetchAPI;

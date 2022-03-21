@@ -1,10 +1,4 @@
-import { useContext } from "react";
-import { PageContext } from "../../Services/pageContextProvider";
- 
-
-const auth = (login ,pass ) =>{
-	const {user} = useContext(PageContext);
-	console.log(user[0]);
+const auth = (user,login ,pass ) =>{ 
 	if(authLogin(user,login) && authPass(user,pass)){
 		return true;
 	}else{
@@ -22,7 +16,7 @@ const authLogin = (user,login) => {
 	});
 
 	if(response.length == 0){
-		console.log("User or email invalido");
+		console.log("Usuario ou email invalido");
 		return false;
 	} else{
 		return true;
@@ -38,7 +32,7 @@ const authPass = (user,pass) => {
 	});
 
 	if(response.length == 0){
-		console.log("Senha errada!");
+		console.log("Senha invalida!");
 		return false;
 	} else{
 		return true;
