@@ -1,18 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import Card from "./card/Card";
 import TextContent from "./textContent/TextContent";
 import "./Login.css";
+import { PageContext } from "../../Services/pageContextProvider";
  
 
-import {initialParam} from "./auth";
-
 const Login = () => {
-	const [login, setLogin] = useState(initialParam);
-     
+	const {data} = useContext(PageContext);
 	return ( 
 		<div className="login"  >
 			<TextContent  ></TextContent>
-			<Card login={login} setLogin={setLogin}> </Card>
+			<Card login={data} setLogin={data}> </Card>
 		</div>
 	);
 };

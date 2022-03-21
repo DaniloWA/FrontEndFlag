@@ -1,15 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Login from "./Pages/login/Login";
 import "./App.css"; 
+import todosProtudos from "./Middleware/getApi";
+import PageContextProvider from "./Services/pageContextProvider";
+
+
 
 const App = () => {   
-	const [num, setNum] = useState(1);
- 
 	useEffect(() => {
-		console.log(num, setNum);
-	},[""]);
+		todosProtudos();
+	},[]);
+
 	return ( 
-		<Login></Login>
+		<div className="App">
+			<PageContextProvider>
+				<Login></Login>
+			</PageContextProvider>
+		</div>
+		
 	);
 };
  
