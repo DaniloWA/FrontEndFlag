@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import Login from "./Pages/login/Login";
-import "./App.css"; 
+import React from "react";
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import NotFound from "../src/Pages/notFound/NotFound";
 
-const App = () => {   
-	const [num, setNum] = useState(1);
- 
-	useEffect(() => {
-		console.log(num, setNum);
-	},[""]);
-	return ( 
-		<Login></Login>
+const App = () => {
+	return (
+		<div className="App">
+			<Routes>
+				<Route path="*" element={<NotFound />} />
+			</Routes>
+		</div>
 	);
 };
- 
+
 export default App;
