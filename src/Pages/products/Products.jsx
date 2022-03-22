@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import "./Products.css";
 
 const Products = () => {
 
@@ -48,12 +49,14 @@ const Products = () => {
 				console.log(filter);
 				return(
 					<>
-						<div className="card">
-							<div className="card_body">
-								<img src={Product.image} alt={Product.title} />
-								<h2 className="cart_title">{Product.title}</h2>
-								<p className="price">Price: {Product.price}€</p>
-								<button className="card_btn">Add to cart</button>
+						<div className="wrapper">
+							<div className="card">
+								<div className="cardBody">
+									<img className="cardImage" src={Product.image} alt={Product.title} />
+									<h2 className="cardTitle">{Product.title}</h2>
+									<p className="cardPrice">Price: {Product.price}€</p>
+									<button className="cardBtn">Add to cart</button>
+								</div>
 							</div>
 						</div>
 					</>
