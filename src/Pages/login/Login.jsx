@@ -8,7 +8,7 @@ const Login = () => {
 	return ( 
 		<div className="login"  >
 			<TextContent ></TextContent>
-			<Card> </Card>
+			<Card ></Card>
 		</div>
 	);
 };

@@ -9,7 +9,6 @@ export default function NavBar() {
 		<header>
 			<nav className="nav">
 				<Logo onClick="onClick" />
-				<p>produtos</p>
 				<Pesquisa />
 				<Icon onClick="onClick" />
 			</nav>
