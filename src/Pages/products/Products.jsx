@@ -35,8 +35,8 @@ const Products = () => {
 	}, []);
     
 	return (
-		<div className="pageWrapper">
-			<div className="sectionWrapper">
+		<div>
+			<div>
 				<h1>Produtos</h1>
 				<hr />
 				<button className="all" onClick={()=>setFilter(data)}>All</button>
