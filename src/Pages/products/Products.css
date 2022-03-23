@@ -13,6 +13,19 @@ body{
     margin: 2rem;
 }
 
+
+.sectionWrapper{
+    grid-column: 1/-1;
+}
+
+.cardWrapper {
+    display: grid;
+}
+
+.cardHeight {
+    min-height: 500px;
+}
+
 .card{
     overflow: hidden;
     box-shadow: 0 2px 20px lightgray;
@@ -37,6 +50,7 @@ body{
 
 .cardTitle{
     padding: 1rem;
+    font-size: 1.2rem;
 }
 
 .cardPrice{

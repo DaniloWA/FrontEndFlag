@@ -50,13 +50,11 @@ const Products = () => {
 				return(
 					<>
 						<div className="wrapper">
-							<div className="card">
-								<div className="cardBody">
-									<img className="cardImage" src={Product.image} alt={Product.title} />
-									<h2 className="cardTitle">{Product.title}</h2>
-									<p className="cardPrice">Price: {Product.price}€</p>
-									<button className="cardBtn">Add to cart</button>
-								</div>
+							<div className="card cardHeight">
+								<img className="cardImage" src={Product.image} alt={Product.title} />
+								<h2 className="cardTitle">{Product.title}</h2>
+								<p className="cardPrice">Price: {Product.price}€</p>
+								<button className="cardBtn">Add to cart</button>
 							</div>
 						</div>
 					</>
