@@ -1,0 +1,55 @@
+.ItemCar {
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 80px 1fr 1fr 1fr;
+    grid-template-rows: 30px 30px;
+    grid-template-areas: 
+      "img titulo titulo titulo"
+      "img valorItem valorItem valorItem"
+     ;
+     border-bottom: 1px solid rgba(128, 128, 128, 0.39);
+     
+  }
+
+.img {
+    grid-area: img;
+    justify-self: center;
+    align-self: center;
+}
+
+.titulo {
+    grid-area: titulo;
+}
+
+.valorItem {
+    grid-area: valorItem;
+    display: flex;
+   
+    justify-content: flex-start
+}
+
+.valorItem button{
+    background-color: transparent;
+    border: none;
+    font-size: 1.4rem;
+    
+}
+
+.valorItem button:nth-of-type(1){
+    padding: 15px;
+    
+}
+
+.valorItem button:nth-of-type(2){
+    padding: 15px;
+}
+
+.valorItem span:nth-of-type(1){
+    padding: 15px;
+}
+
+.valorItem span:nth-of-type(2){
+    padding: 15px;
+    
+}
+ 
