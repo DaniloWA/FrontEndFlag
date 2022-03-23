@@ -20,6 +20,7 @@ async function fetchAPI(nome,url){
 	return response;
 }
 
+
 function checkErrorStatus(response) {
 	if (response.status >= 200 && response.status <= 299) {
 		return response.json();

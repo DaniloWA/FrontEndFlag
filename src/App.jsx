@@ -20,11 +20,11 @@ const App = () => {
 		<div className="App">
 			{
 				<PageContextProvider>
-					<Routes>
-						<Route path="/login" element={<Login />} />
+					<Routes>				
 						<Route path="/navbar" element={<NavBar />} />
 						<Route path="/products" element={<Products />} />
 						<Route path="*" element={<NotFound />} />
+						<Route path="/login" element={<Login />} />
 					</Routes>
 					<Footer></Footer>
 				</PageContextProvider>

@@ -1,21 +1,33 @@
 import React , {useState} from "react";
 import "./Card.css";
-import {auth ,authLogin, authPass} from "../../../Services/auth";
+import { authLogin, authPass} from "../../../Services/auth";
 import { useData } from "../../../Services/pageContextProvider";
 import routes from "../../../Routes/routes";
 import { useNavigate } from "react-router-dom";
 
 const Card = () => {
 	const {user} = useData();
-
-	// eslint-disable-next-line no-unused-vars
-	const [inputUser, SetInputUser] = useState("john@gmail.com");
-	const [inputPass, SetInputPass] = useState("m38rmF$");
-
 	const navigate = useNavigate();
 
+	const [inputUser, SetInputUser] = useState("mor_2314");
+	const [inputPass, SetInputPass] = useState("83r5^_");
+	// eslint-disable-next-line no-unused-vars
+	const [hasError, setHasError] = useState(false);
 
-	
+	// eslint-disable-next-line no-unused-vars
+	async function handleSubmit(){
+		try {
+			const response = await fetch(`https://edit-shop-api.herokuapp.com/api/login?username=${inputUser}&password=${inputPass}`);
+			const userF = await response.json();
+			console.log(userF);
+			handleClick();
+		} catch(error) {
+			console.warn ("We will handle this error: ", error);
+			// eslint-disable-next-line no-undef
+			setHasError(true);
+		}
+	}
+
 	function handleClick() {
 		
 		setTimeout(function(){
@@ -64,7 +76,7 @@ const Card = () => {
 			</div>
 
 			<div className="btn-Login">
-				<button onClick={() => {auth(user,inputUser, inputPass) ? handleClick() : console.log("Erro login");}}>Entrar</button>
+				<button onClick={() => {handleSubmit();}}>Entrar</button>
 			</div>
 			<div className="text-pass">
 				<p>Esqueceu a palavra-passe?</p>
