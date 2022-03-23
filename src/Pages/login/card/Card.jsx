@@ -1,18 +1,21 @@
-import React , {useState, useContext} from "react";
+import React , {useState} from "react";
 import "./Card.css";
 import {auth ,authLogin, authPass} from "../../../Services/auth";
-import { PageContext } from "../../../Services/pageContextProvider";
+import { useData } from "../../../Services/pageContextProvider";
 import routes from "../../../Routes/routes";
 import { useNavigate } from "react-router-dom";
 
 const Card = () => {
-	const {user} = useContext(PageContext);
-	// eslint-disable-next-line no-unused-vars
+	const {user} = useData();
 
+	// eslint-disable-next-line no-unused-vars
 	const [inputUser, SetInputUser] = useState("john@gmail.com");
 	const [inputPass, SetInputPass] = useState("m38rmF$");
 
 	const navigate = useNavigate();
+
+
+	
 	function handleClick() {
 		
 		setTimeout(function(){
