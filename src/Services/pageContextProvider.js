@@ -42,7 +42,6 @@ export const pageContextProvider = (props) => {
 				data: data.data,
 				user: data.user,
 				car: data.car,
-				setData,
 			}}
 		>
 			{props.children}
