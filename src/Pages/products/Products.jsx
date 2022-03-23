@@ -46,7 +46,6 @@ const Products = () => {
 				<button className="elec" onClick={()=>filterProduct("electronics")}>Electronic</button>
 			</div>
 			{filter.map((Product) => {
-				console.log(filter);
 				return(
 					<>
 						<div className="wrapper">
