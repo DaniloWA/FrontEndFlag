@@ -1,41 +1,52 @@
-import React , {useState} from "react";
+/* eslint-disable no-unused-vars */
+import React, { useState } from "react";
 import "./Card.css";
-import { authLogin, authPass} from "../../../Services/auth";
 import { useData } from "../../../Services/pageContextProvider";
 import routes from "../../../Routes/routes";
 import { useNavigate } from "react-router-dom";
+import { authLoginNew } from "../../../Services/auth";
+import iconsPath from "../../../Assets/Images";
 
 const Card = () => {
-	const {user} = useData();
+	const { user } = useData();
 	const navigate = useNavigate();
 
 	const [inputUser, SetInputUser] = useState("mor_2314");
 	const [inputPass, SetInputPass] = useState("83r5^_");
-	// eslint-disable-next-line no-unused-vars
-	const [hasError, setHasError] = useState(false);
 
-	// eslint-disable-next-line no-unused-vars
-	async function handleSubmit(){
+	const [hasError, setHasError] = useState();
+
+	async function handleSubmit() {
 		try {
-			const response = await fetch(`https://edit-shop-api.herokuapp.com/api/login?username=${inputUser}&password=${inputPass}`);
-			const userF = await response.json();
-			console.log(userF);
-			handleClick();
-		} catch(error) {
-			console.warn ("We will handle this error: ", error);
-			// eslint-disable-next-line no-undef
+			const response = await authLoginNew(inputUser, inputPass); 
+			console.log(response);
+			setHasError(false);
+		} catch (error) {
 			setHasError(true);
+			console.warn("error :: :" + error);
 		}
+		handleClick();
+	}
+	console.log("Tem erro : " + hasError);
+	function handleClick() {
+		if(hasError == false){
+			setTimeout(function () {
+			
+				console.log("Logou ##");
+			//navigate(routes.home);
+			}, 0); //wait 3 seconds
+		}
+			
 	}
 
-	function handleClick() {
-		
-		setTimeout(function(){
-			navigate(routes.home); 
-		}, 3000);//wait 3 seconds
-		
+	function handleNameChange({ target : {value } }){
+		SetInputUser(value);
+
 	}
-	
+
+	function handlePasswordChange({ target : {value } }){
+		SetInputPass(value);
+	}
 	return (
 		<div className="Card">
 			<div className="title">
@@ -49,34 +60,40 @@ const Card = () => {
 			</div>
 			<div className="input">
 				<div>
-					<div className="emailConfirm">
-						{inputUser ? authLogin(user,inputUser) ? <div>sim</div>: <div>não</div> : ""}
+					<div className="div-input-email">
+						<input
+							className="input-email"
+							type="email"
+							value={inputUser}
+							onChange={handleNameChange}
+						/>
+						<img src={inputUser ? hasError ? iconsPath.iconErroLogin : iconsPath.iconCertoLogin : iconsPath.iconDefaultLogin} alt="icon" />
 					</div>
-					<input
-						className="input-email"
-						type="email"
-						value={inputUser}
-						onChange={(e) => SetInputUser(e.target.value)}
-					/>
 					
 				</div>
 				<div>
-					<div className="senhaConfirm">
-						{inputPass ? authPass(user,inputPass) ? <div>sim</div>: <div>não</div> : ""}
+
+					<div className="div-input-pass">
+						<input
+							className="input-pass"
+							type="password"
+							value={inputPass}
+							onChange={handlePasswordChange}
+						/>
+						<img src={inputPass ? hasError ? iconsPath.iconErroLogin : iconsPath.iconCertoLogin : iconsPath.iconDefaultLogin} alt="icon" />
 					</div>
-					
-					<input
-						className="input-pass"
-						type="password"
-						value={inputPass}
-						onChange={(e) => SetInputPass(e.target.value)}
-					/>
 					
 				</div>
 			</div>
 
 			<div className="btn-Login">
-				<button onClick={() => {handleSubmit();}}>Entrar</button>
+				<button
+					onClick={() => {
+						handleSubmit();
+					}}
+				>
+          Entrar
+				</button>
 			</div>
 			<div className="text-pass">
 				<p>Esqueceu a palavra-passe?</p>
@@ -86,5 +103,3 @@ const Card = () => {
 };
 
 export default Card;
-
-// authLogin(user,inputUser) ? <div>sim</div>: <div>não</div>

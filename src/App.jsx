@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./App.css";
 import PageContextProvider from "./Services/pageContextProvider";
 import { Routes, Route } from "react-router-dom";
-import NotFound from "../src/Pages/NotFound/NotFound";
+import NotFound from "../src/Pages/notFound/NotFound";
 import Login from "./Pages/login/Login";
 import NavBar from "./Layouts/navbar/NavBar";
 import Products from "./Pages/products/Products";

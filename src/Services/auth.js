@@ -1,38 +1,16 @@
-export const auth = (user,login ,pass ) =>{ 
-	if(authLogin(user,login) && authPass(user,pass)){
-		return true;
-	}else{
-		return false;
+export async function authLoginNew(userName,pass){
+	console.log(userName,pass);
+	const response = await fetch(`https://edit-shop-api.herokuapp.com/api/login?username=${userName}&password=${pass}`);
+	const user = response.json();
+	return user;
+}
+
+// eslint-disable-next-line no-unused-vars
+function checkErrorStatus(response) {
+	if (response.status >= 200 && response.status <= 299) {
+		return response.json();
+	} else {
+		console.log("API status code error: " + response.status);
+		return response.status;
 	}
-};
-
-
-export const authLogin = (user,login) => {
-
-	const response = user.filter(user => {
-		if(user.email === login || user.username === login){
-			return user; 
-		}
-	});
-
-	if(response.length == 0){
-		return false;
-	} else{
-		return true;
-	}
-};
-
-export const authPass = (user,pass) => {
-    
-	const response = user.filter(user => {
-		if(user.password === pass){
-			return user; 
-		}
-	});
-
-	if(response.length == 0){
-		return false;
-	} else{
-		return true;
-	}
-};
+}
