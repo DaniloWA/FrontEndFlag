@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 
-const Products = () => {
+// eslint-disable-next-line react/prop-types
+const Products = ({children}) => {
+	console.log(children);
 
 	const [data, setData] = useState([]);
     
@@ -44,11 +46,13 @@ const Products = () => {
 				<button className="jewe" onClick={()=>filterProduct("jewelery")}>Jewelery</button>
 				<button className="elec" onClick={()=>filterProduct("electronics")}>Electronic</button>
 			</div>
+			
+			{children}
+			
 			{filter.map((Product) => {
-				console.log(filter);
 				return(
 					<>
-						<div className="card">
+						<div className="card" key={Product.id} >
 							<div className="card_body">
 								<img src={Product.image} alt={Product.title} />
 								<h2 className="cart_title">{Product.title}</h2>

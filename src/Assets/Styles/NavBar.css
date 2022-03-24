@@ -1,92 +1,141 @@
 .nav {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: 
-        "logo . pesquisa . icones";
-    margin: 0;
-    padding: 0.5rem;
-    cursor: pointer;
-    background-color: rgba(250, 235, 215, 0);
-    justify-self: center;
-    align-items: center;
-}
-
-.MuiSelect-select {
-    padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "logo pesquisa icones";
+  margin: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: rgba(250, 235, 215, 0);
+  justify-self: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
 }
 
 .nav input {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-area: pesquisa;
-    border-radius: 4px;
-    height: 1.4rem;
-    width: 100%;
-    border: 0.5px solid #49494928;
-    padding: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: pesquisa;
+  border-radius: 5px;
+  height: 1.4rem;
+  width: 100%;
+  border: 0.5px solid #49494928;
+  padding: 1.3rem;
+}
 
+.nav input:hover {
+  background-color: #4949495b;
 }
 
 .nome_logo {
-    grid-area: logo;
-    font-size: 2rem;
-    font-family: 'Roboto', sans-serif;
-    background: -webkit-linear-gradient(#eee, #333);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  grid-area: logo;
+  font-size: 2rem;
+  padding: 0 15px;
+  font-family: "Roboto", sans-serif;
+  background: -webkit-linear-gradient(#eee, #333);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-#icons {
-    display: flex;  
-    grid-area: icones;  
+#icons ul {
+  display: flex;
+  position: relative;
+
+  grid-area: icones;
+  align-items: center;
+  list-style-type: none;
 }
 
 #icons img {
-    min-width: 30px;
-    max-height: 30px;
+  min-width: 20px;
+  max-height: 30px;
 }
 
-.usuario_select{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    
+.usuario_select {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
 }
 
+.dropdowm_menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdowm_menu li {
+  display: none;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdowm_menu a {
+  font-family: "Roboto", sans-serif;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown_menu li:hover {
+  background-color: rgb(14, 13, 13);
+}
+
+.usuario_select img:hover .dropdown_menu li {
+  display: visible;
+  transform: translate(0, 0);
+  opacity: 1;
+  z-index: 0;
+}
+
+.dropdowm_menu a:hover {
+  color: #e5153b;
+}
+
+.favoritos {
+  display: flex;
+  list-style-type: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+}
 
 .sacola {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin: 0.5rem;
+  display: flex;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .sacola_icon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #E5153B;
-    padding: 0.25rem;
-    border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e5153b;
+  padding: 0.25rem;
+  border-radius: 50%;
 }
 
 .sacola_item {
-    min-width: 0.8rem;
-    max-height: 0.8rem;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    color: rgb(8, 8, 8);
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.8rem;
+  min-width: 0.8rem;
+  max-height: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: rgb(8, 8, 8);
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8rem;
 }
-
-
-
-

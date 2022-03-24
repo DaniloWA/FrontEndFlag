@@ -27,6 +27,7 @@ const App = () => {
 					<Route path="*" element={<NotFound />} />
 					<Route path="/products" element={<Products />} />
 				</Routes>
+				
 				<Footer></Footer>
 			</PageContextProvider>
 		</div>
