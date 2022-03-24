@@ -4,7 +4,7 @@ import user from "../../Assets/Images/user64.png";
 import heart from "../../Assets/Images/heart64.png";
 import shoppingBag from "../../Assets/Images/shopping-bag64.png";
 import "../../Assets/Styles/NavBar.css";
-//import { css } from "@emotion/css";
+
 
 const Icon = () => {
 	const navigate = useNavigate();
@@ -41,7 +41,7 @@ const Icon = () => {
 						alt="Carrinho"
 						onClick={() => navigate("/Carrinho")}
 					/>
-					<span>Your cart</span>
+					<span>Cart</span>
 					<span className="sacola_icon">
 						<span className="sacola_item">1</span>
 					</span>

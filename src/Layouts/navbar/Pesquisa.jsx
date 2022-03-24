@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import { PageContext } from "../../Services/pageContextProvider";
+import React, {  useEffect, useState } from "react";
+import useData from "../../"
+import "../../Assets/Styles/NavBar.css";
 
 const Pesquisa = () => {
 	// eslint-disable-next-line no-unused-vars
-	const { data } = useContext(PageContext); //produtos da API
+	const { data } = useData()
 	console.log(data);
 	const [pesquisar, setPesquisar] = useState("");
 
@@ -17,7 +18,7 @@ const Pesquisa = () => {
 	}, [pesquisar]);
 
 	return (
-		<>
+		<div>
 			<input
 				type="search"
 				name="pesquisar"
@@ -25,18 +26,12 @@ const Pesquisa = () => {
 				value={pesquisar}
 				onChange={(e) => setPesquisar(e.target.value)}
 			/>
-
-			{pesquisar.map((Product) => {
-				<div className="card" key={Product.id}>
-					<div className="card_body">
-						<img src={Product.image} alt={Product.title} />
-						<h2 className="cart_title">{Product.title}</h2>
-						<p className="price">Price: {Product.price}€</p>
-						<button className="card_btn">Add to cart</button>
-					</div>
-				</div>;
+			
+			{data.map((product) => {
+				product.children;
 			})}
-		</>
+		</div>
+		
 	);
 };
 

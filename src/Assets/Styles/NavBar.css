@@ -5,14 +5,14 @@
   margin: 0;
   padding: 0.5rem;
   cursor: pointer;
-  background-color: rgba(250, 235, 215, 0);
   justify-self: center;
   align-items: center;
   position: fixed;
   width: 100vw;
+  column-gap: 0.6rem;
 }
 
-.nav input {
+input {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,7 @@
   padding: 1.3rem;
 }
 
-.nav input:hover {
+input:hover {
   background-color: #4949495b;
 }
 
@@ -40,8 +40,7 @@
 
 #icons ul {
   display: flex;
-  position: relative;
-
+  justify-content: center;
   grid-area: icones;
   align-items: center;
   list-style-type: none;
@@ -52,26 +51,33 @@
   max-height: 30px;
 }
 
-.usuario_select {
+li > span {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8rem;
+}
+
+.usuario_select img{
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0.5rem;
+
 }
 
 .dropdowm_menu {
   display: flex;
   flex-direction: column;
+  position: absolute;
 }
 
 .dropdowm_menu li {
-  display: none;
+  
   background-color: #f1f1f1;
-  min-width: 160px;
+  min-width: 10rem;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+
 }
 
 .dropdowm_menu a {
@@ -82,12 +88,12 @@
   display: block;
 }
 
-.dropdown_menu li:hover {
-  background-color: rgb(14, 13, 13);
+.dropdown_menu > a:hover {
+  background-color: rgba(14, 13, 13, 0.315);
 }
 
 .usuario_select img:hover .dropdown_menu li {
-  display: visible;
+  display: block;
   transform: translate(0, 0);
   opacity: 1;
   z-index: 0;
@@ -118,12 +124,10 @@
 
 .sacola_icon {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -8px;
+  right: -10px;
   z-index: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #e5153b;
   padding: 0.25rem;
   border-radius: 50%;
@@ -133,9 +137,8 @@
   min-width: 0.8rem;
   max-height: 0.8rem;
   display: flex;
-  justify-content: center;
-  align-content: center;
-  color: rgb(8, 8, 8);
+  justify-content: space-around;
+  color: rgb(255, 254, 254);
   font-family: "Roboto", sans-serif;
   font-size: 0.8rem;
 }
