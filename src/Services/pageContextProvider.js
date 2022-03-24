@@ -1,4 +1,4 @@
-import { getLocal } from "../Middleware/localStorage";
+import { getLocal } from "../Middleware/sessionStorage";
 import React, { useState, createContext, useContext, useEffect } from "react";
 import fetchAPI from "../Middleware/getApi";
 

@@ -1,4 +1,4 @@
-import { setLocal, getLocal } from "./localStorage";
+import { setLocal, getLocal } from "./sessionStorage";
 import api from "../Services/api";
 
 async function fetchAPI(nome,url){
@@ -19,6 +19,7 @@ async function fetchAPI(nome,url){
 		});
 	return response;
 }
+
 
 function checkErrorStatus(response) {
 	if (response.status >= 200 && response.status <= 299) {

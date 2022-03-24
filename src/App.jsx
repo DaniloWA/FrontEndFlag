@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./App.css";
 import PageContextProvider from "./Services/pageContextProvider";
 import { Routes, Route } from "react-router-dom";
-import NotFound from "../src/Pages/NotFound/NotFound";
+import NotFound from "../src/Pages/notFound/NotFound";
 import Login from "./Pages/login/Login";
 import NavBar from "./Layouts/navbar/NavBar";
 import Products from "./Pages/products/Products";
@@ -20,11 +20,11 @@ const App = () => {
 		<div className="App">
 			{
 				<PageContextProvider>
-					<Routes>
-						<Route path="/login" element={<Login />} />
+					<Routes>				
 						<Route path="/navbar" element={<NavBar />} />
 						<Route path="/products" element={<Products />} />
 						<Route path="*" element={<NotFound />} />
+						<Route path="/login" element={<Login />} />
 					</Routes>
 					<Footer></Footer>
 				</PageContextProvider>
