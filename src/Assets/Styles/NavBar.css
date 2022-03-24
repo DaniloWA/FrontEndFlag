@@ -1,34 +1,144 @@
 .nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0;
-    padding: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "logo pesquisa icones";
+  margin: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+  justify-self: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  column-gap: 0.6rem;
 }
 
-.nav input {
-    display: flex;
-    width: 30%;
-    border-radius: 4px;
-    height: 1.4rem;
-    border: 1px solid rgb(63, 61, 61);
-    padding: 1rem;
+input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: pesquisa;
+  border-radius: 5px;
+  height: 1.4rem;
+  width: 100%;
+  border: 0.5px solid #49494928;
+  padding: 1.3rem;
+}
+
+input:hover {
+  background-color: #4949495b;
+}
+
+.nome_logo {
+  grid-area: logo;
+  font-size: 2rem;
+  padding: 0 15px;
+  font-family: "Roboto", sans-serif;
+  background: -webkit-linear-gradient(#eee, #333);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#icons ul {
+  display: flex;
+  justify-content: center;
+  grid-area: icones;
+  align-items: center;
+  list-style-type: none;
+}
+
+#icons img {
+  min-width: 20px;
+  max-height: 30px;
+}
+
+li > span {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8rem;
+}
+
+.usuario_select img{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
 }
 
-.icons {
-    display: flex;
-    flex-direction: row;
-    width: 2rem;
-    height: 2rem;
-    background-color: red;
+.dropdowm_menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
 }
 
-.opcao{
-    height: 1.5rem;
+.dropdowm_menu li {
+  
+  background-color: #f1f1f1;
+  min-width: 10rem;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 
 }
 
+.dropdowm_menu a {
+  font-family: "Roboto", sans-serif;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
 
+.dropdown_menu > a:hover {
+  background-color: rgba(14, 13, 13, 0.315);
+}
 
+.usuario_select img:hover .dropdown_menu li {
+  display: block;
+  transform: translate(0, 0);
+  opacity: 1;
+  z-index: 0;
+}
 
+.dropdowm_menu a:hover {
+  color: #e5153b;
+}
+
+.favoritos {
+  display: flex;
+  list-style-type: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+.sacola {
+  margin: 0.5rem;
+  display: flex;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sacola_icon {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  z-index: 1;
+  display: flex;
+  background-color: #e5153b;
+  padding: 0.25rem;
+  border-radius: 50%;
+}
+
+.sacola_item {
+  min-width: 0.8rem;
+  max-height: 0.8rem;
+  display: flex;
+  justify-content: space-around;
+  color: rgb(255, 254, 254);
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8rem;
+}

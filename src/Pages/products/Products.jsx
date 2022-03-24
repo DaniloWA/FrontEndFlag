@@ -3,10 +3,12 @@ import "./Products.css";
 import { useData } from "../../Services/pageContextProvider";
 import fetchAPI from "../../Middleware/getApi";
 
+
 const Products = () => {
 	const {data} = useData();
 	const [responseApi, setResponseApi] = useState([]);
 	const [filter, setFilter] = useState(responseApi);
+
 
 	//const [loading, setLoading] = useState(false);
 
@@ -39,8 +41,12 @@ const Products = () => {
 				<button className="jewe" onClick={()=>filterProduct("jewelery")}>Jewelery</button>
 				<button className="elec" onClick={()=>filterProduct("electronics")}>Electronic</button>
 			</div>
+			
+			{children}
+			
 			{filter.map((Product) => {
 				return(
+
 					<div key={Product.id} className="wrapper">
 						<div className="card cardHeight">
 							<img className="cardImage" src={Product.image} alt={Product.title} />

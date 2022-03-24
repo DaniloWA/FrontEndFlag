@@ -1,13 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../../Assets/Images/loja-de-roupas.png";
+import "../../Assets/Styles/NavBar.css";
+
 
 
 const Logo = () => {
 	const Navegar = useNavigate();
 	return (
-		<img src={logo} alt="Logo" onClick={() => Navegar("/inicio")} />
+		<span  onClick={() => Navegar("/inicio")}  className="nome_logo">For you</span>
 	);
 };
 

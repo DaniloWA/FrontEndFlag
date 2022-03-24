@@ -9,7 +9,6 @@ const Login = () => {
 		<div className="login"  >
 			<TextContent ></TextContent>
 			<Card></Card>
-			<SideCar></SideCar>
 		</div>
 	);
 };

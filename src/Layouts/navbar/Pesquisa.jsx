@@ -1,16 +1,37 @@
-import React from "react";
+import React, {  useEffect, useState } from "react";
+import useData from "../../"
+import "../../Assets/Styles/NavBar.css";
 
 const Pesquisa = () => {
-	
+	// eslint-disable-next-line no-unused-vars
+	const { data } = useData()
+	console.log(data);
+	const [pesquisar, setPesquisar] = useState("");
+
+	useEffect(() => {
+		const lowersBusca = pesquisar.toLowerCase();
+		if (pesquisar) {
+			data.filter((produtos) =>
+				produtos.title.toLowerCase().includes(lowersBusca)
+			);
+		}
+	}, [pesquisar]);
+
 	return (
-		<>
+		<div>
 			<input
-				type="text"
+				type="search"
 				name="pesquisar"
-				placeholder="Pesquise aqui!"
-				
+				placeholder="Pesquise..."
+				value={pesquisar}
+				onChange={(e) => setPesquisar(e.target.value)}
 			/>
-		</>
+			
+			{data.map((product) => {
+				product.children;
+			})}
+		</div>
+		
 	);
 };
 
