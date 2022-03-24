@@ -1,0 +1,88 @@
+.SideCar{
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    display: grid;
+    min-width: 40%;
+    max-width: 40%;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 1fr 10fr 0.5fr 0.5fr;
+    grid-template-areas:  
+        'title-button title-button title-button'
+        'conteudo conteudo conteudo'
+        'valor valor valor'
+        'continue continue continue'
+    ;
+    z-index: 19;
+}
+
+.title-button{
+    grid-area:title-button;
+    padding: 25px;
+    display:  flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.39);
+}
+
+.title-button button{
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+.content{
+    grid-area: conteudo;
+    display: flex;
+    flex-direction: column;
+}
+.offcontent{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+ 
+}
+
+.offcontent div, img{
+    align-content: center;
+    justify-content: center;
+}
+
+.content ul{
+   list-style: none;
+}
+
+.button{
+    background-color: rgb(61, 61, 61);
+    font-size: 1.1rem;
+    color:white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+}
+.valor{
+    grid-area: valor;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(128, 128, 128, 0.137);
+    align-items:center;
+    padding: 0px 20px;
+    
+}
+.continue{
+    grid-area: continue;
+}
+.continue button{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: rgb(116, 116, 116);
+    color: white;
+    font-weight: bold;
+}
+.d-none{
+    display: none;
+}
+.d-on {
+    display:inline;
+}

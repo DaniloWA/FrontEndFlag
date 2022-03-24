@@ -1,16 +1,23 @@
 import { setLocal, getLocal } from "./localStorage";
+import api from "../Services/api";
 
-function fetchAPI(nome,url){
-	fetch(url)
+async function fetchAPI(nome,url){
+	const response = await fetch(api.baseURL + url)
 		.then(res=>checkErrorStatus(res))
 		.then(json=>JSON.stringify(json))
-		.then(json=>setLocal(nome,json))
+		.then(json=>{
+			if(!getLocal(nome)){
+				setLocal(nome,json);
+			}
+			return  JSON.parse(json);
+		})
 		.catch((error) => {
 			if(!getLocal(nome)){
 				setLocal("ferrou",nome);
 			}
 			console.log("API morreu! Da uma olhada no erro: " + error.message);
 		});
+	return response;
 }
 
 function checkErrorStatus(response) {
@@ -22,6 +29,33 @@ function checkErrorStatus(response) {
 	}
 }
 
+
+export function fetchApiIA(nome){
+	let data = [];
+	switch (nome) {
+	case "data":
+		fetch(api.baseURL + "/products" )
+			.then(res=>res.json())
+			.then(json=>JSON.stringify(json))
+			.then(json=>data = json);
+		console.log(data);
+		return data;
+	case "car":
+		fetch(api.baseURL + "/users")
+			.then(res=>res.json())
+			.then(json=>JSON.stringify(json))
+			.then(json=>data = json);
+		console.log(data);
+		return data;
+	case "user":
+		fetch(api.baseURL + "/carts")
+			.then(res=>res.json())
+			.then(json=>JSON.stringify(json))
+			.then(json=>data = json);
+		console.log(data);
+		return data;
+	}
+}
 
 
 export default fetchAPI;
