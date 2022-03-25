@@ -1,11 +1,11 @@
 import React, {  useEffect, useState } from "react";
-import useData from "../../"
+import {useData} from "../../Services/pageContextProvider";
 import "../../Assets/Styles/NavBar.css";
 
 const Pesquisa = () => {
 	// eslint-disable-next-line no-unused-vars
-	const { data } = useData()
-	console.log(data);
+	const { data } = useData();
+ 
 	const [pesquisar, setPesquisar] = useState("");
 
 	useEffect(() => {

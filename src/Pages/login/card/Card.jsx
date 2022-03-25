@@ -47,6 +47,23 @@ const Card = () => {
 	function handlePasswordChange({ target : {value } }){
 		SetInputPass(value);
 	}
+
+	function handleIconRender(input){
+		if(!input){
+			return iconsPath.iconDefaultLogin;
+		}
+
+		if(input && !hasError){
+			return iconsPath.escrevendo3Pontos;
+		}
+
+		if(input && hasError){
+			return iconsPath.escrevendo3Pontos;
+		}
+	}
+
+
+
 	return (
 		<div className="Card">
 			<div className="title">
@@ -67,7 +84,7 @@ const Card = () => {
 							value={inputUser}
 							onChange={handleNameChange}
 						/>
-						<img src={inputUser ? hasError ? iconsPath.iconErroLogin : iconsPath.iconCertoLogin : iconsPath.iconDefaultLogin} alt="icon" />
+						<img src={handleIconRender(inputUser)} alt="icon" />
 					</div>
 					
 				</div>
@@ -80,7 +97,7 @@ const Card = () => {
 							value={inputPass}
 							onChange={handlePasswordChange}
 						/>
-						<img src={inputPass ? hasError ? iconsPath.iconErroLogin : iconsPath.iconCertoLogin : iconsPath.iconDefaultLogin} alt="icon" />
+						<img src={handleIconRender(inputPass)} alt="icon" />
 					</div>
 					
 				</div>

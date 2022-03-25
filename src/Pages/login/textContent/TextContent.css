@@ -1,3 +1,13 @@
+@font-face {
+    font-family: Montserrat-M;
+    src:url("../../../Assets/Font/Montserrat-Medium.ttf");
+}
+
+@font-face {
+    font-family: Roboto-L;
+    src:url("../../../Assets/Font/Roboto-Light.ttf");
+}
+
 .textContent{
     color: black;
     font-size: 1.5rem;
@@ -7,4 +17,9 @@
     color: rgb(153, 53, 53);
     border-bottom: 1px solid black;
     margin-bottom: 15px;
+    font-family: Montserrat-M;
+}
+
+.textContent p {
+    font-family: Roboto-L;
 }
