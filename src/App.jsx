@@ -1,13 +1,13 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
-import "./App.css";
 import PageContextProvider from "./Services/pageContextProvider";
 import { Routes, Route } from "react-router-dom";
-import NotFound from "../src/Pages/notFound/NotFound";
-import Login from "./Pages/login/Login";
-import NavBar from "./Layouts/navbar/NavBar";
-import Products from "./Pages/products/Products";
-import Footer from "./Layouts/footer/Footer";
+import Layouts from "./Layouts";
 import fetchAPI from "./Middleware/getApi";
+import Pages from "./Pages/index";
+import routes from "./Routes/routes";
+
+import "./App.css";
 
 const App = () => {
 	useEffect(() => {
@@ -15,18 +15,19 @@ const App = () => {
 		fetchAPI("user", "/users"),
 		fetchAPI("car", "/carts");
 	}, []);
-
 	return (
 		<div className="App">
 			{
 				<PageContextProvider>
+					<Layouts.NavBar />
 					<Routes>				
-						<Route path="/navbar" element={<NavBar />} />
-						<Route path="/products" element={<Products />} />
-						<Route path="*" element={<NotFound />} />
-						<Route path="/login" element={<Login />} />
+						<Route path={routes.inicio} element={<Pages.Inicio />} />
+						<Route path={routes.cliente} element={<Pages.Cliente />} />
+						<Route path={routes.produtos} element={<Pages.Products />} />
+						<Route path={routes.login} element={<Pages.Login/>} />
+						<Route path={routes.notfound} element={<Pages.NotFound />} />
 					</Routes>
-					<Footer></Footer>
+					<Layouts.Footer/> 
 				</PageContextProvider>
 			}
 		</div>
