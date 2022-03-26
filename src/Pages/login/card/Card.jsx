@@ -1,68 +1,61 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Card.css";
 import { useData } from "../../../Services/pageContextProvider";
 import routes from "../../../Routes/routes";
 import { useNavigate } from "react-router-dom";
 import { authLoginNew } from "../../../Services/auth";
 import iconsPath from "../../../Assets/Images";
+import { getLocal, setLocal } from "../../../Middleware/sessionStorage";
 
 const Card = () => {
-	const { user } = useData();
+	const { user, setUser } = useData();
 	const navigate = useNavigate();
+	const errorStyle = {
+		border: "3px solid red",
+		borderTop: "none",
+		borderLeft:"none" ,
+		borderRight: "none",
+	};
 
 	const [inputUser, SetInputUser] = useState("mor_2314");
 	const [inputPass, SetInputPass] = useState("83r5^_");
+	const [hasError, setHasError] = useState(false);
 
-	const [hasError, setHasError] = useState();
+	useEffect(() => {
+		const userStorage = getLocal("user");
+		if (userStorage != "anonymous") {
+			console.log("Card IF USER");
+			setUser(userStorage);
+		} else {
+			setUser({ name: "anonymous" });
+			setLocal("user", "anonymous");
+		}
+	}, []);
 
 	async function handleSubmit() {
 		try {
-			const response = await authLoginNew(inputUser, inputPass); 
-			console.log(response);
+			const response = await authLoginNew(inputUser, inputPass);
 			setHasError(false);
+			setUser(response);
+			setLocal("user", JSON.stringify(response));
+			setTimeout(function () {
+				navigate(routes.inicio);
+			}, 0); //wait 3 seconds
 		} catch (error) {
 			setHasError(true);
 			console.warn("error :: :" + error);
 		}
-		handleClick();
 	}
-	console.log("Tem erro : " + hasError);
-	function handleClick() {
-		if(hasError == false){
-			setTimeout(function () {
-			
-				console.log("Logou ##");
-			//navigate(routes.home);
-			}, 0); //wait 3 seconds
-		}
-			
-	}
-
-	function handleNameChange({ target : {value } }){
+	function handleNameChange({ target: { value } }) {
 		SetInputUser(value);
-
+		setHasError(false);
 	}
 
-	function handlePasswordChange({ target : {value } }){
+	function handlePasswordChange({ target: { value } }) {
 		SetInputPass(value);
+		setHasError(false);
 	}
-
-	function handleIconRender(input){
-		if(!input){
-			return iconsPath.iconDefaultLogin;
-		}
-
-		if(input && !hasError){
-			return iconsPath.escrevendo3Pontos;
-		}
-
-		if(input && hasError){
-			return iconsPath.escrevendo3Pontos;
-		}
-	}
-
-
 
 	return (
 		<div className="Card">
@@ -78,28 +71,23 @@ const Card = () => {
 			<div className="input">
 				<div>
 					<div className="div-input-email">
-						<input
+						<input style={hasError ? errorStyle : null}
 							className="input-email"
 							type="email"
 							value={inputUser}
 							onChange={handleNameChange}
 						/>
-						<img src={handleIconRender(inputUser)} alt="icon" />
 					</div>
-					
 				</div>
 				<div>
-
 					<div className="div-input-pass">
-						<input
+						<input  style={hasError ? errorStyle : null}
 							className="input-pass"
 							type="password"
 							value={inputPass}
 							onChange={handlePasswordChange}
 						/>
-						<img src={handleIconRender(inputPass)} alt="icon" />
 					</div>
-					
 				</div>
 			</div>
 

@@ -31,6 +31,7 @@ function checkErrorStatus(response) {
 }
 
 
+
 export function fetchApiIA(nome){
 	let data = [];
 	switch (nome) {
