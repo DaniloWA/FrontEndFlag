@@ -32,7 +32,7 @@ const Card = () => {
 		if(hasError == false){
 			setTimeout(function () {
 			
-				console.log("Logou ##");
+				console.log("Logou ##############");
 			//navigate(routes.home);
 			}, 0); //wait 3 seconds
 		}

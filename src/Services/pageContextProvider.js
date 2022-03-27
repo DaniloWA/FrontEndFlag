@@ -19,21 +19,26 @@ export const pageContextProvider = (props) => {
 		if (userStorage) {
 			setData({ ...data, user: userStorage });
 		} else {
-			fetchAPI("user", "/users").then(response => setData({...data, user: response}));
+			fetchAPI("user", "/users").then((response) =>
+				setData({ ...data, user: response })
+			);
 		}
 
 		if (dataStorage) {
 			setData({ ...data, data: dataStorage });
 		} else {
-			fetchAPI("data", "/products").then(response => setData({...data, data: response}));
+			fetchAPI("data", "/products").then((response) =>
+				setData({ ...data, data: response })
+			);
 		}
 
 		if (carStorage) {
 			setData({ ...data, car: carStorage });
 		} else {
-			fetchAPI("car","/carts").then(response => setData({...data, car: response}));
+			fetchAPI("car", "/carts").then((response) =>
+				setData({ ...data, car: response })
+			);
 		}
-		
 	}, []);
 
 	return (
