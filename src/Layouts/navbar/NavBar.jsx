@@ -7,14 +7,16 @@ import Pesquisa from "./Pesquisa";
 
 export default function NavBar() {
 	return (
-		<header>
-			<nav className="nav">
-				<Logo onClick="onClick" />
-				<Pesquisa>
-					
-				</Pesquisa>
-				<Icon onClick="onClick"/>
-			</nav>
-		</header>
+		<>
+			<header>
+				<nav className="nav">
+					<Logo onClick="onClick" />
+					<Pesquisa/>
+					<Icon onClick="onClick"/>
+				</nav>
+			</header>
+			
+		</>
+		
 	);
 }

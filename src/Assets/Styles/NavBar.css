@@ -142,3 +142,14 @@ li > span {
   font-family: "Roboto", sans-serif;
   font-size: 0.8rem;
 }
+
+.products_search_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  padding-top: 1rem;
+  margin: 0;
+  position: relative;
+}
+
