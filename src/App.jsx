@@ -7,7 +7,6 @@ import Layouts from "./Layouts/index";
 import fetchAPI from "./Middleware/getApi";
 import Pages from "./Pages/index";
 import routes from "./Routes/routes";
-
 import "./App.css";
 import { getLocal, setLocal } from "./Middleware/sessionStorage";
 

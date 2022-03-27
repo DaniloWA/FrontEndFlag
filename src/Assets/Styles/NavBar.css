@@ -72,7 +72,7 @@ li > span {
 }
 
 .dropdowm_menu li {
-  
+  display: none;
   background-color: #f1f1f1;
   min-width: 10rem;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);

@@ -47,7 +47,9 @@ const Card = () => {
 			console.warn("error :: :" + error);
 		}
 	}
+
 	function handleNameChange({ target: { value } }) {
+
 		SetInputUser(value);
 		setHasError(false);
 	}

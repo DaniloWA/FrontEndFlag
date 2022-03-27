@@ -23,10 +23,13 @@ export const pageContextProvider = (props) => {
 		if (userStorage && userStorage != "anonymous") {
 			setUser({name: userStorage});
 		} else {
+
+
 			console.log("User Não Existe");
 			console.log(user);
 			setUser({name: "anonymous"});
 			setLocal("user","anonymous");
+
 		}
 
 		if (dataStorage) {
