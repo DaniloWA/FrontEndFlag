@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-const Cliente = (props) => {
-    return ( 
-        <div>Opa you again here!! amazing</div>
-     );
-}
+const Cliente = () => {
+	return ( 
+		<div>Opa you again here!! amazing</div>
+	);
+};
  
 export default Cliente;

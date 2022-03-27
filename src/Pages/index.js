@@ -5,7 +5,7 @@ import Inicio from "./inicio/Inicio";
 import Carrinho from "./carrinho/Carrinho";
 import Cliente from "./cliente/Cliente";
 import Favoritos from "./favoritos/Favoritos";
-import CheckOutPage from "./checkoutPage/CheckOutPage";
+import CheckOutPage from "../Components/checkoutPage/CheckOutPage";
 
 const Pages = {
 	NotFound,

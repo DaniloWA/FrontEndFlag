@@ -8,6 +8,9 @@ import NavBar from "./Layouts/navbar/NavBar";
 import Products from "./Pages/products/Products";
 import Footer from "./Layouts/footer/Footer";
 import fetchAPI from "./Middleware/getApi";
+import DataClient from "./Components/checkoutPage/DataClient";
+//import FeeDelivery from "./Components/checkoutPage/FeeDelivery";
+import CheckOutPage from "./Components/checkoutPage/CheckOutPage";
 
 const App = () => {
 	useEffect(() => {
@@ -20,7 +23,9 @@ const App = () => {
 		<div className="App">
 			{
 				<PageContextProvider>
-					<Routes>				
+					<DataClient></DataClient>
+					<Routes>
+						<Route path="/checkOutPage" element={<CheckOutPage/>}/>				
 						<Route path="/navbar" element={<NavBar />} />
 						<Route path="/products" element={<Products />} />
 						<Route path="*" element={<NotFound />} />
