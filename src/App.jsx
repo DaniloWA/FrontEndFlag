@@ -1,37 +1,37 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
-import "./App.css";
-import PageContextProvider from "./Services/pageContextProvider";
+import PageContextProvider, { useData } from "./Services/pageContextProvider";
 import { Routes, Route } from "react-router-dom";
-import NotFound from "../src/Pages/notFound/NotFound";
-import Login from "./Pages/login/Login";
-import NavBar from "./Layouts/navbar/NavBar";
-import Products from "./Pages/products/Products";
-import Footer from "./Layouts/footer/Footer";
+import Layouts from "./Layouts/index";
 import fetchAPI from "./Middleware/getApi";
-import DataClient from "./Components/checkoutPage/DataClient";
-//import FeeDelivery from "./Components/checkoutPage/FeeDelivery";
-import CheckOutPage from "./Components/checkoutPage/CheckOutPage";
+import Pages from "./Pages/index";
+import routes from "./Routes/routes";
+import "./App.css";
+import { getLocal, setLocal } from "./Middleware/sessionStorage";
 
 const App = () => {
-	useEffect(() => {
-		fetchAPI("data", "/products"),
-		fetchAPI("user", "/users"),
-		fetchAPI("car", "/carts");
-	}, []);
 
+
+	useEffect(() => {
+		fetchAPI("car", "/carts");
+		fetchAPI("data", "/products");
+		if(!getLocal("user")){
+			setLocal("user", "anonymous");
+		}
+	}, []);
 	return (
 		<div className="App">
 			{
 				<PageContextProvider>
-					<DataClient></DataClient>
-					<Routes>
-						<Route path="/checkOutPage" element={<CheckOutPage/>}/>				
-						<Route path="/navbar" element={<NavBar />} />
-						<Route path="/products" element={<Products />} />
-						<Route path="*" element={<NotFound />} />
-						<Route path="/login" element={<Login />} />
+					<Routes>				
+						<Route path={routes.inicio} element={<Pages.Inicio />} />
+						<Route path={routes.cliente} element={<Pages.Cliente />} />
+						<Route path={routes.produtos} element={<Pages.Products />} />
+						<Route path={routes.login} element={<Pages.Login/>} />
+						<Route path={routes.notfound} element={<Pages.NotFound />} />
 					</Routes>
-					<Footer></Footer>
+					<Layouts.Footer/> 
 				</PageContextProvider>
 			}
 		</div>

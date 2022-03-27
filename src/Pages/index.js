@@ -7,6 +7,7 @@ import Cliente from "./cliente/Cliente";
 import Favoritos from "./favoritos/Favoritos";
 import CheckOutPage from "../Components/checkoutPage/CheckOutPage";
 
+
 const Pages = {
 	NotFound,
 	Login,

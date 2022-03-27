@@ -5,7 +5,6 @@ import "../../Assets/Styles/NavBar.css";
 const Pesquisa = () => {
 	// eslint-disable-next-line no-unused-vars
 	const { data } = useData();
-	console.log(data);
 	const [pesquisar, setPesquisar] = useState("");
 
 	useEffect(() => {

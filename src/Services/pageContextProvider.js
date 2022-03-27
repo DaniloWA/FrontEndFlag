@@ -1,14 +1,18 @@
-import { getLocal } from "../Middleware/sessionStorage";
+import { getLocal, setLocal } from "../Middleware/sessionStorage";
 import React, { useState, createContext, useContext, useEffect } from "react";
 import fetchAPI from "../Middleware/getApi";
 
 export const PageContext = createContext();
 
+
+
 export const pageContextProvider = (props) => {
 	const [data, setData] = useState({
 		data: getLocal("data") || [],
-		user: getLocal("user") || [],
 		car: getLocal("car") || [],
+	});
+	const [user, setUser] = useState({
+		name: "anonymous"
 	});
 
 	useEffect(() => {
@@ -16,12 +20,16 @@ export const pageContextProvider = (props) => {
 		const dataStorage = getLocal("data");
 		const carStorage = getLocal("car");
 
-		if (userStorage) {
-			setData({ ...data, user: userStorage });
+		if (userStorage && userStorage != "anonymous") {
+			setUser({name: userStorage});
 		} else {
-			fetchAPI("user", "/users").then((response) =>
-				setData({ ...data, user: response })
-			);
+
+
+			console.log("User Não Existe");
+			console.log(user);
+			setUser({name: "anonymous"});
+			setLocal("user","anonymous");
+
 		}
 
 		if (dataStorage) {
@@ -45,8 +53,9 @@ export const pageContextProvider = (props) => {
 		<PageContext.Provider
 			value={{
 				data: data.data,
-				user: data.user,
 				car: data.car,
+				user: user,
+				setUser
 			}}
 		>
 			{props.children}

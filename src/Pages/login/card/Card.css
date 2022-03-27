@@ -139,6 +139,7 @@ span {
 .div-input-email{ 
     display: flex;
     margin-bottom: 50px;
+    align-items:flex-end;
 }
 
 .div-input-email img {
@@ -149,10 +150,13 @@ span {
 
 .div-input-pass{
     display: flex;
+    align-items:flex-end;
 }
 
 .div-input-pass img {
     padding-left: 10px;
     width: 45px;
     height: 45px;
+
 }
+
