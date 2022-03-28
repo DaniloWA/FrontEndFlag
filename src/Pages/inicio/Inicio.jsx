@@ -1,8 +1,9 @@
 import React from "react";
+//import CardProduct from "../../Components/cardProduct/CardProduct";
 
 const Inicio = () => {
 	return ( 
-		<div>Inicio</div>
+		<h1>hey</h1>
 	);
 };
  
