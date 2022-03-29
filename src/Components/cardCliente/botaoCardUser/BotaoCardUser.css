@@ -1,0 +1,11 @@
+.CardCliente_Botao button{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    padding: 15px 50px;
+}
+.CardCliente_Botao button:hover{
+    background-color: rgb(46, 46, 46);
+    cursor: pointer;
+}
