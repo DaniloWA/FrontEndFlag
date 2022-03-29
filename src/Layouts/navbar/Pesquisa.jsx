@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useData } from "../../Services/pageContextProvider";
 import "../../Assets/Styles/NavBar.css";
 import BoxCard from "../../Components/boxCard/BoxCard";
@@ -12,17 +12,22 @@ const Pesquisa = () => {
 	const [pesquisar, setPesquisar] = useState("");
 	const [filter, setFilter] = useState();
 	const [dataBase, setDataBase] = useState(JSON.parse(data));
-	console.log(dataBase);
+
+	const [displayBox, setDisplayBox] = useState(false);
+
+	const inputFocus = useRef(null);
+	
 
 	function handleFilter(e) {
 		setPesquisar(e);
 		setFilter(
 			dataBase.filter((product) => {
-				console.log(product.title.toLowerCase());
-				product.title.toString().toLowerCase().include();
-				
+				console.log(product.title);
+				product.title.toString().toLowerCase();
 			})
 		);
+		setDisplayBox(true);
+		
 	}
 
 	return (
@@ -34,8 +39,10 @@ const Pesquisa = () => {
 				placeholder="Pesquise..."
 				value={pesquisar}
 				onChange={(e) => handleFilter(e.target.value)}
+				ref={inputFocus}
 			/>
-			{filter ? (
+			
+			{displayBox ? (
 				<BoxCard>
 					{filter?.map((product) => {
 						return (
@@ -47,7 +54,7 @@ const Pesquisa = () => {
 					})}
 				</BoxCard>
 			) : (
-				""
+				console.log("não ativo")
 			)}
 		</div>
 	);
