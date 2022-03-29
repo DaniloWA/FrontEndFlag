@@ -4,15 +4,17 @@ export function setLocal(nome, data) {
 			"Apocalipse! API deu Erro e sessionStorage '" + data + "' Vazio! Panic!!!"
 		);
 	}
+
 	if(typeof data == "string" ){
 		if (data === getLocal(nome)) {
-			console.log("Base de Dados: #STRING# '" + nome + "' está Atualizada!!!");
+			console.log("Base de Dados: #STRING# '" + nome + "' Já está Atualizada!!!");
 		} else {
 			console.log("Atualizando Base de Dados: " + nome + " ...");
-			localSetIA(nome, data);
+			console.log(data);
+			localSetIA(nome,data);
 		}
 	}else{
-		if (data === JSON.stringify(getLocal(nome))) {
+		if (data === (getLocal(nome))) {
 			console.log("Base de Dados: '" + nome + "' está Atualizada!!!");
 		} else {
 			console.log("Atualizando Base de Dados: " + nome + " ...");
@@ -24,7 +26,6 @@ export function setLocal(nome, data) {
 
 export function getLocal(data) {
 	let database = sessionStorage.getItem(data);
-
 	if(typeof database == "string"){
 		return database;
 	}
@@ -46,10 +47,16 @@ export function localSetIA(nome, data) {
 		console.log("Car Atualizado! - IA");
 		break;
 	case "user":
-		sessionStorage.setItem("user", data);
+		console.log(typeof data, " --------------USER-------------- ");
+		if(typeof datadata == "string"){
+			sessionStorage.setItem("user", JSON.parse(data));
+			console.log("User Atualizado! string - IA");
+			break;
+			
+		}
+		sessionStorage.setItem("user", data);	
 		console.log("User Atualizado! - IA");
 		break;
-	
 	case "teste":
 		sessionStorage.setItem("teste", data);
 		console.log("Teste Atualizado! - IA");

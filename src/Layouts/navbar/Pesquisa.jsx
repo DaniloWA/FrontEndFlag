@@ -8,11 +8,15 @@ import CardProduct from "../../Components/cardProduct/CardProduct";
 const Pesquisa = () => {
 	// eslint-disable-next-line no-unused-vars
 	const { data } = useData();
-
+	
 	const [pesquisar, setPesquisar] = useState("");
 	const [filter, setFilter] = useState();
-	const [dataBase, setDataBase] = useState(JSON.parse(data));
-	console.log(dataBase);
+	
+	const [dataBase, setDataBase] = useState();
+
+	useEffect(() => {
+		setDataBase(data);
+	},[]);
 
 	function handleFilter(e) {
 		setPesquisar(e);
@@ -20,7 +24,6 @@ const Pesquisa = () => {
 			dataBase.filter((product) => {
 				console.log(product.title.toLowerCase());
 				product.title.toString().toLowerCase().include();
-				
 			})
 		);
 	}
