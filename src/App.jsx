@@ -10,6 +10,7 @@ import routes from "./Routes/routes";
 import "./App.css";
 import CheckOutPage from "./Components/checkoutPage/CheckOutPage";
 
+
 const App = () => {
 
 	useEffect(() => {

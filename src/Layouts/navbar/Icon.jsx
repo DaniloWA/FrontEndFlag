@@ -1,8 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import user from "../../Assets/Images/user64.png";
-import heart from "../../Assets/Images/heart64.png";
-import shoppingBag from "../../Assets/Images/shopping-bag64.png";
+import iconsPath from "../../Assets/Images";
 import "../../Assets/Styles/NavBar.css";
 
 
@@ -13,7 +11,7 @@ const Icon = () => {
 		<div id="icons">
 			<ul>
 				<li className="usuario_select">
-					<img src={user} alt="Login" />
+					<img src={iconsPath.user} alt="Login" />
 					<span>Login</span>
 					<ul className="dropdowm_menu">
 						<li>
@@ -29,7 +27,7 @@ const Icon = () => {
 				</li>
 				<li className="favoritos">
 					<img
-						src={heart}
+						src={iconsPath.heart64}
 						alt="Favoritos"
 						onClick={() => navigate("/Favoritos")}
 					/>
@@ -37,7 +35,7 @@ const Icon = () => {
 				</li>
 				<li className="sacola">
 					<img
-						src={shoppingBag}
+						src={iconsPath.shoppingbag}
 						alt="Carrinho"
 						onClick={() => navigate("/Carrinho")}
 					/>

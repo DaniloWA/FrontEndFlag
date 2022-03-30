@@ -1,11 +1,19 @@
 import React from "react";
+import InformationsFooter from "./Informations";
+import SectionToNav from "./SectionToNav";
 import "./Footer.css";
+import SocialMedia from "./SocialMedia";
+import MadeBy from "./MadeBy";
 
 const Footer = () => {
 	return (
 		<footer className="footer">
-                Made by <a href="#"> Danilo</a> , <a href="#"> Milena</a> and{" "}
-			<a href="#"> Sergio</a>
+			<section className="footer_section">
+				<InformationsFooter />
+				<SectionToNav />
+				<SocialMedia />
+			</section>	
+			<MadeBy/>	
 		</footer>
 	);
 };

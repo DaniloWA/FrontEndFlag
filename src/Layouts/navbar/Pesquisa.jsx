@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useData } from "../../Services/pageContextProvider";
 import "../../Assets/Styles/NavBar.css";
 import BoxCard from "../../Components/boxCard/BoxCard";
@@ -10,22 +10,30 @@ const Pesquisa = () => {
 	const { data } = useData();
 	
 	const [pesquisar, setPesquisar] = useState("");
-	const [filter, setFilter] = useState();
+
+	const [filtered, setFiltered] = useState();
+	const [dataBase, setDataBase] = useState(JSON.parse(data));
+	console.log(pesquisar);
 	
-	const [dataBase, setDataBase] = useState();
+	const [displayBox, setDisplayBox] = useState(false);
 
-	useEffect(() => {
-		setDataBase(data);
-	},[]);
 
-	function handleFilter(e) {
-		setPesquisar(e);
-		setFilter(
+	const inputRef = useRef(null);
+ 
+	function handleFilter(fil) {
+		setFiltered(
 			dataBase.filter((product) => {
-				console.log(product.title.toLowerCase());
-				product.title.toString().toLowerCase().include();
+
+				return product.title.toLowerCase().includes(fil.toLowerCase());
+
 			})
 		);
+		setDisplayBox(true);                            
+	}
+
+	function handleChange(e) {
+		setPesquisar(e);
+		handleFilter(pesquisar);
 	}
 
 	return (
@@ -36,11 +44,15 @@ const Pesquisa = () => {
 				name="pesquisar"
 				placeholder="Pesquise..."
 				value={pesquisar}
-				onChange={(e) => handleFilter(e.target.value)}
+				onChange={(e) => handleChange(e.target.value)}
+				ref={inputRef}
 			/>
-			{filter ? (
+			
+
+			{displayBox ? (
+				console.log(filtered),
 				<BoxCard>
-					{filter?.map((product) => {
+					{filtered.slice(0, 1).map((product) => {
 						return (
 							<>
 								<CardProduct title={product.title} image={product.image} />
@@ -49,10 +61,9 @@ const Pesquisa = () => {
 						);
 					})}
 				</BoxCard>
-			) : (
-				""
-			)}
+			) : (console.log("não ativo"))}
 		</div>
+			
 	);
 };
 
