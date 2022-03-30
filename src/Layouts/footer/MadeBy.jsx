@@ -14,7 +14,7 @@ const MadeBy = () => {
 				{" "}
           Milena Fleming
 			</a>{" "}
-        and <a href="#"> Sergio</a>
+        and <a href="https://www.linkedin.com/in/sergio-m-a-pinto"> Sergio Pinto</a>
 		</div>
 
 	);

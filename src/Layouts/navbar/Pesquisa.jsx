@@ -19,7 +19,7 @@ const Pesquisa = () => {
 
 
 	const inputRef = useRef(null);
- 
+
 	function handleFilter(fil) {
 		setFiltered(
 			dataBase.filter((product) => {
@@ -35,7 +35,7 @@ const Pesquisa = () => {
 		setPesquisar(e);
 		handleFilter(pesquisar);
 	}
-
+	//nome no login o login, termiar sessão é limpar do session, clicar na imagem vai pra pagina de usuario, sumir com o login quando a pessoa tiver logada, icone do cart - chamar o side card quando clicar, fazer o state pra ver se o side card estar aberto. 
 	return (
 		<div>
 			<input
@@ -52,10 +52,9 @@ const Pesquisa = () => {
 			{displayBox ? (
 				console.log(filtered),
 				<BoxCard>
-					{filtered.slice(0, 1).map((product) => {
+					{filtered.slice(0, 6).map((product) => {
 						return (
 							<>
-								<CardProduct title={product.title} image={product.image} />
 								<CardProduct title={product.title} image={product.image} />
 							</>
 						);
