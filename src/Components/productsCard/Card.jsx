@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import "./Products.css";
+import "./Card.css";
 import { useData } from "../../Services/pageContextProvider";
 import fetchAPI from "../../Middleware/getApi";
 
@@ -11,9 +11,6 @@ const ProductsCard = () => {
 	const [responseApi, setResponseApi] = useState([]);
 	const [filter, setFilter] = useState(responseApi);
 
-
-	//const [loading, setLoading] = useState(false);
-
 	useEffect(() => {
 		if(data == undefined || data == ""){
 			fetchAPI("data","/products").then(response => {
@@ -24,24 +21,26 @@ const ProductsCard = () => {
 			setResponseApi(dataBase);
 			setFilter(dataBase);
 		}
-		//setLoading(true);
 	}, []);
     
 	return (
-		<div>
+		<div className="wrapper">
 			{filter.map((Product) => {
 				return(
 					<div key={Product.id} className="wrapper">
 						<div className="card cardHeight">
 							<img className="cardImage" src={Product.image} alt={Product.title} />
-							<h2 className="cardTitle">{Product.title}</h2>
-							<p className="cardPrice">Price: {Product.price}€</p>
-							<button className="cardBtn">Add to cart</button>
+							<div className="cardBody">
+								<h2 className="cardTitle">{Product.title}</h2>
+								<p className="cardPrice">Price: {Product.price}€</p>
+								<button className="cardBtn">Add to cart</button>
+							</div>
 						</div>
 					</div>
 				);
 			})}
 		</div>
+       
 	);
 };
 
