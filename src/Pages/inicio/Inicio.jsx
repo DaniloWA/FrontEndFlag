@@ -1,9 +1,17 @@
 import React from "react";
-//import CardProduct from "../../Components/cardProduct/CardProduct";
+import ProductsHome from "../../Components/productsHome/Home";
 
 const Inicio = () => {
 	return ( 
-		<h1>hey</h1>
+		<>
+			<br />
+			<div className="center">
+				<h1>Imaginem um slider aqui</h1>
+			</div>
+			<br />
+			<br />
+			<ProductsHome />
+		</>
 	);
 };
  
