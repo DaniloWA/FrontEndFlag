@@ -1,4 +1,15 @@
+@font-face {
+    font-family: Montserrat-M;
+    src: url("./Assets/Font/Montserrat-Medium.ttf");
+}
+
+@font-face {
+    font-family: Roboto-L;
+    src: url("./Assets/Font/Roboto-Light.ttf");
+}
+
 body{
     width: 100vw;
     height: 100vh;
+    font-family: Roboto-L;
 }

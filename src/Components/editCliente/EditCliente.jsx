@@ -29,7 +29,7 @@ const EditCliente = ({handleCloseClick}) => {
 					</div>
 				</div>
 				<div className="EditCliente_Btn">
-					<button>Guardar</button>
+					<button onClick={handleCloseClick}>Guardar</button>
 				</div>
 			</div>
 		</div>

@@ -3,8 +3,28 @@
     height: 120px;
     background-color: antiquewhite;
     text-align: center;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 5%, rgba(28,28,28,1) 45%, rgba(28,28,28,1) 55%, rgba(255,255,255,1) 95%, rgba(255,247,247,1) 100%);
 }
+
 
 .TitleBackImgUser h1{
     padding-top: 40px;
+    color: white;
+    font-family: Montserrat-M
 }
+
+
+/*
+
+
+@font-face {
+    font-family: Montserrat-M;
+    src: url("./Assets/Font/Montserrat-Medium.ttf");
+}
+
+@font-face {
+    font-family: Roboto-L;
+    src: url("./Assets/Font/Roboto-Light.ttf");
+}
+
+*/
