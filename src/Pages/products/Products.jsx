@@ -6,10 +6,10 @@ import fetchAPI from "../../Middleware/getApi";
 
 const Products = () => {
 	const {data} = useData();
+
+	const [dataBase ] = useState(typeof data == "string" ? JSON.parse(data) : data);
 	const [responseApi, setResponseApi] = useState([]);
 	const [filter, setFilter] = useState(responseApi);
-
-
 	//const [loading, setLoading] = useState(false);
 
 	const filterProduct = (cat) => {
@@ -24,8 +24,8 @@ const Products = () => {
 				setResponseApi(response);
 			});
 		}else{
-			setResponseApi(data);
-			setFilter(data);
+			setResponseApi(dataBase);
+			setFilter(dataBase);
 		}
 		//setLoading(true);
 	}, []);
@@ -42,7 +42,7 @@ const Products = () => {
 				<button className="elec" onClick={()=>filterProduct("electronics")}>Electronic</button>
 			</div>	
 
-			{filter.map((Product) => {
+			{filter?.map((Product) => {
 				return(
 
 					<div key={Product.id} className="wrapper">
