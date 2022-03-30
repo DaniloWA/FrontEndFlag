@@ -4,7 +4,7 @@ import { useData } from "../../Services/pageContextProvider";
 import fetchAPI from "../../Middleware/getApi";
 
 
-const Products = () => {
+const ProductsCard = () => {
 	const {data} = useData();
 
 	const [dataBase ] = useState(typeof data == "string" ? JSON.parse(data) : data);
@@ -45,4 +45,4 @@ const Products = () => {
 	);
 };
 
-export default Products;
+export default ProductsCard;
