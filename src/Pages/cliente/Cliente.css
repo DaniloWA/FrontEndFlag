@@ -1,0 +1,4 @@
+.Cliente{
+    display: flex;
+    flex-direction: column;
+}

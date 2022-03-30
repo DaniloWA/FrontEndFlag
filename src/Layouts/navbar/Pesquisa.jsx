@@ -8,20 +8,24 @@ import CardProduct from "../../Components/cardProduct/CardProduct";
 const Pesquisa = () => {
 	// eslint-disable-next-line no-unused-vars
 	const { data } = useData();
-
+	
 	const [pesquisar, setPesquisar] = useState("");
+
 	const [filtered, setFiltered] = useState();
 	const [dataBase, setDataBase] = useState(JSON.parse(data));
 	console.log(pesquisar);
 	
 	const [displayBox, setDisplayBox] = useState(false);
 
+
 	const inputRef = useRef(null);
  
 	function handleFilter(fil) {
 		setFiltered(
 			dataBase.filter((product) => {
+
 				return product.title.toLowerCase().includes(fil.toLowerCase());
+
 			})
 		);
 		setDisplayBox(true);                            

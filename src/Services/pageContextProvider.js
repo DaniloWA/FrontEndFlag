@@ -1,4 +1,4 @@
-import { getLocal, setLocal } from "../Middleware/sessionStorage";
+import { getLocal } from "../Middleware/sessionStorage";
 import React, { useState, createContext, useContext, useEffect } from "react";
 import fetchAPI from "../Middleware/getApi";
 
@@ -12,7 +12,7 @@ export const pageContextProvider = (props) => {
 		car: getLocal("car") || [],
 	});
 	const [user, setUser] = useState({
-		name: "anonymous"
+		currentUser: getLocal("user") || "anonymous"
 	});
 
 	useEffect(() => {
@@ -21,15 +21,11 @@ export const pageContextProvider = (props) => {
 		const carStorage = getLocal("car");
 
 		if (userStorage && userStorage != "anonymous") {
-			setUser({name: userStorage});
+			console.log("User Logado");
+			setUser({currentUser: userStorage});
 		} else {
-
-
 			console.log("User Não Existe");
-			console.log(user);
-			setUser({name: "anonymous"});
-			setLocal("user","anonymous");
-
+			setUser({currentUser: {name:"anonymous"}});
 		}
 
 		if (dataStorage) {
