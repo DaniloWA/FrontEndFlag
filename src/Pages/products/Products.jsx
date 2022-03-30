@@ -31,8 +31,8 @@ const Products = () => {
 	}, []);
     
 	return (
-		<div>
-			<div>
+		<div className="wrapper">
+			<div className="sectionWrapper">
 				<h1>Produtos</h1>
 				<hr />
 				<button className="all" onClick={()=>setFilter(responseApi)}>All</button>
@@ -40,17 +40,17 @@ const Products = () => {
 				<button className="womens" onClick={()=>filterProduct("women's clothing")}>Women&apos;s Clothing</button>
 				<button className="jewe" onClick={()=>filterProduct("jewelery")}>Jewelery</button>
 				<button className="elec" onClick={()=>filterProduct("electronics")}>Electronic</button>
-			</div>	
-
-			{filter?.map((Product) => {
+			</div>
+			{filter.map((Product) => {
 				return(
-
 					<div key={Product.id} className="wrapper">
 						<div className="card cardHeight">
 							<img className="cardImage" src={Product.image} alt={Product.title} />
-							<h2 className="cardTitle">{Product.title}</h2>
-							<p className="cardPrice">Price: {Product.price}€</p>
-							<button className="cardBtn">Add to cart</button>
+							<div className="cardBody">
+								<h2 className="cardTitle">{Product.title}</h2>
+								<p className="cardPrice">Price: {Product.price}€</p>
+								<button className="cardBtn">Add to cart</button>
+							</div>
 						</div>
 					</div>
 				);
