@@ -25,7 +25,6 @@ const Card = () => {
 		try {
 			const response = await authLoginNew(inputUser, inputPass);
 			setHasError(false);
-			console.log(response);
 			setUser({currentUser: response});
 			setLocal("user", JSON.stringify(response));
 			setTimeout(function () {

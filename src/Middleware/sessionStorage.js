@@ -10,7 +10,6 @@ export function setLocal(nome, data) {
 			console.log("Base de Dados: #STRING# '" + nome + "' Já está Atualizada!!!");
 		} else {
 			console.log("Atualizando Base de Dados: " + nome + " ...");
-			console.log(data);
 			localSetIA(nome,data);
 		}
 	}else{
