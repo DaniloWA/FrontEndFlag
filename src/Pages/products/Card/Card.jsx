@@ -6,6 +6,8 @@ import fetchAPI from "../../Middleware/getApi";
 
 const Products = () => {
 	const {data} = useData();
+
+	const [dataBase ] = useState(typeof data == "string" ? JSON.parse(data) : data);
 	const [responseApi, setResponseApi] = useState([]);
 	const [filter, setFilter] = useState(responseApi);
 
@@ -19,8 +21,8 @@ const Products = () => {
 				setResponseApi(response);
 			});
 		}else{
-			setResponseApi(data);
-			setFilter(data);
+			setResponseApi(dataBase);
+			setFilter(dataBase);
 		}
 		//setLoading(true);
 	}, []);
