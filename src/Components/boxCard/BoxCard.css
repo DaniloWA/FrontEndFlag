@@ -5,10 +5,10 @@
     min-height: 280px;
     max-height: 280px;
     position: absolute;     
-    top: 35%;     
+    top: 22%;     
     left: 50%;     
     transform: translate(-50%, -50%);
-    background-color: rgb(255, 253, 253);
-    border: 1px solid rgba(0, 0, 0, 0.178);
+    background-color: aqua;
+    border: 1px solid black;
     padding: 10px;
 }
