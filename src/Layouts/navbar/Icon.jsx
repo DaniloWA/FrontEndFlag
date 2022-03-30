@@ -27,7 +27,7 @@ const Icon = () => {
 				</li>
 				<li className="favoritos">
 					<img
-						src={iconsPath.heart}
+						src={iconsPath.heart64}
 						alt="Favoritos"
 						onClick={() => navigate("/Favoritos")}
 					/>

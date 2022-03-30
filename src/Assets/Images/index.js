@@ -21,6 +21,7 @@ const iconsPath = {
 	user:user,
 	instagram:instagram,
 	facebook:facebook,
+
 };
 
 export default iconsPath;
