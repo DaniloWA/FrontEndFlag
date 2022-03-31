@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useData } from "../../Services/pageContextProvider";
 import "../../Assets/Styles/NavBar.css";
 import BoxCard from "../../Components/boxCard/BoxCard";
@@ -10,30 +10,25 @@ const Pesquisa = () => {
 	const { data } = useData();
 	
 	const [pesquisar, setPesquisar] = useState("");
-
-	const [filtered, setFiltered] = useState();
-	const [dataBase, setDataBase] = useState(JSON.parse(data));
-	console.log(pesquisar);
+	const [filter, setFilter] = useState();
 	
-	const [displayBox, setDisplayBox] = useState(false);
+	const [dataBase, setDataBase] = useState();
+
+	useEffect(() => {
+		setDataBase(data);
+	},[]);
 
 
 	const inputRef = useRef(null);
 
 	function handleFilter(fil) {
 		setFiltered(
+
 			dataBase.filter((product) => {
-
-				return product.title.toLowerCase().includes(fil.toLowerCase());
-
+				console.log(product.title.toLowerCase());
+				product.title.toString().toLowerCase().include();
 			})
 		);
-		setDisplayBox(true);                            
-	}
-
-	function handleChange(e) {
-		setPesquisar(e);
-		handleFilter(pesquisar);
 	}
 	//nome no login o login, termiar sessão é limpar do session, clicar na imagem vai pra pagina de usuario, sumir com o login quando a pessoa tiver logada, icone do cart - chamar o side card quando clicar, fazer o state pra ver se o side card estar aberto. 
 	return (
@@ -44,15 +39,13 @@ const Pesquisa = () => {
 				name="pesquisar"
 				placeholder="Pesquise..."
 				value={pesquisar}
-				onChange={(e) => handleChange(e.target.value)}
-				ref={inputRef}
+				onChange={(e) => handleFilter(e.target.value)}
 			/>
-			
-
-			{displayBox ? (
-				console.log(filtered),
+			{filter ? (
 				<BoxCard>
+
 					{filtered.slice(0, 6).map((product) => {
+
 						return (
 							<>
 								<CardProduct title={product.title} image={product.image} />
@@ -60,9 +53,10 @@ const Pesquisa = () => {
 						);
 					})}
 				</BoxCard>
-			) : (console.log("não ativo"))}
+			) : (
+				""
+			)}
 		</div>
-			
 	);
 };
 
