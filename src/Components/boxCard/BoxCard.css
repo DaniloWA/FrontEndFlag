@@ -1,7 +1,9 @@
 .BoxCard{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     min-width: 500px;
+    max-width: 500px;
     min-height: 280px;
     max-height: 280px;
     position: absolute;     
@@ -11,4 +13,5 @@
     background-color: aqua;
     border: 1px solid black;
     padding: 10px;
+    overflow: scroll;
 }
