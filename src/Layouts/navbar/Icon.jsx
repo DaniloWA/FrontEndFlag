@@ -1,17 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import iconsPath from "../../Assets/Images";
+import SideCar from "../../Components/SideCar/SideCar";
 import "../../Assets/Styles/NavBar.css";
 
 
 const Icon = () => {
 	const navigate = useNavigate();
 
+	const [showcart, setShowcart] = useState(false);
+
+
 	return (
 		<div id="icons">
 			<ul>
 				<li className="usuario_select">
-					<img src={iconsPath.user} alt="Login" />
+					<img src={iconsPath.user} alt="Login" onClick={() => navigate("/user")} />
 					<span>Login</span>
 					<ul className="dropdowm_menu">
 						<li>
@@ -37,8 +41,11 @@ const Icon = () => {
 					<img
 						src={iconsPath.shoppingbag}
 						alt="Carrinho"
-						onClick={() => navigate("/Carrinho")}
+						onClick={() => setShowcart(true)}
+
 					/>
+					{showcart ? <SideCar/> : ""}	
+
 					<span>Cart</span>
 					<span className="sacola_icon">
 						<span className="sacola_item">1</span>
