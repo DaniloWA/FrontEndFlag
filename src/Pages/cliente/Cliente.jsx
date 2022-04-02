@@ -13,8 +13,9 @@ import "./Cliente.css";
 
 const Cliente = () => {
 	const {user} = useData();
-
+	console.log(user);
 	const [usuario] = useState(typeof user.currentUser == "string" ?  user.currentUser == "anonymous" ? user.currentUser : JSON.parse(user.currentUser) : user.currentUser);
+	console.log(usuario);
 	const [renderComp, setRnderComp] = useState({
 		detailsUser: false,
 		detailsPagamento: false,
@@ -26,7 +27,7 @@ const Cliente = () => {
 			setRnderComp({...renderComp, detailsUser: true});
 		}
 	}
-
+	
 	function handlePagamentoClick(){
 		if(!renderComp.detailsPagamento){
 			setRnderComp({...renderComp, detailsPagamento: true});
@@ -67,7 +68,7 @@ const Cliente = () => {
 
 				<CardCliente>
 					<DetalhesCardUser title={"Detalhes de pagamento"} desc={"Altere os seus cartões e métodos de pagamento"}/>
-					<InfoCardUser nome={usuario.name.firstname + " " + usuario.name.lastname} desc={"Não existem detalhes de entrega"} />
+					<InfoCardUser nome={"As referências de pagamento serão geradas "} desc={"durante o processo de checkout."} />
 					<BotaoCardUser funcRender={handlePagamentoClick} renderComp={renderComp} setRnderComp={setRnderComp}/>
 				</CardCliente>
 

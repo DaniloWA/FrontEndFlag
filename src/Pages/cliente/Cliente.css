@@ -1,4 +1,117 @@
-.Cliente{
+.Cliente {
     display: flex;
     flex-direction: column;
+}
+
+@media only screen and (max-width: 800px) {
+    .CardCliente {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas:
+            "detalhes detalhes detalhes"
+            "user user user"
+            "btn btn btn"
+        ;
+        padding: 40px;
+        border-bottom: 1px solid black;
+        text-align: center;
+    }
+
+    .CardCliente_Detalhes {
+        grid-area: detalhes;
+        justify-self: center;
+    }
+
+    .CardCliente_Info {
+        grid-area: user;
+        justify-self: center;
+    }
+
+    .CardCliente_Botao {
+        grid-area: btn;
+        justify-self: center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .CardCliente {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas:
+            "detalhes detalhes detalhes"
+            "user user user"
+            "btn btn btn"
+        ;
+        padding: 40px;
+        border-bottom: 1px solid black;
+        text-align: center;
+    }
+
+    .CardCliente_Detalhes {
+        grid-area: detalhes;
+        justify-self: center;
+    }
+
+    .CardCliente_Info {
+        grid-area: user;
+        justify-self: center;
+    }
+
+    .CardCliente_Botao {
+        grid-area: btn;
+        justify-self: center;
+    }
+    }
+
+    .HisEncomenda {
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .HisEncomenda h3 {
+        margin: 15px;
+        font-family: Montserrat-M;
+        text-align: center;
+    }
+
+    .HisEncomenda_Tabela {
+        width: 100%;
+    }
+
+    .HisEncomenda_Tabela thead {
+        background-color: rgb(216, 216, 216);
+
+    }
+
+    .HisEncomenda_Compra {
+        margin: 0 auto;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .HisEncomenda_Compra button {
+        background-color: black;
+        color: white;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        padding: 15px 50px;
+        width: 300px;
+        align-self: center;
+    }
+
+    .HisEncomenda_Compra img {
+        width: 50px;
+        align-self: center;
+    }
+
+@media only screen and (max-width: 425px) {
+    /*Small smartphones [325px -> 425px]*/
 }

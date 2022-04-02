@@ -2,6 +2,7 @@
    background-color: rgb(255, 255, 255);
    display: flex;
    flex-direction: column;
+   align-items: center;
 }
 
 .HisEncomenda h3{
@@ -21,6 +22,9 @@
 .HisEncomenda_Compra{
     margin: 0 auto;
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .HisEncomenda_Compra button{
@@ -33,3 +37,7 @@
 
 }
 
+.HisEncomenda_Compra img{
+    width: 100px;
+    align-self: center;
+}

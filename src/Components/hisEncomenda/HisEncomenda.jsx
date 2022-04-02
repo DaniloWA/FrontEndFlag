@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import iconsPath from "../../Assets/Images";
 import "./HisEncomenda.css";
 
 const HisEncomenda = () => {
@@ -20,6 +21,7 @@ const HisEncomenda = () => {
 				</tbody>
 			</table>
 			<div className="HisEncomenda_Compra">
+				<img src={iconsPath.iconCarrinho} alt="Icon-Carrinho" />
 				<h3>Ainda não fizeste a tua primeira compra.</h3>
 				<button onClick={() => navigate("/login")}>Fazer a minha primeira Compra</button>
 			</div>
