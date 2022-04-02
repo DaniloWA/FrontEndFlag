@@ -14,8 +14,14 @@
       "login login login login"
       ;
     background-color: white;
+    text-align: end;
 }
 
+.errorTxt{
+    margin-top: 5px;
+    color: rgb(234, 27, 27);
+    font-family: Montserrat-M;
+}
 a {
     text-decoration: none;
     color: black;
