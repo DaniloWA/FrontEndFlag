@@ -6,10 +6,9 @@ import "./Login.css";
 
 const Login = () => {
 	return ( 
-		<div className="login"  >
+		<div className="login">
 			<TextContent ></TextContent>
 			<Card></Card>
-			
 		</div>
 	);
 };

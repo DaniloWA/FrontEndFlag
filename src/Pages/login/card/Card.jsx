@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import "./Card.css";
 import { useData } from "../../../Services/pageContextProvider";
@@ -6,10 +5,12 @@ import routes from "../../../Routes/routes";
 import { useNavigate } from "react-router-dom";
 import { authLoginNew } from "../../../Services/auth";
 import {setLocal } from "../../../Middleware/sessionStorage";
+import Loading from "../../../Components/loading/Loading";
 
 const Card = () => {
 	const {setUser } = useData();
 	const navigate = useNavigate();
+
 	const errorStyle = {
 		border: "3px solid red",
 		borderTop: "none",
@@ -17,11 +18,18 @@ const Card = () => {
 		borderRight: "none",
 	};
 
+	const errorText = {
+		display: "none",
+	};
+	
 	const [inputUser, SetInputUser] = useState("mor_2314");
 	const [inputPass, SetInputPass] = useState("83r5^_");
+
 	const [hasError, setHasError] = useState(false);
+	const [load, setLoad] = useState(false);
 
 	async function handleSubmit() {
+		setLoad(true);
 		try {
 			const response = await authLoginNew(inputUser, inputPass);
 			setHasError(false);
@@ -29,15 +37,16 @@ const Card = () => {
 			setLocal("user", JSON.stringify(response));
 			setTimeout(function () {
 				navigate(routes.cliente);
-			}, 0); //wait 3 seconds
+				setLoad(false);
+			}, 3000); //wait 3 seconds
 		} catch (error) {
 			setHasError(true);
+			setLoad(false);
 			console.warn("error :: :" + error);
 		}
 	}
 
 	function handleNameChange({ target: { value } }) {
-
 		SetInputUser(value);
 		setHasError(false);
 	}
@@ -48,52 +57,59 @@ const Card = () => {
 	}
 
 	return (
-		<div className="Card">
-			<div className="title">
-				<h1>Entrar</h1>
-				<p>
+		<>
+			{console.log(load, " Loading : : :")}
+			{load ? <Loading></Loading> : ""}
+			<div className="Card">
+				<div className="title">
+					<h1>Entrar</h1>
+					<p>
           Novo cliente?
-					<a href="#">
-						<span> Registar-me</span>.
-					</a>
-				</p>
-			</div>
-			<div className="input">
-				<div>
-					<div className="div-input-email">
-						<input style={hasError ? errorStyle : null}
-							className="input-email"
-							type="email"
-							value={inputUser}
-							onChange={handleNameChange}
-						/>
-					</div>
+						<a href="#">
+							<span> Registar-me</span>.
+						</a>
+					</p>
 				</div>
-				<div>
-					<div className="div-input-pass">
-						<input  style={hasError ? errorStyle : null}
-							className="input-pass"
-							type="password"
-							value={inputPass}
-							onChange={handlePasswordChange}
-						/>
+				<div className="input">
+					<div>
+						<div className="div-input-email">
+							<input style={hasError ? errorStyle : null}
+								className="input-email"
+								type="email"
+								value={inputUser}
+								onChange={handleNameChange}
+							/>
+						</div>
 					</div>
-				</div>
-			</div>
-
-			<div className="btn-Login">
-				<button
-					onClick={() => {
-						handleSubmit();
-					}}
-				>
+					<div>
+						<div className="div-input-pass">
+							<input  style={hasError ? errorStyle : null}
+								className="input-pass"
+								type="password"
+								value={inputPass}
+								onChange={handlePasswordChange}
+							/>
+						</div>
+						<p style={!hasError ? errorText : null} className="errorTxt"> UserName ou Passowrd estão incorretos! </p>
+					</div>
+				</div>	
+				{ }
+				<div className="btn-Login">
+					<button
+						onClick={() => {
+							handleSubmit();
+						}}
+						disabled={inputPass && inputUser ? false : true}
+					>
           Entrar
-				</button>
+					</button>
+				</div>
+				<div className="text-pass">
+					<p>Esqueceu a palavra-passe?</p>
+				</div>
 			</div>
-			<div className="text-pass">
-				<p>Esqueceu a palavra-passe?</p>
-			</div>
-		</div>
+		</>
+		
 	);
 };
 
