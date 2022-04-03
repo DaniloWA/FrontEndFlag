@@ -7,25 +7,27 @@ const EditCliente = ({handleCloseClick}) => {
 		<div className="EditCliente">
 			<div className="EditCliente_CenterOverflow">
 				<div className="EditCliente_Title">
-					<h1>Editar detalhes de conta</h1>
+					<h1>Detalhes de conta</h1>
 				</div>
 				<div className="EditCliente_Fechar">
 					<button onClick={handleCloseClick}>X</button>
 				</div>
 				<div className="EditCliente_InputGroup">
 					<div className="EditCliente_InpuEsquerda">
-						<input type="text" />
-						<input type="text" />
-						<input type="text" />
-						<input type="text" />
-						<input type="text" />
+						<input type="text" placeholder="Nome" />
+						<input type="text" placeholder="Sobrenome" />
+						<input type="email" placeholder="Email" />
+						<input type="tel" placeholder="Nº de telemóvel" />
+						
+					</div>
+					<div className="EditCliente_InputBaixo">
+						<input type="text" placeholder="Endereço" />
 					</div>
 					<div className="EditCliente_InpuDireita">
-						<input type="text" />
-						<input type="text" />
-						<input type="text" />
-						<input type="text" />
-						<input type="text" />
+						<input type="text" placeholder="Código Postal" />
+						<input type="text" placeholder="Cidade" />
+						<input type="text" placeholder="Região" />
+						<input type="text" placeholder="País" />
 					</div>
 				</div>
 				<div className="EditCliente_Btn">

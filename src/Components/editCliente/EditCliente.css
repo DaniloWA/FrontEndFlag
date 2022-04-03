@@ -29,10 +29,11 @@
     ;
 }
 
+
 .EditCliente_Title {
     grid-area: Title;
     justify-self: center;
-    
+    font-size: 1.0rem;
 }
 
 .EditCliente_Fechar {
@@ -45,6 +46,14 @@
     padding: 5px 10px;
     font-size: 1.4rem;
     font-weight: bold;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+.EditCliente_Fechar  button:hover{
+    background-color: rgb(20, 20, 20);
 }
 
 
@@ -56,6 +65,7 @@
     grid-template-rows: auto;
     grid-template-areas:  
         'InpuEsquerda InpuDireita'
+        'InputBaixo InputBaixo'
     ;
 }
 
@@ -63,11 +73,18 @@
     grid-area: Btn;
     justify-self: center;
     align-self: end;
+
 }
 
 .EditCliente_Btn button {  
     padding: 10px 25px;
     font-weight: bold;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+.EditCliente_Btn button:hover {  
+    background-color: rgb(20, 20, 20);
 }
 
 .EditCliente_InpuEsquerda {
@@ -78,14 +95,17 @@
     grid-area: InpuDireita;
 }
 
-.EditCliente_InpuEsquerda input {
-    width: 100%;
-    margin-top: 20px;
-    padding: 5px;
+.EditCliente_InputBaixo{
+    grid-area: InputBaixo;
+}
+.EditCliente_InputGroup{
+    margin-bottom: 35px;
 }
 
-.EditCliente_InpuDireita input {
+.EditCliente_InputGroup input{
     width: 100%;
-    margin-top: 20px;
     padding: 5px;
+    border:none;
+    border-bottom: 1px solid black;
+    padding: 10px;
 }
