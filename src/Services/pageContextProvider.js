@@ -9,7 +9,11 @@ export const PageContext = createContext();
 export const pageContextProvider = (props) => {
 	const [data, setData] = useState({
 		data: getLocal("data") || [],
-		car: getLocal("car") || [],
+	});
+
+	const [car, setCar] = useState({
+		carUser: getLocal("user") || "anonymous",
+		carrinho: getLocal("car") || null
 	});
 	const [user, setUser] = useState({
 		currentUser: getLocal("user") || "anonymous"
@@ -28,6 +32,15 @@ export const pageContextProvider = (props) => {
 			setUser({currentUser: {name:"anonymous"}});
 		}
 
+		
+		if (carStorage && carStorage.carUser != "anonymous") {
+			console.log("Carrinho do user em Cache!");
+			setCar({...car, carrinho: carStorage});
+		} else {
+			console.log("User Não tem Item no carrinho");
+			setCar({...car, carrinho: null});
+		}
+
 		if (dataStorage) {
 			setData({ ...data, data: dataStorage });
 		} else {
@@ -36,21 +49,15 @@ export const pageContextProvider = (props) => {
 			);
 		}
 
-		if (carStorage) {
-			setData({ ...data, car: carStorage });
-		} else {
-			fetchAPI("car", "/carts").then((response) =>
-				setData({ ...data, car: response })
-			);
-		}
 	}, []);
 
 	return (
 		<PageContext.Provider
 			value={{
 				data: data.data,
-				car: data.car,
+				car: car,
 				user: user,
+				setCar,
 				setUser
 			}}
 		>

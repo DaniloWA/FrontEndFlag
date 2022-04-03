@@ -21,6 +21,7 @@ const SideCar = () => {
 		}
 	},[]);
 
+	console.log(cart);
 	return (
 		<div className="SideCar">
 			<div className="title-button">
