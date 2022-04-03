@@ -8,12 +8,13 @@ import TitleBackImgUser from "../../Components/titleBackImgUser/TitleBackImgUser
 // eslint-disable-next-line no-unused-vars
 import EditCliente from "../../Components/editCliente/EditCliente";
 import HisEncomenda from "../../Components/hisEncomenda/HisEncomenda";
+import CardEditUser from "../../Components/cardEditUser/CardEditUser";
+import EditPagamento from "../../Components/editPagamento/EditPagamento";
 
 import "./Cliente.css";
 
 const Cliente = () => {
 	const {user} = useData();
-
 	const [usuario] = useState(typeof user.currentUser == "string" ?  user.currentUser == "anonymous" ? user.currentUser : JSON.parse(user.currentUser) : user.currentUser);
 	const [renderComp, setRnderComp] = useState({
 		detailsUser: false,
@@ -24,18 +25,21 @@ const Cliente = () => {
 	function handleUserClick(){
 		if(!renderComp.detailsUser){
 			setRnderComp({...renderComp, detailsUser: true});
+			document.body.style.overflow = "hidden";
 		}
 	}
-
+	
 	function handlePagamentoClick(){
 		if(!renderComp.detailsPagamento){
 			setRnderComp({...renderComp, detailsPagamento: true});
+			document.body.style.overflow = "hidden";
 		}
 	}
 
 	function handleMoradaClick(){
 		if(!renderComp.detailsMorada){
 			setRnderComp({...renderComp, detailsMorada: true});
+			document.body.style.overflow = "hidden";
 		}
 	}
 
@@ -46,6 +50,7 @@ const Cliente = () => {
 				detailsPagamento: false,
 				detailsMorada:false,
 			});
+			document.body.style.overflow = "visible";
 		}
 	}
 
@@ -67,7 +72,7 @@ const Cliente = () => {
 
 				<CardCliente>
 					<DetalhesCardUser title={"Detalhes de pagamento"} desc={"Altere os seus cartões e métodos de pagamento"}/>
-					<InfoCardUser nome={usuario.name.firstname + " " + usuario.name.lastname} desc={"Não existem detalhes de entrega"} />
+					<InfoCardUser nome={"As referências de pagamento serão geradas "} desc={"durante o processo de checkout."} />
 					<BotaoCardUser funcRender={handlePagamentoClick} renderComp={renderComp} setRnderComp={setRnderComp}/>
 				</CardCliente>
 
@@ -79,9 +84,9 @@ const Cliente = () => {
 
 				<HisEncomenda></HisEncomenda>
 				
-				{renderComp.detailsUser ? <EditCliente handleCloseClick={handleCloseClick}></EditCliente> : ""}
-				{renderComp.detailsPagamento ? <EditCliente handleCloseClick={handleCloseClick}></EditCliente> : ""}
-				{renderComp.detailsMorada ? <EditCliente handleCloseClick={handleCloseClick}></EditCliente> : ""}
+				{renderComp.detailsUser ? <CardEditUser title={"Detalhes de conta"} handleCloseClick={handleCloseClick}><EditCliente ></EditCliente></CardEditUser>: ""}
+				{renderComp.detailsPagamento ? <CardEditUser title={"Detalhes de faturação"} handleCloseClick={handleCloseClick}><EditPagamento ></EditPagamento></CardEditUser>: ""}
+				{renderComp.detailsMorada ? <CardEditUser title={"Detalhes de faturação"} handleCloseClick={handleCloseClick}><EditCliente ></EditCliente></CardEditUser> : ""}
 			</div>
 		);
 		

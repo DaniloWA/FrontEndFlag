@@ -21,13 +21,14 @@ const App = () => {
 			{
 				<PageContextProvider>
 					<Layouts.NavBar/>
-					<Routes>				
+					<Routes>		
+						<Route path={routes.login} element={<Pages.Login/>} />	
 						<Route path={routes.inicio} element={<Pages.Inicio />} />
 						<Route path={routes.cliente} element={<Pages.Cliente />} />
 						<Route path={routes.produtos} element={<Pages.Products />} />
-						<Route path={routes.login} element={<Pages.Login/>} />
 						<Route path={routes.checkoutpage} element={<CheckOutPage/>} />
 						<Route path={routes.notfound} element={<Pages.NotFound />} />
+						<Route path={routes.carrinho} element={<Pages.Carrinho />} />
 					</Routes>
 					<Layouts.Footer/> 
 				</PageContextProvider>

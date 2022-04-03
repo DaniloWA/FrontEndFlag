@@ -1,53 +1,3 @@
-.EditCliente {
-    box-sizing: border-box!important;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(41, 39, 39, 0.837);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.EditCliente_CenterOverflow {
-    box-sizing: border-box;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid black;
-    margin: 10%;
-    max-width:500px ;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 0.1fr;
-    grid-template-rows: 0.3fr 1fr 0.3fr;
-    grid-template-areas:  
-        'Title Title Title Fechar'
-        'InputGroup InputGroup InputGroup InputGroup'
-        'Btn Btn Btn Btn'
-    ;
-}
-
-.EditCliente_Title {
-    grid-area: Title;
-    justify-self: center;
-    
-}
-
-.EditCliente_Fechar {
-    grid-area: Fechar;
-    justify-self: end;
-    
-}
-
-.EditCliente_Fechar  button{
-    padding: 5px 10px;
-    font-size: 1.4rem;
-    font-weight: bold;
-}
-
-
 .EditCliente_InputGroup{
     grid-area: InputGroup;
     display: grid;
@@ -56,18 +6,8 @@
     grid-template-rows: auto;
     grid-template-areas:  
         'InpuEsquerda InpuDireita'
+        'InputBaixo InputBaixo'
     ;
-}
-
-.EditCliente_Btn {  
-    grid-area: Btn;
-    justify-self: center;
-    align-self: end;
-}
-
-.EditCliente_Btn button {  
-    padding: 10px 25px;
-    font-weight: bold;
 }
 
 .EditCliente_InpuEsquerda {
@@ -78,14 +18,17 @@
     grid-area: InpuDireita;
 }
 
-.EditCliente_InpuEsquerda input {
-    width: 100%;
-    margin-top: 20px;
-    padding: 5px;
+.EditCliente_InputBaixo{
+    grid-area: InputBaixo;
+}
+.EditCliente_InputGroup{
+    margin-bottom: 35px;
 }
 
-.EditCliente_InpuDireita input {
+.EditCliente_InputGroup input{
     width: 100%;
-    margin-top: 20px;
     padding: 5px;
+    border:none;
+    border-bottom: 1px solid black;
+    padding: 10px;
 }

@@ -1,0 +1,19 @@
+.EditPagamento{
+    display: grid;
+}
+
+.EditPagamento_radio{
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+}
+
+.EditPagamento_radio label{
+    margin-left: 5px;
+}
+
+.EditPagamento_Choice{
+    border-bottom: 1px solid black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}

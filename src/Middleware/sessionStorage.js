@@ -46,7 +46,6 @@ export function localSetIA(nome, data) {
 		console.log("Car Atualizado! - IA");
 		break;
 	case "user":
-		console.log(typeof data, " --------------USER-------------- ");
 		if(typeof datadata == "string"){
 			sessionStorage.setItem("user", JSON.parse(data));
 			console.log("User Atualizado! string - IA");

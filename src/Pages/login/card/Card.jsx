@@ -58,7 +58,6 @@ const Card = () => {
 
 	return (
 		<>
-			{console.log(load, " Loading : : :")}
 			{load ? <Loading></Loading> : ""}
 			<div className="Card">
 				<div className="title">
