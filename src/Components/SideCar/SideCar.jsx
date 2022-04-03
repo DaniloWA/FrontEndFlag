@@ -17,7 +17,7 @@ const SideCar = () => {
 		if(car == undefined || car == ""){
 			fetchAPI("car","/carts").then(response => setCart(response));
 		}else{
-			setCart(car);
+			setCart(JSON.parse(car));
 		}
 	},[]);
 
@@ -29,7 +29,7 @@ const SideCar = () => {
 			</div>
 			<div className="content">
 				<ul className={style.estiloUL}> 
-					{cart != undefined ? cart[0].products.map((Product) => {
+					{cart != undefined && cart ? cart[0].products.map((Product) => {
 						return(
 							<ItemCar key={Product.productId} id={Product.productId} quantidade={Product.quantity}></ItemCar>
 						);

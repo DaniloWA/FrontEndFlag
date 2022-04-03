@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useData } from "../../Services/pageContextProvider";
 import "../../Assets/Styles/NavBar.css";
 import BoxCard from "../../Components/boxCard/BoxCard";
@@ -8,50 +7,51 @@ import CardProduct from "../../Components/cardProduct/CardProduct";
 const Pesquisa = () => {
 	// eslint-disable-next-line no-unused-vars
 	const { data } = useData();
-	
+
 	const [pesquisar, setPesquisar] = useState("");
-	const [filter, setFilter] = useState();
-	
-	const [dataBase, setDataBase] = useState();
+	const [filtered, setFiltered] = useState();
+	const [dataBase] = useState(data);
+	const [displayBox, setDisplayBox] = useState(false);
 
-	useEffect(() => {
-		setDataBase(data);
-	},[]);
+	//const inputRef = useRef(null);
 
-
-	const inputRef = useRef(null);
-
+	// eslint-disable-next-line no-unused-vars
 	function handleFilter(fil) {
 		setFiltered(
-
 			dataBase.filter((product) => {
-				console.log(product.title.toLowerCase());
-				product.title.toString().toLowerCase().include();
+				return product.title.toLowerCase().includes(fil.toLocaleLowerCase());
 			})
 		);
+		setDisplayBox(true);
 	}
-	//nome no login o login, termiar sessão é limpar do session, clicar na imagem vai pra pagina de usuario, sumir com o login quando a pessoa tiver logada, icone do cart - chamar o side card quando clicar, fazer o state pra ver se o side card estar aberto. 
+	
+
+	function handleChange(e) {
+		setPesquisar(e);
+		handleFilter(pesquisar);
+	}
+	// 6 - terminar o layout de pesquisa
 	return (
 		<div>
 			<input
 				className="search_bar"
 				type="search"
 				name="pesquisar"
-				placeholder="Pesquise..."
+				placeholder="Search here"
 				value={pesquisar}
-				onChange={(e) => handleFilter(e.target.value)}
+				onChange={(e) => handleChange(e.target.value)}
 			/>
-			{filter ? (
+			{displayBox ? (
 				<BoxCard>
-
 					{filtered.slice(0, 6).map((product) => {
-
 						return (
-							<>
-								<CardProduct title={product.title} image={product.image} />
-							</>
+							<CardProduct
+								key={product.id}
+								title={product.title}
+								image={product.image}
+							/>
 						);
-					})}
+					})}ç
 				</BoxCard>
 			) : (
 				""

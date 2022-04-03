@@ -1,22 +1,21 @@
 import React from "react";
+import "./Footer.css";
 
 const MadeBy = () => {
 	return (
-	
 		<div className="footer_madeBy">
-        Made by{" "}
+      Made by{" "}
 			<a href="https://www.linkedin.com/in/danilo-oliveira-web/">
 				{" "}
-          Danilo Oliveira
+        Danilo Oliveira
 			</a>{" "}
-        ,{" "}
-			<a href="https://www.linkedin.com/in/milenafleming/">
+      , <a href="https://www.linkedin.com/in/milenafleming/">
 				{" "}
-          Milena Fleming
+        Milena Fleming
 			</a>{" "}
-        and <a href="https://www.linkedin.com/in/sergio-m-a-pinto"> Sergio Pinto</a>
+      and{" "}
+			<a href="https://www.linkedin.com/in/sergio-m-a-pinto"> Sergio Pinto</a>
 		</div>
-
 	);
 };
 
