@@ -1,0 +1,79 @@
+.CardEditUser {
+    box-sizing: border-box;
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(41, 39, 39, 0.837);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CardEditUser_CenterOverflow {
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    margin: 10%;
+    max-width: 500px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 0.1fr;
+    grid-template-rows: 0.3fr 1fr 0.3fr;
+    grid-template-areas:
+        'CardEditUserTitle CardEditUserTitle CardEditUserTitle CardEditUserFechar'
+        'CardEditUsercontent CardEditUsercontent CardEditUsercontent CardEditUsercontent'
+        'CardEditUserBTN CardEditUserBTN CardEditUserBTN CardEditUserBTN'
+    ;
+}
+
+.CardEditUser_Content{
+    grid-area: CardEditUsercontent;
+    padding-top: 15px;
+}
+
+
+.CardEditUser_Title {
+    grid-area: CardEditUserTitle;
+    justify-self: center;
+    font-size: 1.0rem;
+}
+
+.CardEditUser_Fechar {
+    grid-area: CardEditUserFechar;
+    justify-self: end;
+    
+}
+
+.CardEditUser_Fechar  button{
+    padding: 5px 10px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    border: none;
+    margin-left: 10px;
+}
+
+.CardEditUser_Fechar  button:hover{
+    background-color: rgb(20, 20, 20);
+}
+
+.CardEditUser_Btn button {  
+    padding: 10px 25px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+.CardEditUser_Btn button:hover {  
+    background-color: rgb(20, 20, 20);
+}
+.CardEditUser_Btn {  
+    grid-area: CardEditUserBTN;
+    justify-self: center;
+    align-self: end;
+}
