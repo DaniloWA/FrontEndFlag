@@ -1,10 +1,10 @@
 import React from "react";
+import SideCar from "../../Components/SideCar/SideCar";
 
 const Carrinho = () => {
+	
 	return ( 
-		<div>
-            Hello again!
-		</div>
+		<SideCar></SideCar>
 	);
 };
  
