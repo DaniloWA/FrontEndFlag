@@ -1,5 +1,5 @@
 .SideCar{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(252, 252, 252);
     height: 100%;
     display: grid;
     min-width: 40%;
@@ -13,6 +13,7 @@
         'continue continue continue'
     ;
     z-index: 19;
+    top: 0;
 }
 
 .title-button{
