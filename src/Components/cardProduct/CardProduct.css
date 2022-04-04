@@ -1,7 +1,7 @@
 .CardProduct {
   width: 220px;
   height: 250px;
-  box-shadow: 4px 4px 20px black;
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.548);;
   display: flex;
   flex-direction: column;
 
@@ -13,15 +13,15 @@
   margin-bottom: 0.8rem;
 }
 .CardProduct_img img {
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 90%;
 }
 .CardProduct_img {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.406);
   height: 85%;
   margin-bottom: 5px;
 }
 .CardProduct_titulo {
   width: 100%;
-  color: crimson;
+  font-size: 1rem;
 }

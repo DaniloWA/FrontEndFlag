@@ -12,28 +12,23 @@ const Icon = () => {
 	const {setUser, user} = useData();
 	const [showcart, setShowcart] = useState(false);
 	// eslint-disable-next-line no-unused-vars
-	
 	// eslint-disable-next-line no-unused-vars
 	const [nameUserLogin, setNameUserLogin] = useState(typeof user.currentUser == "string" ?  user.currentUser == "anonymous" ? user.currentUser : JSON.parse(user.currentUser) : user.currentUser);
-	console.log(nameUserLogin.username);
-	console.log(nameUserLogin);
-	
-
-	// eslint-disable-next-line no-unused-vars
+	//const [count, setCount] = useState(0);
+	const [userConfirmation, setUserConfirmation ] = useState(user.userlogged);
 	function logOut() {
-		console.log("logout");
 		setUser({currentUser: {name:"anonymous"}});
 		clearLocal("user");
 		setNameUserLogin("anonymous");
 	}
 
 	useEffect(()=>{
-		console.log("antes do useEffect");
-		console.log(nameUserLogin == "anonymous");
-		setNameUserLogin(nameUserLogin == "anonymous" ? "anonymous" : nameUserLogin);
+		setNameUserLogin(nameUserLogin == "anonymous" ? "anonymous" : JSON.parse(user.currentUser));
+		console.log(user.userlogged, "userlogged useeffect");
+		setUserConfirmation(user.userlogged);
 	
 	}, []);
-
+	
 	return (
 		<>
 			<div id="icons">
@@ -45,11 +40,11 @@ const Icon = () => {
 							onClick={() => navigate("/user")}
 						/>
 						<span>
-							{nameUserLogin.username ? nameUserLogin.username : "login"} 
+							{userConfirmation ? nameUserLogin.username : "login"} 
 						</span>
 						
 						<ul className="dropdowm_menu">
-							{nameUserLogin.username ? "" : <li >
+							{userConfirmation ? "" : <li >
 								<a href="/login">Login</a>
 							</li>} 
 							<li>
@@ -79,7 +74,7 @@ const Icon = () => {
 						/>
 						<span>Cart</span>
 						<span className="sacola_icon">
-							<span className="sacola_item">1</span>
+							<span className="sacola_item">0</span>
 						</span>
 					</li>
 				</ul>

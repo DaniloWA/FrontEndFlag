@@ -10,6 +10,7 @@ import iconLoginNavbar from "./user64.png";
 import iconShoppingbagNavbar from "./shopping-bag64.png";
 import iconsInstagramFooter from "./instagram32.png";
 import inconsFacebookFooter from "./facebook32.png";
+import iconLupaNavbar from "./lupa.png";
 
 
 const iconsPath = {
@@ -19,13 +20,13 @@ const iconsPath = {
 	iconCarrinho:iconCarrinho,
 	escrevendo3Pontos:escrevendo3Pontos,
 	loading:loading,
-	escrevendo3Pontos:escrevendo3Pontos,
 	iconHeartNavbar:iconHeartNavbar,
 	iconErrorNavbar:iconErrorNavbar,
 	iconLoginNavbar:iconLoginNavbar,
 	iconShoppingbagNavbar:iconShoppingbagNavbar,
 	iconsInstagramFooter: iconsInstagramFooter,
 	inconsFacebookFooter:inconsFacebookFooter,
+	iconLupaNavbar:iconLupaNavbar,
 
 };
 

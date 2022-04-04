@@ -1,4 +1,4 @@
-.nav {
+.NavBar {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: "logo pesquisa icones";
@@ -12,11 +12,12 @@
   column-gap: 0.6rem;
 }
 
-.search_bar {
+.Pesquisa_searchBar {
   display: flex;
   justify-content: center;
   align-items: center;
   grid-area: pesquisa;
+  position: relative;
   border-radius: 5px;
   height: 1.4rem;
   width: 100%;
@@ -24,8 +25,12 @@
   padding: 1.3rem;
 }
 
-.search_bar:hover {
-  background-color: #4949495b;
+.Pesquisa_searchBar:hover {
+  background-color: #49494936;
+}
+
+.Pesquisa_searchImg {
+  display: none;
 }
 
 .nome_logo {
@@ -56,13 +61,12 @@ li > span {
   font-size: 0.8rem;
 }
 
-.usuario_select img{
+.usuario_select img {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .dropdowm_menu {
@@ -77,7 +81,6 @@ li > span {
   min-width: 10rem;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-
 }
 
 .dropdowm_menu a {
@@ -92,11 +95,10 @@ li > span {
   background-color: rgba(14, 13, 13, 0.315);
 }
 
-.usuario_select:hover > .dropdowm_menu li{
+.usuario_select:hover > .dropdowm_menu li {
   display: block;
   transform: translate(0, 0);
   opacity: 1;
-  
 }
 
 .dropdowm_menu a:hover {
@@ -153,3 +155,39 @@ li > span {
   position: relative;
 }
 
+@media only screen and (max-width: 1200px) {
+}
+@media only screen and (max-width: 600px) {
+  .Pesquisa_searchImg {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    
+  }
+  .Pesquisa_searchImg img{
+    min-width: 20px;
+    max-height: 30px;
+    position: relative;
+  }
+
+  .Pesquisa_searchImg span {
+    font-family: Montserrat-M;
+    font-size: 0.8rem;
+  }
+ 
+  .Pesquisa_searchBar{
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    z-index: 1;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+
+ 
+
+}
