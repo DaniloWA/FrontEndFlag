@@ -8,12 +8,11 @@ const NotFound = () => {
 	return (
 		<section className="notFound">
 			<Image />
-			<h1>Esse código significa página não encontrada!</h1>
+			<h1>This code means page not found!</h1>
 			<p>
-				A página que está procurando parece estar perdida ou o produto ainda
-				não foi registrado, mas há um modo de voltar:
+			The page you are looking for seems to be lost, or the product has not yet been registered, but there is a way back:
 			</p>
-			<h2>Clique no botão abaixo</h2>
+			<h2>Click on the button below</h2>
 			<Button onClick="onClick" titulo="Home" />
 		</section>
 	);

@@ -8,7 +8,7 @@ import "../../Assets/Styles/NavBar.css";
 const Logo = () => {
 	const Navegar = useNavigate();
 	return (
-		<span  onClick={() => Navegar("/inicio")}  className="nome_logo">For you</span>
+		<span  onClick={() => Navegar("/inicio")}  className="nome_logo">DMS</span>
 	);
 };
 

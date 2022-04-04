@@ -7,7 +7,7 @@ import "../../Assets/Styles/NotFoundButton.css";
 const Button = (props) => {
 	const navigate = useNavigate();
 	function handleClick() {
-		navigate(routes.home);
+		navigate(routes.inicio);
 	}
 
 	return (

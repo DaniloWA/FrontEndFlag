@@ -16,8 +16,10 @@ export const pageContextProvider = (props) => {
 		carrinho: getLocal("car") || null
 	});
 	const [user, setUser] = useState({
-		currentUser: getLocal("user") || "anonymous"
+		currentUser: getLocal("user") || "anonymous",
+		userlogged: getLocal("user") != "anonymous" && getLocal("user") != undefined ? true : false
 	});
+	console.log(getLocal("user") != "anonymous" && getLocal("user") != undefined ? true : false, "confirmação userlogged");
 
 	useEffect(() => {
 		const userStorage = getLocal("user");
