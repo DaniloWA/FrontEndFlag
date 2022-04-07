@@ -10,10 +10,10 @@ const CardProduct = ({title, image}) => {
 	return (
 		<div className="CardProduct">
 			<div className="CardProduct_img">
-				<img src={image} alt="#" />
+				<img src={image} alt="#" width="100px"/>
 			</div>
 			<div className="CardProduct_titulo">
-				<h1>{sliceTitle} ...</h1>
+				<h1><abbr title={titles}>{sliceTitle} ...</abbr></h1>
 			</div>
 		</div>
 	);

@@ -63,7 +63,7 @@ const Cliente = () => {
 	}else if (usuario.name && usuario.name != "anonymous" && usuario.name.firstname){
 		return ( 
 			<div className="Cliente">
-				<TitleBackImgUser></TitleBackImgUser>
+				<TitleBackImgUser tituloBackImgUser="Conta"></TitleBackImgUser>
 				<CardCliente>
 					<DetalhesCardUser title={"Detalhes de conta"} desc={"Altere os detalhes da sua conta e a morada de entrega"}/>
 					<InfoCardUser nome={usuario.name.firstname + " " + usuario.name.lastname} desc={"Não existem detalhes de entrega"} />

@@ -1,6 +1,4 @@
 import React from "react";
-//import NavBar from "../../Layouts/navbar/NavBar";
-//import Footer from "../../Layouts/footer/Footer";
 import Button from "./Button";
 import Image from "./NotFounfImage";
 
