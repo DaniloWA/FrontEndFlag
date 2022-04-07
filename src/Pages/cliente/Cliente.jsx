@@ -85,7 +85,7 @@ const Cliente = () => {
 				<HisEncomenda></HisEncomenda>
 				
 				{renderComp.detailsUser ? <CardEditUser title={"Detalhes de conta"} handleCloseClick={handleCloseClick}><EditCliente ></EditCliente></CardEditUser>: ""}
-				{renderComp.detailsPagamento ? <CardEditUser title={"Detalhes de faturação"} handleCloseClick={handleCloseClick}><EditPagamento ></EditPagamento></CardEditUser>: ""}
+				{renderComp.detailsPagamento ? <CardEditUser title={"Detalhes de pagamento"} handleCloseClick={handleCloseClick}><EditPagamento ></EditPagamento></CardEditUser>: ""}
 				{renderComp.detailsMorada ? <CardEditUser title={"Detalhes de faturação"} handleCloseClick={handleCloseClick}><EditCliente ></EditCliente></CardEditUser> : ""}
 			</div>
 		);

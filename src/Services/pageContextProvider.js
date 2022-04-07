@@ -4,8 +4,6 @@ import fetchAPI from "../Middleware/getApi";
 
 export const PageContext = createContext();
 
-
-
 export const pageContextProvider = (props) => {
 	const [data, setData] = useState({
 		data: getLocal("data") || [],
@@ -19,7 +17,6 @@ export const pageContextProvider = (props) => {
 		currentUser: getLocal("user") || "anonymous",
 		userlogged: getLocal("user") != "anonymous" && getLocal("user") != undefined ? true : false
 	});
-	console.log(getLocal("user") != "anonymous" && getLocal("user") != undefined ? true : false, "confirmação userlogged");
 
 	useEffect(() => {
 		const userStorage = getLocal("user");
