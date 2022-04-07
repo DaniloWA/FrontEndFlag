@@ -29,6 +29,7 @@ const App = () => {
 						<Route path={routes.checkoutpage} element={<CheckOutPage/>} />
 						<Route path={routes.notfound} element={<Pages.NotFound />} />
 						<Route path={routes.carrinho} element={<Pages.Carrinho />} />
+						<Route path={"/produto/:id"} element={<Pages.ProdutoPage />} />
 					</Routes>
 					<Layouts.Footer/> 
 				</PageContextProvider>

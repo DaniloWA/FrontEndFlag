@@ -1,0 +1,109 @@
+.ProdutoPage{
+    min-height:100vh;
+    padding-left: 5%;
+    padding-right: 6%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ProdutoPage_produtoCard{
+    display: grid;
+    padding: 15px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 0.5fr 0.5fr;
+    grid-template-areas: 
+      "produtoCard_img produtoCard_content produtoCard_content produtoCard_content"
+      "produtoCard_img produtoCard_content produtoCard_content produtoCard_content"
+      "produtoCard_img produtoCard_info produtoCard_info produtoCard_info"
+      "produtoCard_img produtoCard_button produtoCard_button produtoCard_button";
+}
+
+.ProdutoPage_produtoCard_img{
+    grid-area: produtoCard_img;
+    place-self: center stretch;
+    margin-right: 10px;
+}
+
+.ProdutoPage_produtoCard_img img {
+    width: 100%;
+    max-width: 300px;
+    max-height: 400px;
+}
+
+.ProdutoPage_produtoCard_content{
+    grid-area: produtoCard_content;
+    font-size: 1.0rem;
+    display:  grid;
+    grid-template-rows: 1fr 0.1fr 0.1fr;
+    
+}
+
+.ProdutoPage_produtoCard_content p {
+    align-self: end;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.ProdutoPage_produtoCard_content_disponivel{
+    color: green;
+    font-weight: bold;
+    font-size: 0.9rem!important;
+}
+
+.ProdutoPage_produtoCard_button{
+    grid-area: produtoCard_button;
+    place-self: end center;
+    
+    
+}
+
+.ProdutoPage_produtoCard_button button{
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius:  0  5px  5px 0;
+}
+
+.ProdutoPage_produtoCard_button input{
+    margin-right: -5px;
+    width: 60px;
+    padding: 8px 15px;
+    border-radius:  5px  0 0 5px ;
+}
+
+.ProdutoPage_produtoCard_button input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+{
+  -webkit-appearance: none;
+  margin: 0;
+}
+.ProdutoPage_produtoCard_button button:hover{
+    background-color: rgb(40, 40, 40);
+}
+
+.ProdutoPage_produtoCard_info{
+    grid-area: produtoCard_info;
+    align-self: end;
+    font-size: 0.8rem;
+}
+
+.ProdutoPage_envio{
+    text-align: end;
+}
+
+@media only screen and (max-width: 600px){ 
+    .ProdutoPage_produtoCard{
+        grid-template-columns: 1fr 1fr 1fr 0.4fr;
+        grid-template-rows: 1.5fr 0.5fr 0.4fr 0.2fr;
+        grid-template-areas: 
+          "produtoCard_img produtoCard_img produtoCard_img produtoCard_img"
+          "produtoCard_content produtoCard_content produtoCard_content produtoCard_content"
+          "produtoCard_info produtoCard_info produtoCard_info produtoCard_info"
+          "produtoCard_button produtoCard_button produtoCard_button produtoCard_button";
+    }
+    .ProdutoPage_envio{
+        text-align: center;
+    }
+}
