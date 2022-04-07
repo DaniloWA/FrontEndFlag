@@ -6,7 +6,7 @@ import fetchAPI from "../../Middleware/getApi";
 
 const SideCar = () => {
 	const {car} = useData();
-	const [cart, setCart] = useState();
+	const [cart, setCart] = useState(typeof car == "string" ? JSON.parse(car) : car);
 
 	const style = {
 		estilo01: cart ? "d-none" : "offcontent",
@@ -21,7 +21,7 @@ const SideCar = () => {
 		}
 	},[]);
 
-	console.log(cart);
+
 	return (
 		<div className="SideCar">
 			<div className="title-button">

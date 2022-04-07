@@ -6,6 +6,8 @@ import Carrinho from "./carrinho/Carrinho";
 import Cliente from "./cliente/Cliente";
 import Favoritos from "./favoritos/Favoritos";
 import CheckOutPage from "./checkoutPage/CheckOutPage";
+import ProdutoPage from "./produtoPage/ProdutoPage";
+
 
 
 const Pages = {
@@ -17,6 +19,7 @@ const Pages = {
 	Cliente,
 	Favoritos,
 	CheckOutPage,
+	ProdutoPage,
 };
 
 export default Pages;
