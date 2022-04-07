@@ -3,16 +3,15 @@ import { useNavigate } from "react-router-dom";
 import iconsPath from "../../Assets/Images";
 import SideCar from "../../Components/SideCar/SideCar";
 import { clearLocal } from "../../Middleware/sessionStorage";
-import "../../Assets/Styles/NavBar.css";
+import "./NavBar.css";
 import { useData } from "../../Services/pageContextProvider";
+import routes from "../../Routes/routes";
 
 
 const Icon = () => {
 	const navigate = useNavigate();
 	const {setUser, user} = useData();
 	const [showcart, setShowcart] = useState(false);
-	// eslint-disable-next-line no-unused-vars
-	// eslint-disable-next-line no-unused-vars
 	const [nameUserLogin, setNameUserLogin] = useState(typeof user.currentUser == "string" ?  user.currentUser == "anonymous" ? user.currentUser : JSON.parse(user.currentUser) : user.currentUser);
 	//const [count, setCount] = useState(0);
 	const [userConfirmation, setUserConfirmation ] = useState(user.userlogged);
@@ -33,32 +32,33 @@ const Icon = () => {
 		<>
 			<div id="icons">
 				<ul>
-					<li className="usuario_select">
+					<li className="Icon_user">
 						<img
 							src={iconsPath.iconLoginNavbar}
 							alt="Login"
 							onClick={() => navigate("/user")}
 						/>
 						<span>
-							{userConfirmation ? nameUserLogin.username : "login"} 
+							{userConfirmation ? nameUserLogin.username : "Login"} 
 						</span>
 						
-						<ul className="dropdowm_menu">
+						<ul className="Icon_DropdownMenu">
 							{userConfirmation ? "" : <li >
 								<a href="/login">Login</a>
 							</li>} 
 							<li>
 								<a href="/">Minha conta</a>
 							</li>
-							<li onClick={() => {
-								logOut(), navigate("/login");
+							{userConfirmation ? <li onClick={() => {
+								logOut(), navigate(routes.inicio);
 							} }> 
 								<a href="#" >Terminar sessão</a>
 
-							</li>
+							</li> : ""}
+							
 						</ul>
 					</li>
-					<li className="favoritos">
+					<li className="Icon_favoritos">
 						<img
 							src={iconsPath.iconHeartNavbar}
 							alt="Favoritos"

@@ -8,7 +8,7 @@ import fetchAPI from "./Middleware/getApi";
 import Pages from "./Pages/index";
 import routes from "./Routes/routes";
 import "./App.css";
-import CheckOutPage from "./Components/checkoutPage/CheckOutPage";
+import CheckOutPage from "./Pages/checkoutPage/CheckOutPage";
 
 const App = () => {
 
@@ -29,6 +29,7 @@ const App = () => {
 						<Route path={routes.checkoutpage} element={<CheckOutPage/>} />
 						<Route path={routes.notfound} element={<Pages.NotFound />} />
 						<Route path={routes.carrinho} element={<Pages.Carrinho />} />
+						<Route path={routes.checkoutpage} element={<Pages.CheckOutPage/>} />
 					</Routes>
 					<Layouts.Footer/> 
 				</PageContextProvider>

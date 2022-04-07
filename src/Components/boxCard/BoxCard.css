@@ -1,18 +1,28 @@
-.BoxCard{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    min-width: 500px;
-    max-width: 500px;
-    min-height: 280px;
-    max-height: 280px;
-    position: absolute;     
-    top: 199px;     
-    left: 50%;     
-    transform: translate(-50%, -50%);
-    background-color: rgb(255, 255, 255);
-    padding: 10px;
-    overflow:scroll;
-    overflow-x: hidden;
-    border: 1px solid rgba(0, 0, 0, 0.228);
+.BoxCard {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  min-width: 500px;
+  max-width: 500px;
+  min-height: 280px;
+  max-height: 280px;
+  position: absolute;
+  top: 199px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  overflow: scroll;
+  overflow-x: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.228);
+  z-index: 19;
+}
+
+@media only screen and (max-width: 600px) {
+  .BoxCard {
+    top: 258px;
+    overflow-y: hidden;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
 }

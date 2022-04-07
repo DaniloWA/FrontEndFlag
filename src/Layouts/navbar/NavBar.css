@@ -29,11 +29,15 @@
   background-color: #49494936;
 }
 
+.Pesquisa_searchBar_expanded {
+  display: none;
+}
+
 .Pesquisa_searchImg {
   display: none;
 }
 
-.nome_logo {
+.Logo_nome {
   grid-area: logo;
   font-size: 2rem;
   padding: 0 15px;
@@ -61,7 +65,7 @@ li > span {
   font-size: 0.8rem;
 }
 
-.usuario_select img {
+.Icon_user img {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -69,13 +73,13 @@ li > span {
   align-items: center;
 }
 
-.dropdowm_menu {
+.Icon_DropdownMenu {
   display: flex;
   flex-direction: column;
   position: absolute;
 }
 
-.dropdowm_menu li {
+.Icon_DropdownMenu li {
   display: none;
   background-color: #f1f1f1;
   min-width: 10rem;
@@ -83,7 +87,7 @@ li > span {
   z-index: 1;
 }
 
-.dropdowm_menu a {
+.Icon_DropdownMenu a {
   font-family: "Roboto", sans-serif;
   color: black;
   padding: 12px 16px;
@@ -91,21 +95,21 @@ li > span {
   display: block;
 }
 
-.dropdown_menu > a:hover {
+.Icon_DropdownMenu > a:hover {
   background-color: rgba(14, 13, 13, 0.315);
 }
 
-.usuario_select:hover > .dropdowm_menu li {
+.Icon_user:hover > .dropdowm_menu li {
   display: block;
   transform: translate(0, 0);
   opacity: 1;
 }
 
-.dropdowm_menu a:hover {
+.Icon_DropdownMenu a:hover {
   color: #e5153b;
 }
 
-.favoritos {
+.Icon_favoritos {
   display: flex;
   list-style-type: none;
   flex-direction: column;
@@ -155,17 +159,24 @@ li > span {
   position: relative;
 }
 
-@media only screen and (max-width: 1200px) {
+.Pesquisa_navbarlist {
+  color: #e5153b;
+  display: none;
 }
+
+.Pesquisa_cardProduct {
+  color: #e5153b;
+  display: block;
+}
+
 @media only screen and (max-width: 600px) {
   .Pesquisa_searchImg {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     align-items: center;
-    
+    position: relative;
   }
-  .Pesquisa_searchImg img{
+  .Pesquisa_searchImg img {
     min-width: 20px;
     max-height: 30px;
     position: relative;
@@ -175,19 +186,54 @@ li > span {
     font-family: Montserrat-M;
     font-size: 0.8rem;
   }
- 
-  .Pesquisa_searchBar{
+
+  .Pesquisa_searchBar {
     width: 100%;
-    display: block;
+    display: none;
     position: absolute;
-    top: 10%;
+    top: 76px;
     left: 0;
-    z-index: 1;
+    z-index: 5;
   }
-}
 
-@media only screen and (max-width: 400px) {
+  .Pesquisa_searchBar_expanded {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    height: 1.4rem;
+    width: 100%;
+    border: 0.5px solid #49494928;
+    padding: 1.3rem;
+    position: absolute;
+    top: 77px;
+    left:  0;
+  }
 
- 
+  .Pesquisa_navbarlist {
+    display: block;
+  }
 
+  .Pesquisa_Navbarlist_ul {
+    text-decoration: none;
+  }
+
+  .Pesquisa_Navbarlist_ul li {
+    padding: 0.6rem;
+    border-bottom: 1px solid #49494929;
+    text-align: justify;
+    font-family: Montserrat-M;
+  }
+
+  .Pesquisa_Navbarlist_ul li:hover {
+    color: #e5153b;
+  }
+
+  .Pesquisa_cardProduct {
+    display: none;
+  }
+
+  .dropdowm_menu {
+    z-index: 7;
+  }
 }
