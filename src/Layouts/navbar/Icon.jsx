@@ -24,7 +24,7 @@ const Icon = () => {
 	useEffect(()=>{
 		setNameUserLogin(nameUserLogin == "anonymous" ? "anonymous" : user.currentUser);
 		setUserConfirmation(user.userlogged);
-	}, []);
+	}, [nameUserLogin,user,userConfirmation]);
 	
 	return (
 		<>

@@ -33,10 +33,10 @@ const Card = () => {
 		try {
 			const response = await authLoginNew(inputUser, inputPass);
 			setHasError(false);
-			setUser({currentUser: response});
+			setUser({userlogged: true, currentUser: response});
 			setLocal("user", JSON.stringify(response));
 			setTimeout(function () {
-				navigate(routes.cliente);
+				navigate(routes.inicio);
 				setLoad(false);
 			}, 3000); //wait 3 seconds
 		} catch (error) {

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 
 const Products = () => {
-	const {data, car, setCar} = useData();
+	const {data, cartAddItem} = useData();
 
 	const [dataBase ] = useState(data);
 	const [responseApi, setResponseApi] = useState([]);
@@ -30,7 +30,6 @@ const Products = () => {
 		}
 		//setLoading(true);
 	}, []);
-	console.log(car);
 	return (
 		<div className="wrapper">
 			<div className="sectionWrapper">
@@ -45,16 +44,16 @@ const Products = () => {
 			{filter.map((Product) => {
 				return(
 					<div key={Product.id} className="wrapper">
-						<Link to={`/produto/${Product.id}`}>
-							<div className="card cardHeight">
+						<div className="card cardHeight">
+							<Link to={`/produto/${Product.id}`}>
 								<img className="cardImage" src={Product.image} alt={Product.title} />
-								<div className="cardBody">
-									<h2 className="cardTitle">{Product.title}</h2>
-									<p className="cardPrice">Price: {Product.price}€</p>
-									<button onClick={() => setCar({...car , carrinho: [...car.carrinho , ] })} className="cardBtn">Add to cart</button>
-								</div>
+							</Link>
+							<div className="cardBody">
+								<h2 className="cardTitle">{Product.title}</h2>
+								<p className="cardPrice">Price: {Product.price}€</p>
+								<button onClick={() => cartAddItem({productId: Product.id, title: Product.title ,image: Product.image ,price: Product.price})} className="cardBtn">Add to cart</button>
 							</div>
-						</Link>
+						</div>
 					</div>
 				);
 			})}
