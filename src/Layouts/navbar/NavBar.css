@@ -7,7 +7,7 @@
   cursor: pointer;
   justify-self: center;
   align-items: center;
-  position: block; /* fixed */
+  position: sticky;
   width: 100vw;
   column-gap: 0.6rem;
 }
@@ -26,11 +26,7 @@
 }
 
 .Pesquisa_searchBar:hover {
-  background-color: #49494936;
-}
-
-.Pesquisa_searchBar_expanded {
-  display: none;
+  background-color: #49494918;
 }
 
 .Pesquisa_searchImg {
@@ -41,7 +37,7 @@
   grid-area: logo;
   font-size: 2rem;
   padding: 0 15px;
-  font-family: "Roboto", sans-serif;
+  font-family: Montserrat-M;
   background: -webkit-linear-gradient(#eee, #333);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -61,7 +57,6 @@
 }
 
 li > span {
-  font-family: "Roboto", sans-serif;
   font-size: 0.8rem;
 }
 
@@ -69,8 +64,6 @@ li > span {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .Icon_DropdownMenu {
@@ -88,8 +81,7 @@ li > span {
 }
 
 .Icon_DropdownMenu a {
-  font-family: "Roboto", sans-serif;
-  color: black;
+  font-family: Montserrat-M;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -99,7 +91,7 @@ li > span {
   background-color: rgba(14, 13, 13, 0.315);
 }
 
-.Icon_user:hover > .dropdowm_menu li {
+.Icon_user:hover > .Icon_DropdownMenu li {
   display: block;
   transform: translate(0, 0);
   opacity: 1;
@@ -118,7 +110,7 @@ li > span {
   margin: 0.5rem;
 }
 
-.sacola {
+.Icon_bag {
   margin: 0.5rem;
   display: flex;
   position: relative;
@@ -128,7 +120,7 @@ li > span {
   justify-content: center;
 }
 
-.sacola_icon {
+.Icon_bagNum {
   position: absolute;
   top: -8px;
   right: -10px;
@@ -139,7 +131,7 @@ li > span {
   border-radius: 50%;
 }
 
-.sacola_item {
+.Icon_bagItem {
   min-width: 0.8rem;
   max-height: 0.8rem;
   display: flex;
@@ -169,6 +161,10 @@ li > span {
   display: block;
 }
 
+.Pesquisa_Navbarlist_ul {
+  display: none;
+}
+
 @media only screen and (max-width: 600px) {
   .Pesquisa_searchImg {
     display: flex;
@@ -188,12 +184,7 @@ li > span {
   }
 
   .Pesquisa_searchBar {
-    width: 100%;
     display: none;
-    position: absolute;
-    top: 76px;
-    left: 0;
-    z-index: 5;
   }
 
   .Pesquisa_searchBar_expanded {
@@ -207,15 +198,20 @@ li > span {
     padding: 1.3rem;
     position: absolute;
     top: 77px;
-    left:  0;
+    left: 0;
   }
 
   .Pesquisa_navbarlist {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 50%;
   }
 
   .Pesquisa_Navbarlist_ul {
+    display: block;
+    width: 350px;
     text-decoration: none;
+    list-style-type: none;
   }
 
   .Pesquisa_Navbarlist_ul li {
@@ -233,7 +229,11 @@ li > span {
     display: none;
   }
 
-  .dropdowm_menu {
+  .Icon_DropdownMenu {
     z-index: 7;
+  }
+
+  .Icon_bagNum {
+    right: -8px;
   }
 }
