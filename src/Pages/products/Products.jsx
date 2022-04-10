@@ -2,13 +2,12 @@ import React, {useState, useEffect} from "react";
 import "./Products.css";
 import { useData } from "../../Services/pageContextProvider";
 import fetchAPI from "../../Middleware/getApi";
-import { Link } from "react-router-dom";
 
 
 const Products = () => {
-	const {data, car, setCar} = useData();
+	const {data} = useData();
 
-	const [dataBase ] = useState(data);
+	const [dataBase ] = useState(typeof data == "string" ? JSON.parse(data) : data);
 	const [responseApi, setResponseApi] = useState([]);
 	const [filter, setFilter] = useState(responseApi);
 	//const [loading, setLoading] = useState(false);
@@ -30,7 +29,7 @@ const Products = () => {
 		}
 		//setLoading(true);
 	}, []);
-	console.log(car);
+    
 	return (
 		<div className="wrapper">
 			<div className="sectionWrapper">
@@ -45,16 +44,14 @@ const Products = () => {
 			{filter.map((Product) => {
 				return(
 					<div key={Product.id} className="wrapper">
-						<Link to={`/produto/${Product.id}`}>
-							<div className="card cardHeight">
-								<img className="cardImage" src={Product.image} alt={Product.title} />
-								<div className="cardBody">
-									<h2 className="cardTitle">{Product.title}</h2>
-									<p className="cardPrice">Price: {Product.price}€</p>
-									<button onClick={() => setCar({...car , carrinho: [...car.carrinho , ] })} className="cardBtn">Add to cart</button>
-								</div>
+						<div className="card cardHeight">
+							<img className="cardImage" src={Product.image} alt={Product.title} />
+							<div className="cardBody">
+								<h2 className="cardTitle">{Product.title}</h2>
+								<p className="cardPrice">Price: {Product.price}€</p>
+								<button className="cardBtn">Add to cart</button>
 							</div>
-						</Link>
+						</div>
 					</div>
 				);
 			})}
@@ -64,5 +61,3 @@ const Products = () => {
 };
 
 export default Products;
-
-// {produtoid: Product.id, price:Product.price , image: Product.image}

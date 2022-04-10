@@ -25,12 +25,10 @@ export function setLocal(nome, data) {
 
 export function getLocal(data) {
 	let database = sessionStorage.getItem(data);
-
-	if(typeof database != "object"){
-		return JSON.parse(database);
+	if(typeof database == "string"){
+		return database;
 	}
-	
-	return database;
+	return JSON.parse(database);
 }
 
 export function clearLocal(local) {

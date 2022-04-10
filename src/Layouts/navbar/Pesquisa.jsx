@@ -11,7 +11,9 @@ const Pesquisa = () => {
 
 	const [pesquisar, setPesquisar] = useState("");
 	const [filtered, setFiltered] = useState();
-	const [dataBase] = useState(data);
+	const [dataBase] = useState(
+		typeof data == "string" ? JSON.parse(data) : data
+	);
 	const [displayBox, setDisplayBox] = useState(false);
 	const [showInput, setShowInput] = useState(true);
 
