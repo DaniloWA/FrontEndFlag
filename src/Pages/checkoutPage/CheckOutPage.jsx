@@ -1,21 +1,28 @@
 import React from "react";
-import Footer from "../../Layouts/footer/Footer";
-import NavBar from "../../Layouts/navbar/NavBar";
+import AddressClient from "./AddressClient";
+import DataClient from "./DataClient";
+import CheckOutPayment from "./CheckOutPayment";
+import CheckOutDelivery from "./CheckOutDelivery";
+import ChcekOutResume from "./CheckOutResume";
+import TitleBackImgUser from "../../Components/titleBackImgUser/TitleBackImgUser";
+
 
 const CheckOutPage = () => {
-
-
 	return (
 		<>
-			<NavBar/>
-			<div>
-				<h1>Checkout</h1>
-				<form>
-
-				</form>
+			<div className="CheckOutPage">
+				<TitleBackImgUser tituloBackImgUser="Checkout"/>
+				<DataClient/>
+				<AddressClient/>
+				<CheckOutDelivery />
+				<CheckOutPayment/>
 			</div>
-			<Footer/>
+			<div className="CheckOutPageAside">
+				<ChcekOutResume />
+			</div>
 		</>
+		
+
 	);
 };
 

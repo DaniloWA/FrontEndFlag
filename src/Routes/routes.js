@@ -5,7 +5,7 @@ const routes = {
 	produtos: "/products",
 	notfound: "*",
 	carrinho: "/carrinho",
-	favorites: "/favoritos",
+	favorites: "/favorites",
 	checkoutpage: "/checkoutpage"
 
 };
