@@ -11,38 +11,96 @@ export const pageContextProvider = (props) => {
 
 	const [car, setCar] = useState({
 		carUser: getLocal("user") || "anonymous",
-		carrinho: getLocal("car") || null
+		products:  getLocal("user") || null
 	});
+
+	function cartAddItem (e){
+		let prodctsnew = [];
+		const newProdutc = {...e, quantidade: 1};
+	
+		if(getLocal("car")){
+			console.log("aaa");
+		}else if(car.products != null){
+			let cart = [...car.products];
+			if(!cart.find(product => product.productId === newProdutc.productId)){
+				prodctsnew = [...car.products , newProdutc];
+			}
+			else{
+				let newQuanti = cart.find(product => product.productId === newProdutc.productId);
+				let newCart = cart.filter(product => product.productId != newQuanti.productId);
+				prodctsnew = [...newCart, {...newQuanti, quantidade: newQuanti.quantidade + 1}].sort((a,b) => a-b);
+			}
+				
+		}else{
+			prodctsnew = [newProdutc];
+		}
+		
+		let sortArray = prodctsnew.sort((a,b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0));
+		setCar({...car, products: sortArray});
+
+	}
+
+	function addQuant(e){
+		let prodctsnew = [];
+
+		if(car.products != null){
+			let cart = [...car.products];
+			let newQuanti = cart.find(product => product.productId === e);
+			let newCart = cart.filter(product => product.productId != e);
+			prodctsnew = [...newCart, {...newQuanti, quantidade: newQuanti.quantidade + 1}];		
+		}
+		let sortArray = prodctsnew.sort((a,b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0));
+		setCar({...car, products: sortArray});
+	}
+
+	function subQuant(e){
+		let prodctsnew = [];
+
+		if(car.products != null){
+			let cart = [...car.products];
+			let newQuanti = cart.find(product => product.productId === e);
+			let newCart = cart.filter(product => product.productId != e);
+			if(newQuanti.quantidade == 1){
+				prodctsnew = [...newCart];
+			}else{
+				prodctsnew = [...newCart, {...newQuanti, quantidade: newQuanti.quantidade - 1}];		
+			}	
+		}
+		let sortArray = prodctsnew.sort((a,b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0));
+		setCar({...car, products: sortArray});
+	}
+
 	const [user, setUser] = useState({
-		currentUser: getLocal("user") || "anonymous",
+		currentUser: getLocal("user") || "anownymous",
 		userlogged: getLocal("user") != "anonymous" && getLocal("user") != undefined ? true : false
 	});
 
 	useEffect(() => {
 		const userStorage = getLocal("user");
 		const dataStorage = getLocal("data");
-		const carStorage = getLocal("car");
+		const carStorage = getLocal("car")  ;
 
 		if (userStorage && userStorage != "anonymous") {
-			console.log("User Logado");
-			setUser({currentUser: userStorage});
+			console.log("User Logado - Provider");
+			setUser({userlogged: true, currentUser: userStorage});
 		} else {
-			console.log("User Não Existe");
-			setUser({currentUser: {name:"anonymous"}});
+			console.log("User Não Existe - Provider");
+			setUser({userlogged: false, currentUser: {name:"anonymous"}});
 		}
 
-		
 		if (carStorage && carStorage.carUser != "anonymous") {
-			console.log("Carrinho do user em Cache!");
-			setCar({...car, carrinho: carStorage});
+			console.log("Carrinho do user em Cache! - Provider");
+			setCar({...car, products: carStorage});
 		} else {
-			console.log("User Não tem Item no carrinho");
-			setCar({...car, carrinho: null});
+			console.log("User Não tem Item no carrinho - Provider");
+			setCar({...car, products: null});
 		}
 
 		if (dataStorage) {
+			console.log("Data está atualizado - Provider");
 			setData({ ...data, data: dataStorage });
 		} else {
+			console.log("Data desatualizado - Provider");
 			fetchAPI("data", "/products").then((response) =>
 				setData({ ...data, data: response })
 			);
@@ -57,6 +115,9 @@ export const pageContextProvider = (props) => {
 				car: car,
 				user: user,
 				setCar,
+				cartAddItem,
+				addQuant,
+				subQuant,
 				setUser
 			}}
 		>

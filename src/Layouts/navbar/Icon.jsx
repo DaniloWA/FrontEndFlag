@@ -9,17 +9,11 @@ import routes from "../../Routes/routes";
 import { Link } from "react-router-dom";
 
 const Icon = () => {
-	// login name
-	const navigate = useNavigate(); // navegar nas paginas
-	const { setUser, user } = useData(); //tem as infos do usuario
-	const isUserLogged = () => typeof user.currentUser == "string" ? user.currentUser == "anonymous" ? user.currentUser : JSON.parse(user.currentUser)
-		: user.currentUser; //função, confirma 
-
+	const navigate = useNavigate(); 
+	const { setUser, user } = useData(); 
 	const [showcart, setShowcart] = useState(false);
-	
-	const [nameUserLogin, setNameUserLogin] = useState(isUserLogged());
-
-	const [userConfirmation, setUserConfirmation] = useState(user.userlogged);
+	const [nameUserLogin, setNameUserLogin] = useState(user.currentUser);
+	const [userConfirmation, setUserConfirmation ] = useState(user.userlogged);
 
 	function logOut() {
 		setUser({ currentUser: { name: "anonymous" } });
@@ -27,22 +21,12 @@ const Icon = () => {
 		setNameUserLogin("anonymous");
 	}
 
-	console.log(userConfirmation, "antes do effect");
-	console.log(user, "user");
-	console.log(user.currentUser, "user.currentuser");
-	console.log(user.userlogged, "userLogged");
 
-	useEffect(() => {
-		const userName = isUserLogged();
-		setNameUserLogin(
-			userName == "anonymous" ? (user.currentUser) : "anonymous"
-		);
-		console.log(userName, "userlogged useeffect");
-		setUserConfirmation(user);
-	}, [user]);
-	console.log(user.userlogged, "userLogged");
-
-	console.log(userConfirmation, "depois do effect");
+	useEffect(()=>{
+		setNameUserLogin(nameUserLogin == "anonymous" ? "anonymous" : user.currentUser);
+		setUserConfirmation(user.userlogged);
+	}, [nameUserLogin,user,userConfirmation]);
+	
 
 	return (
 		<>
@@ -103,7 +87,7 @@ const Icon = () => {
 					</li>
 				</ul>
 			</div>
-			{showcart ? <SideCar /> : ""}
+			{showcart ? <SideCar setShowcart={setShowcart} /> : ""}
 		</>
 	);
 };
