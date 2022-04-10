@@ -1,25 +1,22 @@
 .CardCliente {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 0.3fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "detalhes user btn";
-    padding: 40px;
-    border-bottom: 1px solid black;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.3fr;
+  grid-template-rows: auto;
+  grid-template-areas: "detalhes user btn";
+  padding: 40px;
+  border-bottom: 1px solid black;
 }
 
 .CardCliente_Detalhes {
-    grid-area: detalhes;
+  grid-area: detalhes;
 }
 
 .CardCliente_Info {
-    grid-area: user;
-
+  grid-area: user;
 }
 
 .CardCliente_Botao {
-    grid-area: btn;
-    justify-self: end;
+  grid-area: btn;
+  justify-self: end;
 }
-

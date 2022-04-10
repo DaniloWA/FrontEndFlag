@@ -15,7 +15,7 @@ const CardEditUser = ({children, handleCloseClick, title}) => {
 					{children}
 				</div>
 				<div className="CardEditUser_Btn">
-					<button onClick={handleCloseClick}>Guardar</button>
+					<button onClick={handleCloseClick}>Done</button>
 				</div>
 			</div>
 		</div>

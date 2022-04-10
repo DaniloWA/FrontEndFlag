@@ -61,11 +61,11 @@ const Card = () => {
 			{load ? <Loading></Loading> : ""}
 			<div className="Card">
 				<div className="title">
-					<h1>Entrar</h1>
+					<h1>Sign in</h1>
 					<p>
-          Novo cliente?
+          New Customer?
 						<a href="#">
-							<span> Registar-me</span>.
+							<span> Start Here</span>.
 						</a>
 					</p>
 				</div>
@@ -89,7 +89,7 @@ const Card = () => {
 								onChange={handlePasswordChange}
 							/>
 						</div>
-						<p style={!hasError ? errorText : null} className="errorTxt"> UserName ou Passowrd estão incorretos! </p>
+						<p style={!hasError ? errorText : null} className="errorTxt"> UserName or Passowrd are incorrect! </p>
 					</div>
 				</div>	
 				{ }
@@ -100,11 +100,11 @@ const Card = () => {
 						}}
 						disabled={inputPass && inputUser ? false : true}
 					>
-          Entrar
+          Sign in
 					</button>
 				</div>
 				<div className="text-pass">
-					<p>Esqueceu a palavra-passe?</p>
+					<p>Forgot your password?</p>
 				</div>
 			</div>
 		</>

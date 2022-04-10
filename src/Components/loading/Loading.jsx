@@ -2,7 +2,7 @@ import React from "react";
 import "./Loading.css";
 import iconsPath from "../../Assets/Images";
 const Loading = () => {
-	return ( 
+	return (
 		<div className="Loading">
 			<div>
 				<img src={iconsPath.loading} alt="loading" />
@@ -10,5 +10,5 @@ const Loading = () => {
 		</div>
 	);
 };
- 
+
 export default Loading;

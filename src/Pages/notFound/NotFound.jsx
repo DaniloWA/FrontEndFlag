@@ -4,7 +4,7 @@ import Image from "./NotFounfImage";
 
 const NotFound = () => {
 	return (
-		<section className="notFound">
+		<section className="NotFound">
 			<Image />
 			<h1>This code means page not found!</h1>
 			<p>

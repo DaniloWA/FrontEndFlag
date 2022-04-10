@@ -6,18 +6,16 @@ import CardProduct from "../../Components/cardProduct/CardProduct";
 import iconsPath from "../../Assets/Images";
 import Navbarlist from "../../Components/navbarlist/Navbarlist";
 
-
 const Pesquisa = () => {
 	const { data } = useData();
-	
+
 	const [pesquisar, setPesquisar] = useState("");
 	const [filtered, setFiltered] = useState();
-	const [dataBase] = useState(JSON.parse(data));
+	const [dataBase] = useState(data);
 	const [displayBox, setDisplayBox] = useState(false);
 	const [showInput, setShowInput] = useState(true);
 
 	function handleFilter(fil) {
-		
 		setFiltered(
 			dataBase.filter((product) => {
 				return product.title.toLowerCase().includes(fil.toLocaleLowerCase());
@@ -27,83 +25,108 @@ const Pesquisa = () => {
 	}
 
 	function handleShowInput() {
-		console.log("is clicking fine");
 		setShowInput(!showInput);
-
 	}
-	
+
 	function handleChange(e) {
 		setPesquisar(e);
 		handleFilter(pesquisar);
 	}
-	// 6 - o nome do usuario, terminar o layout de pesquisa
 	return (
-		<div >
-			{showInput ? <input
-				className="Pesquisa_searchBar"
-				type="search"
-				name="pesquisar"
-				placeholder="Search here"
-				value={pesquisar}
-				onChange={(e) => handleChange(e.target.value)}
-				onBlur={() => {
-					setDisplayBox(false);
-				}}
-				onFocus={() => {
-					handleFilter(pesquisar);
-				}}
-			/> : null}
+		<>
+			<div>
+				{showInput ? (
+					<input
+						className="Pesquisa_searchBar"
+						type="search"
+						name="pesquisar"
+						placeholder="Search here"
+						value={pesquisar}
+						autoComplete="off"
+						onChange={(e) => handleChange(e.target.value)}
+						onBlur={() => {
+							setDisplayBox(false);
+						}}
+						onFocus={() => {
+							handleFilter(pesquisar);
+						}}
+					/>
+				) : (
+					<div className="Pesquisa_searchImg">
+						<img
+							src={iconsPath.iconLupaNavbar}
+							alt="Lupa's icon"
+							onClick={() => handleShowInput()}
+						/>
+						<span>Search</span>
+					</div>
+				)}
 
-			{!showInput ? <input
-				className="Pesquisa_searchBar_expanded"
-				type="search"
-				name="pesquisar"
-				placeholder="Search here"
-				value={pesquisar}
-				onChange={(e) => handleChange(e.target.value)}
-				onBlur={() => {
-					setDisplayBox(false);
-				}}
-				onFocus={() => {
-					handleFilter(pesquisar);
-				}}
-			/>: null}
-			
-			<div className="Pesquisa_searchImg">
-				<img src={iconsPath.iconLupaNavbar} alt="Lupa's icon" onClick={() => handleShowInput()} />
-				<span>Search</span>
-			</div>
-			
-			{displayBox && pesquisar ? (
-				<BoxCard>
+				{!showInput ? (
+					<input
+						className="Pesquisa_searchBar_expanded"
+						type="search"
+						name="pesquisar"
+						placeholder="Search here"
+						value={pesquisar}
+						autoComplete="off"
+						onChange={(e) => handleChange(e.target.value)}
+						onBlur={() => {
+							setDisplayBox(false);
+						}}
+						onFocus={() => {
+							handleFilter(pesquisar);
+						}}
+					/>
+				) : (
+					<div className="Pesquisa_searchImg">
+						<img
+							src={iconsPath.iconLupaNavbar}
+							alt="Lupa's icon"
+							onClick={() => setShowInput(!showInput)}
+						/>
+						<span>Search</span>
+					</div>
+				)}
 
-					{filtered.length != 0 ? filtered.slice(0, 6).map((product) => {
-						return (
-							<CardProduct
-								key={product.id}
-								title={product.title}
-								image={product.image}
-							/>
-						);
-					}): <p className="Pesquisa_cardProduct">The product typed was not find</p>} 
-					<div>
-						<ul className="Pesquisa_Navbarlist_ul">
-							{filtered.length != 0 ?filtered.slice(0, 6).map((product) => {
+				{displayBox && pesquisar ? (
+					<BoxCard>
+						{filtered.length != 0 ? (
+							filtered.slice(0, 6).map((product) => {
 								return (
-									<Navbarlist
+									<CardProduct
 										key={product.id}
 										title={product.title}
+										image={product.image}
 									/>
 								);
-							}) : <p className="Pesquisa_navbarlist">The product typed was not find</p>}
-						</ul>
-					</div>
-					
-				</BoxCard>
-			) : (
-				""
-			)}
-		</div>
+							})
+						) : (
+							<p className="Pesquisa_cardProduct">
+                The product typed was not found
+							</p>
+						)}
+						<div>
+							<ul className="Pesquisa_Navbarlist_ul">
+								{filtered.length != 0 ? (
+									filtered.slice(0, 5).map((product) => {
+										return (
+											<Navbarlist key={product.id} title={product.title} />
+										);
+									})
+								) : (
+									<p className="Pesquisa_navbarlist">
+                    The product typed was not found
+									</p>
+								)}
+							</ul>
+						</div>
+					</BoxCard>
+				) : (
+					""
+				)}
+			</div>
+		</>
 	);
 };
 

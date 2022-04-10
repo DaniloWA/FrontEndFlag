@@ -9,7 +9,7 @@ const ProdutoPage = () => {
 	const { data } = useData();
     
 	// eslint-disable-next-line no-unused-vars
-	const [dataBase, setDataBase] = useState(typeof data == "string" ? JSON.parse(data) : data);
+	const [dataBase, setDataBase] = useState(data);
 	const [load, setLoad] = useState(true);
 	console.log(dataBase);
 	// eslint-disable-next-line no-unused-vars
@@ -35,10 +35,10 @@ const ProdutoPage = () => {
 					<div className="ProdutoPage_produtoCard_content">
 						<h1>{produtoData[0].title}</h1>
 						<p>{produtoData[0].price}€</p>
-						<p className="ProdutoPage_produtoCard_content_disponivel">disponivel</p>
+						<p className="ProdutoPage_produtoCard_content_nota">Nota: <span>{produtoData[0].rating.rate}/5</span></p>
 					</div>
 					<div className="ProdutoPage_produtoCard_button">
-						<input type="number" maxLength="3" onChange={(e) => {handleNum(e.target.value);}} value={inputNum} /> <button>ADICIONAR AO CARRINHO</button>
+						<input type="number" maxLength="3" onChange={(e) => {handleNum(e.target.value);}} value={inputNum} /> <button>ADD TO CART</button>
 					</div>
 					<div className="ProdutoPage_produtoCard_info">
 						<p>{produtoData[0].description}</p>
@@ -47,18 +47,18 @@ const ProdutoPage = () => {
 					<div className="ProdutoPage_envio">
 						<div>
 							<img src="#" alt="" />
-							<h3>Envio Grátis</h3>
-							<p>Em encomendas a partir de 35€</p>
+							<h3>Free Shipping</h3>
+							<p>On orders starting at 35€</p>
 						</div>
 						<div>
 							<img src="#" alt="" />
-							<h3>Devoluções Rápidas</h3>
-							<p>Simples e sem demora</p>
+							<h3>Fast Returns</h3>
+							<p>Simple and without delay</p>
 						</div>
 						<div>
 							<img src="#" alt="" />
-							<h3>Pagamentos Seguros</h3>
-							<p>Pagamentos modernos e seguros</p>
+							<h3>Secure Payments</h3>
+							<p>Modern Payments</p>
 						</div>
 					</div>
 				</div></> : <Loading></Loading> }

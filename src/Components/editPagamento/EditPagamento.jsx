@@ -7,22 +7,42 @@ const EditPagamento = () => {
 			<div className="EditPagamento">
 				<div className="EditPagamento_radio">
 					<div className="EditPagamento_Choice">
-						<input type="radio" id="PagamentoChoice1" name="Pagamento" value="email"/>
+						<input
+							type="radio"
+							id="PagamentoChoice1"
+							name="Pagamento"
+							value="email"
+						/>
 						<label htmlFor="PagamentoChoice1">Multibanco</label>
 					</div>
 
 					<div className="EditPagamento_Choice">
-						<input type="radio" id="PagamentoChoice2" name="Pagamento" value="telephone"/>
+						<input
+							type="radio"
+							id="PagamentoChoice2"
+							name="Pagamento"
+							value="telephone"
+						/>
 						<label htmlFor="PagamentoChoice2">MBWAY</label>
 					</div>
 
 					<div className="EditPagamento_Choice">
-						<input type="radio" id="PagamentoChoice3" name="Pagamento" value="courrier"/>
+						<input
+							type="radio"
+							id="PagamentoChoice3"
+							name="Pagamento"
+							value="courrier"
+						/>
 						<label htmlFor="PagamentoChoice3">Cartão de Crédito</label>
 					</div>
 
 					<div className="EditPagamento_Choice">
-						<input type="radio" id="PagamentoChoice4" name="Pagamento" value="courrier"/>
+						<input
+							type="radio"
+							id="PagamentoChoice4"
+							name="Pagamento"
+							value="courrier"
+						/>
 						<label htmlFor="PagamentoChoice3">PayShop</label>
 					</div>
 				</div>
@@ -32,7 +52,6 @@ const EditPagamento = () => {
 };
 
 export default EditPagamento;
-
 
 /*
     display: flex;

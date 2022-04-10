@@ -3,7 +3,7 @@ import "./Footer.css";
 
 const MadeBy = () => {
 	return (
-		<div className="footer_madeBy">
+		<div className="Footer_madeBy">
       Made by{" "}
 			<a href="https://www.linkedin.com/in/danilo-oliveira-web/">
 				{" "}

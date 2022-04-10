@@ -1,4 +1,4 @@
-.notFound {
+.NotFound {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -9,20 +9,20 @@
     height: 100vh;
 }
 
-.notFound h1 {
+.NotFound h1 {
     font-size: 1.3rem;
     color: #E5153B;
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 2px;
 }
 
-.notFound h2 {
+.NotFound h2 {
     font-size: 1rem;
     margin-bottom: 0.4rem;
     font-family: 'Montserrat', sans-serif;
 }
 
-.notFound p {
+.NotFound p {
     font-size: 1rem;
     font-family: 'Roboto', sans-serif;
     margin-top: 2px;
@@ -31,7 +31,7 @@
 }
 
 
-.button {
+.Button {
     border: 1px solid rgb(214, 81, 81);
     border-radius: 7px;
     background-color: #E5153B;
@@ -41,11 +41,11 @@
     margin-top: 1.2rem
 }
 
-.button:hover {
+.Button:hover {
     background-color: #F1153F;
 }
 
-.button a {
+.Button a {
     text-decoration: none;
 }
 

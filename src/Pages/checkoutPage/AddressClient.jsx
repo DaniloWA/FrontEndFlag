@@ -1,54 +1,54 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import CheckOutInput from "../../Components/checkoutInput/CheckOutInput";
+import "./CheckOutPage.css";
 
 const AddressClient = () => {
-
 	const [street, setStreet] = useState("");
 	const [moreInfo, setMoreInfo] = useState("");
 	const [city, setCity] = useState("");
 	const [postalCode, setPostalCode] = useState("");
-	
-	function handleData(e){
+
+	function handleData(e) {
 		e.preventDefault();
 	}
 
-	return ( <>
-		<div>
-			<form onSubmit={handleData}>
-				<input
-					value={street}
-					onChange={e => setStreet(e.target.value)}
-					placeholder="Street"
+	return (
+		
+		<div className="AddressClient_Title">
+			<h1>Your Address</h1>
+			<form onSubmit={handleData} className="AddressClient">
+				<CheckOutInput
 					type="text"
 					name="Street"
-					required
+					value={street}
+					placeholder="Street"
+					setInput={(e) => setStreet(e.target.value)}
 				/>
-				<input
+				<CheckOutInput
+					type="text"
 					value={moreInfo}
-					onChange={e => setMoreInfo(e.target.value)}
 					placeholder="More informations (optional)"
-					type="text"
-					name="Street"
-					required
+					name="Infomation"
+					setInput={(e) => setMoreInfo(e.target.value)}
 				/>
-				<input
+				<CheckOutInput
+					type="text"
 					value={city}
-					onChange={e => setCity(e.target.value)}
 					placeholder="City/Town"
-					type="text"
 					name="City/Town"
-					required 
+					setInput={(e) => setCity(e.target.value)}
 				/>
-				<input
-					value={street}
-					onChange={e => setStreet(e.target.value)}
-					placeholder="Street"
+				<CheckOutInput
 					type="text"
-					name="Street"
-					required
+					value={postalCode}
+					placeholder="Postal Code"
+					name="PostalCode"
+					setInput={(e) => setPostalCode(e.target.value)}
 				/>
 			</form>
 		</div>
-	</> );
+	
+	);
 };
- 
+
 export default AddressClient;
