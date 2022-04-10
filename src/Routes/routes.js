@@ -4,7 +4,6 @@ const routes = {
 	cliente: "/user",
 	produtos: "/products",
 	notfound: "*",
-	carrinho: "/carrinho",
 	favorites: "/favorites",
 	checkoutpage: "/checkoutpage"
 
