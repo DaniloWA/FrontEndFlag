@@ -12,9 +12,9 @@ import CheckOutPage from "./Pages/checkoutPage/CheckOutPage";
 
 const App = () => {
 	useEffect(() => {
-		fetchAPI("car", "/carts");
 		fetchAPI("data", "/products");
 	}, []);
+	
 	return (
 		<div className="App">
 			{

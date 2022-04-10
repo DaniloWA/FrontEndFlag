@@ -6,9 +6,7 @@ import fetchAPI from "../../Middleware/getApi";
 const ProductsCard = () => {
 	const { data } = useData();
 
-	const [dataBase] = useState(
-		typeof data == "string" ? JSON.parse(data) : data
-	);
+	const [dataBase ] = useState(data);
 	const [responseApi, setResponseApi] = useState([]);
 	const [filter, setFilter] = useState(responseApi);
 
