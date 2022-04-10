@@ -229,10 +229,6 @@ li > span {
     display: none;
   }
 
-  .Icon_DropdownMenu {
-    z-index: 7;
-  }
-
   .Icon_bagNum {
     right: -8px;
   }

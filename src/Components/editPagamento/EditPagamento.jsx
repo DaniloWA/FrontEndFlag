@@ -33,7 +33,7 @@ const EditPagamento = () => {
 							name="Pagamento"
 							value="courrier"
 						/>
-						<label htmlFor="PagamentoChoice3">Cartão de Crédito</label>
+						<label htmlFor="PagamentoChoice3">Credit card</label>
 					</div>
 
 					<div className="EditPagamento_Choice">

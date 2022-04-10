@@ -1,6 +1,6 @@
 .CheckOutPageAside {
   display: flex;
-  width: 80%;
+  width: 50%;
   justify-content: flex-end;
   align-content: center;
   position: absolute;
@@ -20,14 +20,17 @@
   margin-top: 1rem;
 }
 
-.DataClient,
-.AddressClient,
+
+.AddressClient_Title,
 .CheckOutDelivery,
-.CheckOutPayment,
-.checkOutResume {
+.CheckOutPayment, .DataClient_Title {
   display: flex;
   flex-direction: column;
   width: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.342);
+  border-radius: 5px;
+  padding: 1.5rem;
+  box-shadow: 1px 1px 6px 1px rgba(80, 80, 80, 0.151);
 }
 
 .CheckOutInput {
@@ -36,6 +39,7 @@
   border-left: none;
   border-right: none;
   padding: 0.8rem;
+  margin-right: 0.8rem;
 }
 
 .DataClient_select {
@@ -66,9 +70,10 @@
 .CheckOut_button button {
   padding: 0.5rem;
   color: #fff;
-  background-color: #000;
+  background-color: #e5153b;
   border-radius: 5px;
   width: 7rem;
+  margin: 5px;
 }
 
 .CheckOutDeliveryInputHome,
@@ -88,8 +93,6 @@
   border-radius: 5px;
   padding: 1.5rem;
   box-shadow: 2px 1px 10px rgba(143, 143, 143, 0.61);
-  justify-content: flex-end;
-  align-content: flex-end;
 }
 
 .checkOutResum_Item,
@@ -105,6 +108,7 @@
   border-radius: 5px;
   margin-bottom: 0.5rem;
   padding: 0.2rem;
+  margin-left: 1.4rem;
 }
 
 .checkOutResume_promoCode {
@@ -128,14 +132,13 @@ span {
   font-family: Roboto-L;
 }
 
+
 @media only screen and (max-width: 700px) {
-  .DataClient,
-  .AddressClient,
+
   .CheckOutDelivery,
   .CheckOutPayment,
-  .checkOutResume {
+  .AddressClient_Title, .DataClient_Title {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     width: 100%;
   }
@@ -154,6 +157,14 @@ span {
   }
 
   .DataClient_Title {
-    margin-top: 18rem;
+    margin-top: 16rem;
   }
+
+  .checkOutResume {
+    display: block;
+   margin: auto;
+   
+  }
+
+
 }
