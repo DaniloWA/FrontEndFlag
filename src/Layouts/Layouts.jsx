@@ -3,7 +3,7 @@ import React from "react";
 import "./Layouts.css";
 
 const Layouts = ({ children }) => {
-	console.log(children);
+
 	return ( 
 		<div className="Layouts">
 			{children}

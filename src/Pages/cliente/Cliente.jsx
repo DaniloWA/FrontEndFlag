@@ -15,7 +15,7 @@ import "./Cliente.css";
 
 const Cliente = () => {
 	const {user} = useData();
-	const [usuario] = useState(typeof user.currentUser == "string" ?  user.currentUser == "anonymous" ? user.currentUser : JSON.parse(user.currentUser) : user.currentUser);
+	const [usuario] = useState(user.currentUser);
 	const [renderComp, setRnderComp] = useState({
 		detailsUser: false,
 		detailsPagamento: false,

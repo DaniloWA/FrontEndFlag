@@ -12,7 +12,7 @@ const Icon = () => {
 	const navigate = useNavigate();
 	const {setUser, user} = useData();
 	const [showcart, setShowcart] = useState(false);
-	const [nameUserLogin, setNameUserLogin] = useState(typeof user.currentUser == "string" ?  user.currentUser == "anonymous" ? user.currentUser : JSON.parse(user.currentUser) : user.currentUser);
+	const [nameUserLogin, setNameUserLogin] = useState(user.currentUser);
 	//const [count, setCount] = useState(0);
 	const [userConfirmation, setUserConfirmation ] = useState(user.userlogged);
 	function logOut() {
@@ -22,10 +22,8 @@ const Icon = () => {
 	}
 
 	useEffect(()=>{
-		setNameUserLogin(nameUserLogin == "anonymous" ? "anonymous" : JSON.parse(user.currentUser));
-		console.log(user.userlogged, "userlogged useeffect");
+		setNameUserLogin(nameUserLogin == "anonymous" ? "anonymous" : user.currentUser);
 		setUserConfirmation(user.userlogged);
-	
 	}, []);
 	
 	return (
@@ -80,7 +78,7 @@ const Icon = () => {
 				</ul>
 			
 			</div>
-			{showcart ? <SideCar /> : ""}
+			{showcart ? <SideCar setShowcart={setShowcart} /> : ""}
 		</>
 	);
 };

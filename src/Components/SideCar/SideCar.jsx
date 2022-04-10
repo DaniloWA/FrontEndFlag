@@ -1,51 +1,46 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable no-unused-vars */
+import React, {  useEffect, useState} from "react";
 import ItemCar from "./itemCar/ItemCar";
 import "./SideCar.css";
 import { useData } from "../../Services/pageContextProvider";
-import fetchAPI from "../../Middleware/getApi";
+import Loading from "../loading/Loading";
+import iconsPath from "../../Assets/Images";
+// eslint-disable-next-line react/prop-types
+const SideCar = ({setShowcart}) => {
+	const {car} = useData();
+	const [listCar, setListCar] = useState(car.carrinho);
+	const [userCar, setUserCar] = useState(car.carUser);
+	// eslint-disable-next-line no-unused-vars
 
-const SideCar = () => {
-	const { car } = useData();
-	const [cart, setCart] = useState(
-		typeof car == "string" ? JSON.parse(car) : car
-	);
-
+	const [load, setLoad] = useState(false);
 	const style = {
-		estilo01: cart ? "d-none" : "offcontent",
-		estiloUL: cart ? "d-on" : "d-none",
+		estilo01: listCar ? "d-none" : "offcontent",
+		estiloUL: listCar ? "d-on" : "d-none",
 	};
 
 	useEffect(() => {
-		if (car == undefined || car == "") {
-			fetchAPI("car", "/carts").then((response) => setCart(response));
-		} else {
-			setCart(typeof car == "string" ? JSON.parse(car) : car);
+		if(car.carUser == "anonymous" || car.carUser == undefined || car.carUser == null){
+			setListCar(null);
+		}else{
+			setListCar(car.carrinho);
 		}
-	}, []);
-	console.log(cart.products, "carrinho info");
-
+	},[car]);
+	console.log(car);
 	return (
 		<div className="SideCar">
 			<div className="title-button">
-				<h2>Cart</h2>
-				<button>X</button>
+				<h2>Carrinho</h2>
+				<button onClick={() => setShowcart(false)}>X</button>
 			</div>
 			<div className="content">
-				<ul className={style.estiloUL}>
-					{cart != undefined && cart ? (
-						<ItemCar
-							key={cart.productId}
-							id={cart.productId}
-							quantidade={cart.quantity}
-						></ItemCar>
-					) : (
-						<h1> Loading ...</h1>
-					)}
+				<ul className={style.estiloUL}> 
+					{listCar != null && userCar  != "anonymous" ? 
+						<ItemCar key={listCar.productId} title={listCar.title} id={listCar.productId} quantidade={listCar.quantity}></ItemCar>: <Loading></Loading> }
 				</ul>
 				<div className={style.estilo01}>
-					<img src="#" alt="#" />
-					<h1>Your cart is empty</h1>
-					<button className="button">Start your purchase</button>
+					<img src={iconsPath.iconCarrinho} alt="#" />
+					<h1>O teu carrinho está vazio.</h1>
+					<button className="button">Começar a comprar</button>
 				</div>
 			</div>
 
@@ -60,3 +55,13 @@ const SideCar = () => {
 };
 
 export default SideCar;
+
+
+/*
+listCar.products.map((product) => {
+						return(
+							<ItemCar key={product.productId} id={product.productId} quantidade={product.quantity}></ItemCar>
+						);
+					}) : <Loading></Loading> }
+
+*/
