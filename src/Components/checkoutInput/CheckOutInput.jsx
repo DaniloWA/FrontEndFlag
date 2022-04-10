@@ -4,7 +4,7 @@ import "../../Pages/checkoutPage/CheckOutPage.css";
 
 const CheckOutInput = ({ value, setInput, placeholder, type, name}) => {
 	console.log(value);
-	return <input required value={value} onChange={setInput} placeholder={placeholder} type={type} name={name} className="CheckOutInput"/>;
+	return <input required value={value} onChange={setInput} placeholder={placeholder} type={type} name={name} className="CheckOutInput" autoComplete="off"/>;
 };
 
 export default CheckOutInput;
