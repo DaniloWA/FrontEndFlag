@@ -57,36 +57,36 @@ const Cliente = () => {
 	if(usuario === "anonymous" || usuario.name === "anonymous" || usuario.name == undefined || usuario.name.firstname == undefined){
 		return(
 			<CardCliente  className="Cliente">
-				<DetalhesCardUser title={"Usuario Anonymo"} desc={"Você tem que estar Logado para ver o conteudo dessa pagina"}/>
+				<DetalhesCardUser title={"Anonymous user"} desc={"Tou have to be logged to see the content of this web page"}/>
 			</CardCliente>
 		);
 	}else if (usuario.name && usuario.name != "anonymous" && usuario.name.firstname){
 		return ( 
 			<div className="Cliente">
-				<TitleBackImgUser tituloBackImgUser="Conta"></TitleBackImgUser>
+				<TitleBackImgUser tituloBackImgUser="Account"></TitleBackImgUser>
 				<CardCliente>
-					<DetalhesCardUser title={"Detalhes de conta"} desc={"Altere os detalhes da sua conta e a morada de entrega"}/>
-					<InfoCardUser nome={usuario.name.firstname + " " + usuario.name.lastname} desc={"Não existem detalhes de entrega"} />
+					<DetalhesCardUser title={"Account Details"} desc={"Change your account's details and delivery adress"}/>
+					<InfoCardUser nome={usuario.name.firstname + " " + usuario.name.lastname} desc={"There are no delivery details"} />
 					<BotaoCardUser funcRender={handleUserClick} handleCloseClick={handleCloseClick} renderComp={renderComp} setRnderComp={setRnderComp}/>
 				</CardCliente>
 
 				<CardCliente>
-					<DetalhesCardUser title={"Detalhes de pagamento"} desc={"Altere os seus cartões e métodos de pagamento"}/>
-					<InfoCardUser nome={"As referências de pagamento serão geradas "} desc={"durante o processo de checkout."} />
+					<DetalhesCardUser title={"Payment details"} desc={"Change your cards and payment methods"}/>
+					<InfoCardUser nome={"Payment references will be generated "} desc={"During the checkout process."} />
 					<BotaoCardUser funcRender={handlePagamentoClick} renderComp={renderComp} setRnderComp={setRnderComp}/>
 				</CardCliente>
 
 				<CardCliente>
-					<DetalhesCardUser title={"Detalhes de faturação"} desc={"Altere a sua morada de faturação"}/>
+					<DetalhesCardUser title={"Billing details"} desc={"Change your billing address"}/>
 					<InfoCardUser nome={usuario.address.street + " "  } desc={usuario.address.zipcode + " " + usuario.address.city} />
 					<BotaoCardUser funcRender={handleMoradaClick} renderComp={renderComp} setRnderComp={setRnderComp}/>
 				</CardCliente>
 
 				<HisEncomenda></HisEncomenda>
 				
-				{renderComp.detailsUser ? <CardEditUser title={"Detalhes de conta"} handleCloseClick={handleCloseClick}><EditCliente ></EditCliente></CardEditUser>: ""}
-				{renderComp.detailsPagamento ? <CardEditUser title={"Detalhes de pagamento"} handleCloseClick={handleCloseClick}><EditPagamento ></EditPagamento></CardEditUser>: ""}
-				{renderComp.detailsMorada ? <CardEditUser title={"Detalhes de faturação"} handleCloseClick={handleCloseClick}><EditCliente ></EditCliente></CardEditUser> : ""}
+				{renderComp.detailsUser ? <CardEditUser title={"Account Details"} handleCloseClick={handleCloseClick}><EditCliente ></EditCliente></CardEditUser>: ""}
+				{renderComp.detailsPagamento ? <CardEditUser title={"Payment Details"} handleCloseClick={handleCloseClick}><EditPagamento ></EditPagamento></CardEditUser>: ""}
+				{renderComp.detailsMorada ? <CardEditUser title={"Billing Details"} handleCloseClick={handleCloseClick}><EditCliente ></EditCliente></CardEditUser> : ""}
 			</div>
 		);
 		

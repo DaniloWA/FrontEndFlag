@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import "./TitleBackImgUser.css";
-const TitleBackImgUser = () => {
+const TitleBackImgUser = (props) => {
 	return (  
 		<div className="TitleBackImgUser">
-			<h1>Conta</h1>
+			<h1>{props.tituloBackImgUser}</h1>
 		</div>
 	);
 };

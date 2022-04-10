@@ -7,8 +7,8 @@ import "./Footer.css";
 
 const Footer = () => {
 	return (
-		<footer className="footer">
-			<section className="footer_section">
+		<footer className="Footer">
+			<section className="Footer_section">
 				<InformationsFooter/>
 				<SectionToNav/>
 				<SocialMedia/>

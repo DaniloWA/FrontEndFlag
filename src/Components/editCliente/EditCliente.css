@@ -1,34 +1,33 @@
-.EditCliente_InputGroup{
-    grid-area: InputGroup;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 16px;
-    grid-template-rows: auto;
-    grid-template-areas:  
-        'InpuEsquerda InpuDireita'
-        'InputBaixo InputBaixo'
-    ;
+.EditCliente_InputGroup {
+  grid-area: InputGroup;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "InpuEsquerda InpuDireita"
+    "InputBaixo InputBaixo";
 }
 
 .EditCliente_InpuEsquerda {
-    grid-area: InpuEsquerda;
+  grid-area: InpuEsquerda;
 }
 
 .EditCliente_InpuDireita {
-    grid-area: InpuDireita;
+  grid-area: InpuDireita;
 }
 
-.EditCliente_InputBaixo{
-    grid-area: InputBaixo;
+.EditCliente_InputBaixo {
+  grid-area: InputBaixo;
 }
-.EditCliente_InputGroup{
-    margin-bottom: 35px;
+.EditCliente_InputGroup {
+  margin-bottom: 35px;
 }
 
-.EditCliente_InputGroup input{
-    width: 100%;
-    padding: 5px;
-    border:none;
-    border-bottom: 1px solid black;
-    padding: 10px;
+.EditCliente_InputGroup input {
+  width: 100%;
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 10px;
 }

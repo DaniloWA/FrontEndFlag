@@ -5,28 +5,29 @@ import "./HisEncomenda.css";
 
 const HisEncomenda = () => {
 	const navigate = useNavigate();
-	return ( 
+	return (
 		<div className="HisEncomenda">
-			<h3>Histórico de Encomendas</h3>
+			<h3>Order History</h3>
 			<table className="HisEncomenda_Tabela">
 				<thead>
 					<tr>
-						<th>N.º de Encomenda</th>
-						<th>Data (DD/MM/AAAA)</th>
-						<th>Estado</th>
-						<th>Preço total</th>
+						<th>Order N.º</th>
+						<th>Data (DD/MM/YYYYYY)</th>
+						<th>Status</th>
+						<th>Total Price</th>
 					</tr>
 				</thead>
-				<tbody>
-				</tbody>
+				<tbody></tbody>
 			</table>
 			<div className="HisEncomenda_Compra">
 				<img src={iconsPath.iconCarrinho} alt="Icon-Carrinho" />
-				<h3>Ainda não fizeste a tua primeira compra.</h3>
-				<button onClick={() => navigate("/login")}>Fazer a minha primeira Compra</button>
+				<h3>You have not made your first purchase yet.</h3>
+				<button onClick={() => navigate("/login")}>
+				Make my first purchase
+				</button>
 			</div>
 		</div>
 	);
 };
- 
+
 export default HisEncomenda;

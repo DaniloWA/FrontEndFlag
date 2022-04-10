@@ -5,11 +5,11 @@ import "./Footer.css";
 
 const SectionToNav = () => {
 	return (
-		<div className="footer_sectionToNav">
+		<div className="Footer_sectionToNav">
 			<h2>Section</h2>
-			<ul className="footer_linkNav">
-				<Link to={routes.login} className="footer_sectionToNavlogin">Login</Link>
-				<Link to={routes.favorites} className="footer_sectionToNavfavorites">Favorites</Link>
+			<ul className="Footer_linkNav">
+				<Link to={routes.login} className="Footer_sectionToNavlogin">Login</Link>
+				<Link to={routes.favorites} className="Footer_sectionToNavfavorites">Favorites</Link>
 			</ul>
 		</div>
 	);

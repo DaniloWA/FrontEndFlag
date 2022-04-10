@@ -1,44 +1,42 @@
-.HisEncomenda{
-   background-color: rgb(255, 255, 255);
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+.HisEncomenda {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
-.HisEncomenda h3{
-    margin: 15px;
-    font-family:Montserrat-M;
- }
-
-.HisEncomenda_Tabela{
-    width: 100%;
+.HisEncomenda h3 {
+  margin: 15px;
+  font-family: Montserrat-M;
 }
 
-.HisEncomenda_Tabela thead{
-    background-color: rgb(216, 216, 216);
-   
+.HisEncomenda_Tabela {
+  width: 100%;
 }
 
-.HisEncomenda_Compra{
-    margin: 0 auto;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.HisEncomenda_Tabela thead {
+  background-color: rgb(216, 216, 216);
 }
 
-.HisEncomenda_Compra button{
-    background-color: black;
-    color: white;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    padding: 15px 50px;
-    width: 400px;
-
+.HisEncomenda_Compra {
+  margin: 0 auto;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.HisEncomenda_Compra img{
-    width: 100px;
-    align-self: center;
+.HisEncomenda_Compra button {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  padding: 15px 50px;
+  width: 400px;
 }
 
+.HisEncomenda_Compra img {
+  width: 100px;
+  align-self: center;
+}

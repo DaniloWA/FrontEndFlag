@@ -1,65 +1,69 @@
-.login{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content:center;
-    background: linear-gradient(90deg, rgba(204,204,204,1) 0%, rgba(247,247,247,1) 49%, rgba(255,255,255,1) 100%);
+.login {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  background: linear-gradient(
+    90deg,
+    rgba(204, 204, 204, 1) 0%,
+    rgba(247, 247, 247, 1) 49%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 
-.textContent{
-    margin-left: 20px;
-    grid-area:textContent ;
+.textContent {
+  margin-left: 20px;
+  grid-area: textContent;
+  align-self: center;
+  justify-self: center;
+}
+
+.Card {
+  margin-left: 50px;
+  margin-right: 20px;
+  grid-area: card;
+  align-self: center;
+  justify-self: center;
+}
+
+@media only screen and (max-width: 1200px) {
+  /*Tablets [601px -> 1200px]*/
+  .login {
+    flex-direction: column;
+  }
+  .textContent {
+    margin-bottom: 10%;
+    grid-area: card;
     align-self: center;
     justify-self: center;
+  }
 }
-
-.Card{
-    margin-left: 50px;
-    margin-right: 20px;
-    grid-area:card ;
+@media only screen and (max-width: 600px) {
+  /*Big smartphones [426px -> 600px]*/
+  .login {
+    flex-direction: column;
+  }
+  .textContent {
+    margin: 0;
+    margin-bottom: 10%;
+    grid-area: card;
     align-self: center;
     justify-self: center;
-}
+    text-align: center;
+  }
 
-@media only screen and (max-width: 1200px){
-    /*Tablets [601px -> 1200px]*/
-    .login{
-        flex-direction: column;
-    }
-    .textContent{
-        margin-bottom: 10%;
-        grid-area:card;
-        align-self: center;
-        justify-self: center;
-    }
-}
-@media only screen and (max-width: 600px){
-	/*Big smartphones [426px -> 600px]*/
-    .login{
-        flex-direction: column;
-    }
-    .textContent{
-        margin: 0;
-        margin-bottom: 10%;
-        grid-area:card;
-        align-self: center;
-        justify-self: center;
-        text-align: center;
-    }
-
-    .Card{
-        display: grid;
-        box-shadow: -13px 16px 20px 0px rgb(0 0 0 / 40%);
-        min-width: 0;
-        min-height: 500px;
-        border-radius: 7px;
-        padding: 15px;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 1fr 2fr 0.3fr 1fr;
-        background-color: white;
-        text-align: end;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-    
+  .Card {
+    display: grid;
+    box-shadow: -13px 16px 20px 0px rgb(0 0 0 / 40%);
+    min-width: 0;
+    min-height: 500px;
+    border-radius: 7px;
+    padding: 15px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 2fr 0.3fr 1fr;
+    background-color: white;
+    text-align: end;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 }

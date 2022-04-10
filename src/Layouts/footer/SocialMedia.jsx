@@ -4,9 +4,9 @@ import "./Footer.css";
 
 const SocialMedia = () => {
 	return (
-		<div className="footer_socialMedia">
+		<div className="Footer_socialMedia">
 			<h2>Social media</h2>
-			<ul className="footer_socialMedialist">
+			<ul className="Footer_socialMedialist">
 				<li >
 					<img src={iconsPath.iconsInstagramFooter} alt="Instagram's icon" />
 				</li>

@@ -11,7 +11,6 @@ const EditCliente = () => {
 					<input type="text" placeholder="Sobrenome" />
 					<input type="email" placeholder="Email" />
 					<input type="tel" placeholder="Nº de telemóvel" />
-						
 				</div>
 				<div className="EditCliente_InputBaixo">
 					<input type="text" placeholder="Endereço" />

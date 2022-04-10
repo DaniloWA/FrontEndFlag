@@ -4,7 +4,7 @@ import "./BotaoCardUser.css";
 const BotaoCardUser = ({funcRender}) => {
 	return (
 		<div className="CardCliente_Botao">
-			<button onClick={funcRender}>Editar</button>
+			<button onClick={funcRender}>Edit</button>
 		</div>
 	);
 };
