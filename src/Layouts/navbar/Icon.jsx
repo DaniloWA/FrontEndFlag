@@ -9,11 +9,15 @@ import routes from "../../Routes/routes";
 import { Link } from "react-router-dom";
 
 const Icon = () => {
-	const navigate = useNavigate(); 
-	const { setUser, user } = useData(); 
+	//soma final dos produtos na carrinho para o checkout, o que leva para os prdutos
+	const navigate = useNavigate();
+	const { setUser, user, car } = useData();
+	const [carLength, setCarLength] = useState(0);
+	// eslint-disable-next-line no-unused-vars
+	const [carUpdate, setCarUpdate] = useState(false);
 	const [showcart, setShowcart] = useState(false);
 	const [nameUserLogin, setNameUserLogin] = useState(user.currentUser);
-	const [userConfirmation, setUserConfirmation ] = useState(user.userlogged);
+	const [userConfirmation, setUserConfirmation] = useState(user.userlogged);
 
 	function logOut() {
 		setUser({ currentUser: { name: "anonymous" } });
@@ -21,43 +25,47 @@ const Icon = () => {
 		setNameUserLogin("anonymous");
 	}
 
-
-	useEffect(()=>{
-		setNameUserLogin(nameUserLogin == "anonymous" ? "anonymous" : user.currentUser);
+	useEffect(() => {
+		setNameUserLogin(
+			nameUserLogin == "anonymous" ? "anonymous" : user.currentUser
+		);
 		setUserConfirmation(user.userlogged);
-	}, [nameUserLogin,user,userConfirmation]);
-	
+		setCarLength(car.products ? car.products.length : 0);
+	}, [nameUserLogin, user, userConfirmation, car]);
 
 	return (
 		<>
 			<div id="icons">
 				<ul>
 					<li className="Icon_user">
-						{userConfirmation ? <img
-							src={iconsPath.iconLoginNavbar}
-							alt="Login"
-							onClick={() => navigate("/user")}	
-						/> : <img
-							src={iconsPath.iconLoginNavbar}
-							alt="Login"
-							onClick={() => navigate("/login")}	
-						/>}
-					
+						{userConfirmation ? (
+							<img
+								src={iconsPath.iconLoginNavbar}
+								alt="Login"
+								onClick={() => navigate(routes.cliente)}
+							/>
+						) : (
+							<img
+								src={iconsPath.iconLoginNavbar}
+								alt="Login"
+								onClick={() => navigate(routes.login)}
+							/>
+						)}
+
 						<span>{userConfirmation ? nameUserLogin.username : "Login"}</span>
 
 						<ul className="Icon_DropdownMenu">
 							{userConfirmation ? (
 								<>
 									<li>
-										<Link to={routes.cliente}>Minha conta</Link>
-
+										<Link to={routes.cliente}>Account</Link>
 									</li>
 									<li
 										onClick={() => {
 											logOut(), navigate(routes.inicio);
 										}}
 									>
-										Terminar sessão
+                    Logout
 									</li>
 								</>
 							) : (
@@ -69,7 +77,7 @@ const Icon = () => {
 						<img
 							src={iconsPath.iconHeartNavbar}
 							alt="Favoritos"
-							onClick={() => navigate("/Favoritos")}
+							onClick={() => navigate("/")}
 						/>
 						<span>Favorites</span>
 					</li>
@@ -79,10 +87,10 @@ const Icon = () => {
 							alt="Carrinho"
 							onClick={() => setShowcart(true)}
 						/>
-					
+
 						<span>Cart</span>
 						<span className="Icon_bagNum">
-							<span className="Icon_bagItem">0</span>
+							<span className="Icon_bagItem">{carLength}</span>
 						</span>
 					</li>
 				</ul>

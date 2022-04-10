@@ -64,35 +64,31 @@ li > span {
   position: relative;
   display: flex;
   flex-direction: column;
+  align-content: center;
 }
 
 .Icon_DropdownMenu {
   display: flex;
   flex-direction: column;
   position: absolute;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 .Icon_DropdownMenu li {
   display: none;
   background-color: #f1f1f1;
-  min-width: 10rem;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.Icon_DropdownMenu a {
+  width: 10rem;
   font-family: Montserrat-M;
   padding: 12px 16px;
   text-decoration: none;
-  display: block;
 }
 
-.Icon_DropdownMenu > a:hover {
-  background-color: rgba(14, 13, 13, 0.315);
+.Icon_DropdownMenu > li:hover {
+  color: #e5153b;
 }
 
 .Icon_user:hover > .Icon_DropdownMenu li {
-  display: block;
+  display: flex;
   transform: translate(0, 0);
   opacity: 1;
 }
@@ -208,17 +204,18 @@ li > span {
   }
 
   .Pesquisa_Navbarlist_ul {
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 350px;
     text-decoration: none;
     list-style-type: none;
+    justify-content: center;
+    font-family: Montserrat-M;
   }
 
   .Pesquisa_Navbarlist_ul li {
     padding: 0.6rem;
     border-bottom: 1px solid #49494929;
-    text-align: justify;
-    font-family: Montserrat-M;
   }
 
   .Pesquisa_Navbarlist_ul li:hover {

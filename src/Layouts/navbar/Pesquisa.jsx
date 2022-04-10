@@ -6,6 +6,7 @@ import CardProduct from "../../Components/cardProduct/CardProduct";
 import iconsPath from "../../Assets/Images";
 import Navbarlist from "../../Components/navbarlist/Navbarlist";
 
+
 const Pesquisa = () => {
 	const { data } = useData();
 
@@ -45,7 +46,8 @@ const Pesquisa = () => {
 						autoComplete="off"
 						onChange={(e) => handleChange(e.target.value)}
 						onBlur={() => {
-							setDisplayBox(false);
+							setTimeout(() => {setDisplayBox(false);}, 150);
+							
 						}}
 						onFocus={() => {
 							handleFilter(pesquisar);
@@ -72,7 +74,8 @@ const Pesquisa = () => {
 						autoComplete="off"
 						onChange={(e) => handleChange(e.target.value)}
 						onBlur={() => {
-							setDisplayBox(false);
+							setTimeout(() => {setDisplayBox(false);}, 150);
+							
 						}}
 						onFocus={() => {
 							handleFilter(pesquisar);
@@ -98,6 +101,8 @@ const Pesquisa = () => {
 										key={product.id}
 										title={product.title}
 										image={product.image}
+										id={product.id}
+
 									/>
 								);
 							})
@@ -111,7 +116,7 @@ const Pesquisa = () => {
 								{filtered.length != 0 ? (
 									filtered.slice(0, 5).map((product) => {
 										return (
-											<Navbarlist key={product.id} title={product.title} />
+											<Navbarlist key={product.id} title={product.title} id={product.id}/>
 										);
 									})
 								) : (

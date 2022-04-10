@@ -23,7 +23,7 @@ const ProdutoPage = () => {
 	useEffect(() => {
 		setProdutoData(dataBase.filter((produto) => produto.id == id));
 		setLoad(false);
-	}, []);
+	}, [id]);
 
 	return ( 
 		<div className="ProdutoPage">
