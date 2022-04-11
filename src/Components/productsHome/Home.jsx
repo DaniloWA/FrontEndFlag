@@ -31,7 +31,7 @@ const ProductsHome = () => {
 		<>
 			<div className="wrapper">
 				<div className="sectionWrapper center">
-					<h1>Imaginem um slider aqui</h1>
+					<h1>DMS the best store</h1>
 				</div>
 				<div className="sectionWrapper">
 					<hr />

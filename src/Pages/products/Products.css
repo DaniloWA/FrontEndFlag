@@ -3,6 +3,7 @@
 }
 
 .warpper {
+    height: 100vh;
     margin: 2rem;
     display: grid;
     gap: 1rem;
