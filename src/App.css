@@ -31,3 +31,9 @@ h6,
 button {
   font-family: Montserrat-M;
 }
+
+html, body 
+{ 
+ height: 100%;
+ overflow-x: hidden
+}

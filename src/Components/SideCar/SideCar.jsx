@@ -13,7 +13,6 @@ const SideCar = ({setShowcart}) => {
 	const [userCar] = useState(car.carUser);
 	const [subCar, setSubCar] = useState(0);
 
-	console.log(listCar);
 	const style = {
 		estilo01: listCar && listCar.length != 0 ? "d-none" : "offcontent",
 		estiloUL: listCar && listCar.length > 0 ? "d-on" : "d-none",
@@ -52,7 +51,7 @@ const SideCar = ({setShowcart}) => {
 					<img src={iconsPath.iconCarrinho} alt="#" />
 					<h1>Your cart is empty.</h1>
 					<Link to={routes.produtos}>
-						<button onClick={() => setShowcart(false)} className="button">Começar a comprar</button>
+						<button onClick={() => setShowcart(false)} className="button">Start shoping</button>
 					</Link>
 				</div>
 			</div>

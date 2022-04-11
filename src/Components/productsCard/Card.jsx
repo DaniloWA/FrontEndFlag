@@ -5,7 +5,6 @@ import fetchAPI from "../../Middleware/getApi";
 
 const ProductsCard = () => {
 	const { data } = useData();
-
 	const [dataBase ] = useState(data);
 	const [responseApi, setResponseApi] = useState([]);
 	const [filter, setFilter] = useState(responseApi);
@@ -20,7 +19,7 @@ const ProductsCard = () => {
 			setResponseApi(dataBase);
 			setFilter(dataBase);
 		}
-	}, []);
+	}, [data]);
 
 	return (
 		<div className="wrapper">

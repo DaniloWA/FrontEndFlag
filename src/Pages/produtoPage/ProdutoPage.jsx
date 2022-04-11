@@ -8,10 +8,8 @@ const ProdutoPage = () => {
 	const { id } = useParams();
 	const { data, addNumQuant} = useData();
     
-	// eslint-disable-next-line no-unused-vars
-	const [dataBase, setDataBase] = useState(data);
+	const [dataBase] = useState(data);
 	const [load, setLoad] = useState(true);
-	// eslint-disable-next-line no-unused-vars
 	const [produtoData, setProdutoData] = useState();
 	const [inputNum, setInputNum] = useState(0);
 
@@ -34,7 +32,7 @@ const ProdutoPage = () => {
 					<div className="ProdutoPage_produtoCard_content">
 						<h1>{produtoData[0].title}</h1>
 						<p>{produtoData[0].price}€</p>
-						<p className="ProdutoPage_produtoCard_content_nota">Nota: <span>{produtoData[0].rating.rate}/5</span></p>
+						<p className="ProdutoPage_produtoCard_content_nota">Review: <span>{produtoData[0].rating.rate}/5</span></p>
 					</div>
 					<div className="ProdutoPage_produtoCard_button">
 						<input type="number" maxLength="3" onChange={(e) => {handleNum(e.target.value);}}  value={inputNum} /> <button onClick={() => addNumQuant({productId: produtoData[0].id, title: produtoData[0].title ,image: produtoData[0].image ,price: produtoData[0].price}, inputNum)}>ADD TO CART</button>

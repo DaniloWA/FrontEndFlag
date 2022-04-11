@@ -1,22 +1,16 @@
 import React, {useState, useEffect} from "react";
 import { useData } from "../../Services/pageContextProvider";
 import fetchAPI from "../../Middleware/getApi";
-import Home from "../../Pages/products/pageComponents/categories/Home";
+import Home from "../../Pages/products/pageComponents/categories/home";
 import { Link } from "react-router-dom";
 import routes from "../../Routes/routes";
-
 
 import "../../Pages/products/Products.css";
 
 const ProductsHome = () => {
-	// eslint-disable-next-line no-unused-vars
-	const {data, cartAddItem} = useData();
+	const {data} = useData();
 	const [products, setProducts] = useState(data);
 	const [loading, setLoading] = useState(false);
-	// eslint-disable-next-line no-unused-vars
-	const [sorted, setSorted] = useState([]);
-	// eslint-disable-next-line no-unused-vars
-	const [order, setOrder] = useState("az");
 
 	useEffect(() => {
 		if(data == undefined || data == ""){

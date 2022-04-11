@@ -79,7 +79,6 @@ export const pageContextProvider = (props) => {
 				let newQuanti = cart.find(product => product.productId === newProdutc.productId);
 				let newCart = cart.filter(product => product.productId != newQuanti.productId);
 				prodctsnew = [...newCart, {...newQuanti, quantidade: newQuanti.quantidade + num}].sort((a,b) => a-b);
-				console.log(prodctsnew[0]);
 			}
 				
 		}else{

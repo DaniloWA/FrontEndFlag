@@ -7,7 +7,6 @@ const ChcekOutResume = () => {
 	const [listCar, setListCar] = useState(car.products);
 	const [subCar, setSubCar] = useState(0);
 
-	console.log(listCar);
 	useEffect(() => {
 		if(car.carUser == "anonymous" || car.carUser == undefined || car.carUser == null){
 			setListCar(null);

@@ -52,9 +52,3 @@ const EditPagamento = () => {
 };
 
 export default EditPagamento;
-
-/*
-    display: flex;
-    align-items: center;
-
-*/
