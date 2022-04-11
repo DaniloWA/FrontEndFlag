@@ -1,5 +1,5 @@
-.products_margin_top {
-    margin-top: 2rem;
+.teste2 {
+    z-index: 2;
 }
 
 .warpper {
@@ -68,7 +68,6 @@
     width: 100%;
     cursor:pointer;
     transition: background-color 200ms ease-in, color 200ms ease-in;
-    z-index: 999;
 }
 
 .cardBtn:hover {
