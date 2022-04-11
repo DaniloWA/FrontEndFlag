@@ -8,7 +8,7 @@ import routes from "../../Routes/routes";
 import "../../Pages/products/Products.css";
 
 const ProductsHome = () => {
-	const {data} = useData();
+	const {data , cartAddItem} = useData();
 	const [products, setProducts] = useState(data);
 	const [loading, setLoading] = useState(false);
 
@@ -41,7 +41,7 @@ const ProductsHome = () => {
 				</div>
 			</div>
 			<div className="products_margin_top"></div>
-			<Home homeProducts={homeProducts} loading={loading} />
+			<Home cartAddItem={cartAddItem} homeProducts={homeProducts} loading={loading} />
 			<div className="products_margin_top"></div>
 			<div className="wrapper">
 				<div className="sectionWrapper center">
