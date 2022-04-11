@@ -29,16 +29,18 @@ const Women = ({products, loading, cartAddItem}) => {
 				{currentProducts.map((product) => {
 					return(
 						<>
-							<Link to={`/produto/${product.id}`}>
-								<div key={product.id} className="card cardHeight">
-									<img className="cardImage" src={product.image} alt={product.title} />
-									<div className="cardBody">
-										<h2 className="cardTitle">{product.title}</h2>
-										<p className="cardPrice">Price: {product.price}€</p>
-										<button onClick={() => cartAddItem({productId: product.id, title: product.title ,image: product.image ,price: product.price})} className="cardBtn">Add to cart</button>
+							<div key={product.id} className="card cardHeight">
+								<Link  to={`/produto/${product.id}`}>
+									<div className="cardImage">
+										<img src={product.image} alt={product.title} />
 									</div>
+								</Link>
+								<div className="cardBody">
+									<h2 className="cardTitle">{product.title}</h2>
+									<p className="cardPrice">Price: {product.price}€</p>
+									<button onClick={() => cartAddItem({productId: product.id, title: product.title ,image: product.image ,price: product.price})} className="cardBtn">Add to cart</button>
 								</div>
-							</Link>
+							</div>
 						</>
 					);
 				})}
