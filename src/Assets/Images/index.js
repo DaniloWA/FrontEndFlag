@@ -9,6 +9,9 @@ import iconShoppingbagNavbar from "./shopping-bag64.png";
 import iconsInstagramFooter from "./instagram32.png";
 import inconsFacebookFooter from "./facebook32.png";
 import iconLupaNavbar from "./lupa.png";
+import slide1 from "./slide1.png";
+import slide2 from "./slide2.png";
+import slide3 from "./slide3.png";
 
 const iconsPath = {
 	iconDefaultLogin: icondefaultLogin,
@@ -22,6 +25,9 @@ const iconsPath = {
 	iconsInstagramFooter: iconsInstagramFooter,
 	inconsFacebookFooter: inconsFacebookFooter,
 	iconLupaNavbar: iconLupaNavbar,
+	slide1:slide1,
+	slide2:slide2,
+	slide3:slide3,
 };
 
 export default iconsPath;

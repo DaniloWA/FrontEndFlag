@@ -26,7 +26,7 @@ const ChcekOutResume = () => {
 	},[car]);
 
 	return (
-		<div className="checkOutResume">
+		<div className="checkOutResumePage">
 			<div className="checkOutResum_Item">
 				<h2>Subtotal</h2>
 				<p>{subCar != 0 ? subCar.toFixed( 2 ) : 0} €</p>
