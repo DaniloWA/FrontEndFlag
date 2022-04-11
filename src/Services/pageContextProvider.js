@@ -14,6 +14,11 @@ export const pageContextProvider = (props) => {
 		products:  getLocal("user") || null
 	});
 
+	const [user, setUser] = useState({
+		currentUser: getLocal("user") || "anownymous",
+		userlogged: getLocal("user") != "anonymous" && getLocal("user") != undefined ? true : false
+	});
+
 	function cartAddItem (e){
 		let prodctsnew = [];
 		const newProdutc = {...e, quantidade: 1};
@@ -36,8 +41,11 @@ export const pageContextProvider = (props) => {
 		}
 		
 		let sortArray = prodctsnew.sort((a,b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0));
-		setCar({...car, products: sortArray});
 
+		if(user.userlogged)
+			setCar({...car, products: sortArray});
+		if(!user.userlogged)
+			setCar({...car, products: null});
 	}
 
 	function addQuant(e){
@@ -50,7 +58,40 @@ export const pageContextProvider = (props) => {
 			prodctsnew = [...newCart, {...newQuanti, quantidade: newQuanti.quantidade + 1}];		
 		}
 		let sortArray = prodctsnew.sort((a,b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0));
-		setCar({...car, products: sortArray});
+
+		if(user.userlogged)
+			setCar({...car, products: sortArray});
+		if(!user.userlogged)
+			setCar({...car, products: null});
+	}
+	
+	function addNumQuant (e,numberInput){
+		let prodctsnew = [];
+		let num = Number(numberInput) == 0 ? 1 : Number(numberInput);
+		const newProdutc = {...e, quantidade: num};
+		
+		if(car.products != null){
+			let cart = [...car.products];
+
+			if(!cart.find(product => product.productId === newProdutc.productId)){
+				prodctsnew = [...car.products , newProdutc];
+			}else{
+				let newQuanti = cart.find(product => product.productId === newProdutc.productId);
+				let newCart = cart.filter(product => product.productId != newQuanti.productId);
+				prodctsnew = [...newCart, {...newQuanti, quantidade: newQuanti.quantidade + num}].sort((a,b) => a-b);
+				console.log(prodctsnew[0]);
+			}
+				
+		}else{
+			prodctsnew = [newProdutc];
+		}
+		
+		let sortArray = prodctsnew.sort((a,b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0));
+
+		if(user.userlogged)
+			setCar({...car, products: sortArray});
+		if(!user.userlogged)
+			setCar({...car, products: null});
 	}
 
 	function subQuant(e){
@@ -67,13 +108,12 @@ export const pageContextProvider = (props) => {
 			}	
 		}
 		let sortArray = prodctsnew.sort((a,b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0));
-		setCar({...car, products: sortArray});
+		
+		if(user.userlogged)
+			setCar({...car, products: sortArray});
+		if(!user.userlogged)
+			setCar({...car, products: null});
 	}
-
-	const [user, setUser] = useState({
-		currentUser: getLocal("user") || "anownymous",
-		userlogged: getLocal("user") != "anonymous" && getLocal("user") != undefined ? true : false
-	});
 
 	useEffect(() => {
 		const userStorage = getLocal("user");
@@ -117,6 +157,7 @@ export const pageContextProvider = (props) => {
 				setCar,
 				cartAddItem,
 				addQuant,
+				addNumQuant,
 				subQuant,
 				setUser
 			}}

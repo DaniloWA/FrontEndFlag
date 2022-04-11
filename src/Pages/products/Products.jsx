@@ -7,11 +7,9 @@ import { Link } from "react-router-dom";
 
 const Products = () => {
 	const {data, cartAddItem} = useData();
-
 	const [dataBase ] = useState(data);
 	const [responseApi, setResponseApi] = useState([]);
 	const [filter, setFilter] = useState(responseApi);
-	//const [loading, setLoading] = useState(false);
 
 	const filterProduct = (cat) => {
 		const update = responseApi.filter((x)=>x.category === cat);
@@ -28,7 +26,6 @@ const Products = () => {
 			setResponseApi(dataBase);
 			setFilter(dataBase);
 		}
-		//setLoading(true);
 	}, []);
 	return (
 		<div className="wrapper">
@@ -63,5 +60,3 @@ const Products = () => {
 };
 
 export default Products;
-
-// {produtoid: Product.id, price:Product.price , image: Product.image}

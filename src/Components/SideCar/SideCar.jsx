@@ -31,7 +31,8 @@ const SideCar = ({setShowcart}) => {
 				sum = obj.price * obj.quantidade;
 			}
 			return acc + sum;}, 0));
-	},[car]);
+	},[car,listCar]);
+	
 	return (
 		<div className="SideCar">
 			<div className="title-button">

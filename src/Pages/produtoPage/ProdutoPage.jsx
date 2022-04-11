@@ -6,15 +6,14 @@ import "./ProdutoPage.css";
 
 const ProdutoPage = () => {
 	const { id } = useParams();
-	const { data } = useData();
+	const { data, addNumQuant} = useData();
     
 	// eslint-disable-next-line no-unused-vars
 	const [dataBase, setDataBase] = useState(data);
 	const [load, setLoad] = useState(true);
-	console.log(dataBase);
 	// eslint-disable-next-line no-unused-vars
 	const [produtoData, setProdutoData] = useState();
-	const [inputNum, setInputNum] = useState(Number);
+	const [inputNum, setInputNum] = useState(0);
 
 	function handleNum(e){
 		setInputNum(e);
@@ -23,7 +22,7 @@ const ProdutoPage = () => {
 	useEffect(() => {
 		setProdutoData(dataBase.filter((produto) => produto.id == id));
 		setLoad(false);
-	}, [id]);
+	}, [id,inputNum]);
 
 	return ( 
 		<div className="ProdutoPage">
@@ -38,7 +37,7 @@ const ProdutoPage = () => {
 						<p className="ProdutoPage_produtoCard_content_nota">Nota: <span>{produtoData[0].rating.rate}/5</span></p>
 					</div>
 					<div className="ProdutoPage_produtoCard_button">
-						<input type="number" maxLength="3" onChange={(e) => {handleNum(e.target.value);}} value={inputNum} /> <button>ADD TO CART</button>
+						<input type="number" maxLength="3" onChange={(e) => {handleNum(e.target.value);}}  value={inputNum} /> <button onClick={() => addNumQuant({productId: produtoData[0].id, title: produtoData[0].title ,image: produtoData[0].image ,price: produtoData[0].price}, inputNum)}>ADD TO CART</button>
 					</div>
 					<div className="ProdutoPage_produtoCard_info">
 						<p>{produtoData[0].description}</p>
