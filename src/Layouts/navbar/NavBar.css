@@ -59,12 +59,15 @@
 li > span {
   font-size: 0.8rem;
 }
+.Icon_user{
+  display:  flex;
+  flex-direction: column;
+ 
+}
 
 .Icon_user img {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
+  width: 30px;
+  align-self: center;
 }
 
 .Icon_DropdownMenu {
@@ -87,10 +90,22 @@ li > span {
   color: #e5153b;
 }
 
-.Icon_user:hover > .Icon_DropdownMenu li {
+.Icon_user:hover > .Icon_DropdownMenu li:nth-child(1) {
+  position: absolute;
   display: flex;
   transform: translate(0, 0);
   opacity: 1;
+  top: 45px;
+  margin-left: 150px;
+}
+
+.Icon_user:hover > .Icon_DropdownMenu li:nth-child(2) {
+  position: absolute;
+  display: flex;
+  transform: translate(0, 0);
+  opacity: 1;
+  top: 85px;
+  margin-left: 150px;
 }
 
 .Icon_DropdownMenu a:hover {

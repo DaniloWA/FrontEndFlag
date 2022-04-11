@@ -5,7 +5,6 @@ import InfoCardUser from "../../Components/cardCliente/infoCardUser/InfoCardUser
 import BotaoCardUser from "../../Components/cardCliente/botaoCardUser/BotaoCardUser";
 import { useData } from "../../Services/pageContextProvider";
 import TitleBackImgUser from "../../Components/titleBackImgUser/TitleBackImgUser";
-// eslint-disable-next-line no-unused-vars
 import EditCliente from "../../Components/editCliente/EditCliente";
 import HisEncomenda from "../../Components/hisEncomenda/HisEncomenda";
 import CardEditUser from "../../Components/cardEditUser/CardEditUser";

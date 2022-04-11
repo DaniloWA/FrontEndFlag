@@ -12,7 +12,6 @@ import "./Products.css";
 
 const Products = () => {
 	const {data, cartAddItem} = useData();
-
 	const [products, setProducts] = useState(data);
 	const [loading, setLoading] = useState(false);
 	const [category, setCategory] = useState("All");

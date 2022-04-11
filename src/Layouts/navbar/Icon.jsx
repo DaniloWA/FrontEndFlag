@@ -9,12 +9,9 @@ import routes from "../../Routes/routes";
 import { Link } from "react-router-dom";
 
 const Icon = () => {
-	//soma final dos produtos na carrinho para o checkout, o que leva para os prdutos
 	const navigate = useNavigate();
 	const { setUser, user, car } = useData();
 	const [carLength, setCarLength] = useState(0);
-	// eslint-disable-next-line no-unused-vars
-	const [carUpdate, setCarUpdate] = useState(false);
 	const [showcart, setShowcart] = useState(false);
 	const [nameUserLogin, setNameUserLogin] = useState(user.currentUser);
 	const [userConfirmation, setUserConfirmation] = useState(user.userlogged);
@@ -52,7 +49,7 @@ const Icon = () => {
 							/>
 						)}
 
-						<span>{userConfirmation ? nameUserLogin.username : "Login"}</span>
+						<span>{userConfirmation ? user.currentUser.username : "Login"}</span>
 
 						<ul className="Icon_DropdownMenu">
 							{userConfirmation ? (

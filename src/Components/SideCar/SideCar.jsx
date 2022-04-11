@@ -13,7 +13,7 @@ const SideCar = ({setShowcart}) => {
 	const [userCar] = useState(car.carUser);
 	const [subCar, setSubCar] = useState(0);
 
-
+	console.log(listCar);
 	const style = {
 		estilo01: listCar && listCar.length != 0 ? "d-none" : "offcontent",
 		estiloUL: listCar && listCar.length > 0 ? "d-on" : "d-none",
@@ -31,7 +31,8 @@ const SideCar = ({setShowcart}) => {
 				sum = obj.price * obj.quantidade;
 			}
 			return acc + sum;}, 0));
-	},[car]);
+	},[car,listCar]);
+	
 	return (
 		<div className="SideCar">
 			<div className="title-button">
@@ -50,7 +51,7 @@ const SideCar = ({setShowcart}) => {
 				<div className={style.estilo01}>
 					<img src={iconsPath.iconCarrinho} alt="#" />
 					<h1>Your cart is empty.</h1>
-					<Link to={"/"}>
+					<Link to={routes.produtos}>
 						<button onClick={() => setShowcart(false)} className="button">Começar a comprar</button>
 					</Link>
 				</div>
