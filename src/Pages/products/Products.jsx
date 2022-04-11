@@ -66,6 +66,13 @@ const Products = () => {
 			setSorted(sorted);
 			setOrder("za");
 		}
+		if (sorting === "rating") {
+			const sorted = products.sort((a, b) => {
+				return b.rating.rate - a.rating.rate;
+			});
+			setSorted(sorted);
+			setOrder("rating");
+		}
 	};
 	return (
 		<>
@@ -77,8 +84,8 @@ const Products = () => {
 					<hr />
 				</div>
 				<div className="sectionWrapper bottomPadding center">
-					{categories.map((category) => (
-						<button className="products_category_btn" type="button" key={category.id} onClick={() => setCategory(category)}>{category}</button>
+					{categories.map((category, index) => (
+						<button className="products_category_btn" type="button" key={index} onClick={() => setCategory(category)}>{category}</button>
 					))}
 				</div>
 			</div>
@@ -87,6 +94,7 @@ const Products = () => {
 					<h5>Sort By:</h5>
 					<select onChange={sorting} >
 						<option></option>
+						<option value="rating">Top rated</option>
 						<option value="desc">Price highest</option>
 						<option value="asc">Price lowest</option>
 						<option value="az">Name A - Z</option>
