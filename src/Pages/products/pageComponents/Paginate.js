@@ -13,11 +13,11 @@ const Paginate =({productsPerPage, totalProducts, paginate}) => {
 			<div className="wrapper">
 				<div className="sectionWrapper topPadding center">
 					<ul className="pagination">
-						{pageNumbers.map(number => (
-							<li key={number} className="pageItem">
-								<a onClick={() => paginate(number)} href="!#" className="pageLink">
+						{pageNumbers.map((number, index) => (
+							<li onClick={() => paginate(number)} key={index} className="pageItem">
+								<span onClick={() => paginate(number)} className="pageLink">
 									{number}
-								</a>
+								</span>
 							</li>
 						))}
 					</ul>

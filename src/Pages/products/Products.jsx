@@ -77,8 +77,8 @@ const Products = () => {
 					<hr />
 				</div>
 				<div className="sectionWrapper bottomPadding center">
-					{categories.map((category) => (
-						<button className="products_category_btn" type="button" key={category.id} onClick={() => setCategory(category)}>{category}</button>
+					{categories.map((category, index) => (
+						<button className="products_category_btn" type="button" key={index} onClick={() => setCategory(category)}>{category}</button>
 					))}
 				</div>
 			</div>

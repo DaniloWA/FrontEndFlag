@@ -29,8 +29,8 @@ const Men = ({products, loading, cartAddItem}) => {
 				{currentProducts.map((product) => {
 					return(
 						<>
-							<Link to={`/produto/${product.id}`}>
-								<div key={product.id} className="card cardHeight">
+							<Link key={product.id} to={`/produto/${product.id}`}>
+								<div  className="card cardHeight">
 									<img className="cardImage" src={product.image} alt={product.title} />
 									<div className="cardBody">
 										<h2 className="cardTitle">{product.title}</h2>
