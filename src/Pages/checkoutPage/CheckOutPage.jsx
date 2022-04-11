@@ -7,7 +7,9 @@ import ChcekOutResume from "./CheckOutResume";
 import TitleBackImgUser from "../../Components/titleBackImgUser/TitleBackImgUser";
 
 
+
 const CheckOutPage = () => {
+
 	return (
 		<>
 			<div className="CheckOutPage">

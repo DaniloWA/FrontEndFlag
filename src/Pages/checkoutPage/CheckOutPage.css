@@ -7,6 +7,9 @@
   top: 230px;
   right: 20px;
 }
+.checkOutResume {
+  z-index: -1;
+}
 .CheckOutPage {
   padding: 0.5rem;
   margin-left: 0.8rem;
@@ -23,7 +26,8 @@
 
 .AddressClient_Title,
 .CheckOutDelivery,
-.CheckOutPayment, .DataClient_Title {
+.CheckOutPayment,
+.DataClient_Title {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -137,7 +141,8 @@ span {
 
   .CheckOutDelivery,
   .CheckOutPayment,
-  .AddressClient_Title, .DataClient_Title {
+  .AddressClient_Title,
+  .DataClient_Title {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -162,8 +167,7 @@ span {
 
   .checkOutResume {
     display: block;
-   margin: auto;
-   
+    margin: auto;
   }
 
 

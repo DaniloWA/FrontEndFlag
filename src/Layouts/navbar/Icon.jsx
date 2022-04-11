@@ -49,7 +49,7 @@ const Icon = () => {
 							/>
 						)}
 
-						<span>{userConfirmation ? nameUserLogin.username : "Login"}</span>
+						<span>{userConfirmation ? user.currentUser.username : "Login"}</span>
 
 						<ul className="Icon_DropdownMenu">
 							{userConfirmation ? (
