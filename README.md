@@ -23,8 +23,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 This project was built using:
 
 * [React.js] (https://reactjs.org) - Library
+* [Router] ("react-router-dom") - V6 - Used to direct from one page to another
 * [Eslint] (https://eslint.org[ - Dependency
 * [FakeStore] (https://fakestoreapi.com] -  API
+
 
 # Routes
 
