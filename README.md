@@ -44,10 +44,10 @@ Now We will show you the routes we used and in case you create a new one please 
  #### and have access to:
  
   * `` GET http://localhost:3000/user`` - Userpage with client data 
-  * `` GET http://localhost:3000/favorites`` - Favorite's page 
-  
+
 #### Simulating a purchase:
 
+  * `` GET http://localhost:3000/products:id`` - Especific product's page, there you will find all the details from the product
   * `` GET http://localhost:3000/products`` - You will find all products and you can sort them in different categories then add to a side cart
   * `` POST http://localhost:3000/checkoutpage`` -  Go to a checkout page to view and add the necessary information to finish your purchase.
 
