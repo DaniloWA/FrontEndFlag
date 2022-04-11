@@ -66,6 +66,13 @@ const Products = () => {
 			setSorted(sorted);
 			setOrder("za");
 		}
+		if (sorting === "rating") {
+			const sorted = products.sort((a, b) => {
+				return b.rating.rate - a.rating.rate;
+			});
+			setSorted(sorted);
+			setOrder("rating");
+		}
 	};
 	return (
 		<>
@@ -87,6 +94,7 @@ const Products = () => {
 					<h5>Sort By:</h5>
 					<select onChange={sorting} >
 						<option></option>
+						<option value="rating">Top rated</option>
 						<option value="desc">Price highest</option>
 						<option value="asc">Price lowest</option>
 						<option value="az">Name A - Z</option>
