@@ -4,6 +4,7 @@ import fetchAPI from "../../Middleware/getApi";
 import Home from "../../Pages/products/pageComponents/categories/Home";
 import { Link } from "react-router-dom";
 import routes from "../../Routes/routes";
+import Slider from "./components/Slider";
 
 
 import "../../Pages/products/Products.css";
@@ -36,8 +37,8 @@ const ProductsHome = () => {
 	return (
 		<>
 			<div className="wrapper">
-				<div className="sectionWrapper center">
-					<h1>Imaginem um slider aqui</h1>
+				<div className="sectionWrapper">
+					<Slider />
 				</div>
 				<div className="sectionWrapper">
 					<hr />
